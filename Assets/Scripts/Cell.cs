@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-public class Cell : MonoBehaviour
+public abstract class Cell : MonoBehaviour
 {
     public bool locked;
     public int connections = 0;
@@ -15,7 +15,8 @@ public class Cell : MonoBehaviour
     public GameObject connector;
     private Transform connectorParent;
 
-    private HashSet<GameObject> bannedCells;
+    private HashSet<GameObject> skipObjs;
+    [SerializeField]
     private List<Cell> connected;
 
     private Rigidbody2D rb;
@@ -27,52 +28,54 @@ public class Cell : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<CircleCollider2D>();
         cellLayerMask = LayerMask.GetMask("Cell");
-        bannedCells = new HashSet<GameObject>();
+        skipObjs = new HashSet<GameObject>();
         connected = new List<Cell>();
         connectorParent = GameObject.Find("Connectors").transform;
     }
 
     private void Start()
     {
-        bannedCells.Add(gameObject);
+        skipObjs.Add(gameObject);
     }
 
     void FixedUpdate()
     {
-        // each cell should have a hashset of banned cells it should know not to connect to
-
-        if (!locked)
+        if (connections < maxConnections)
         {
             RaycastHit2D[] hit = Physics2D.CircleCastAll(transform.position, snapRadius, Vector2.zero, 0, cellLayerMask);
             foreach (RaycastHit2D h in hit)
             {
-                if (h.collider != null && !bannedCells.Contains(h.transform.gameObject) && Mathf.Abs(Vector2.Distance(transform.position, h.transform.position) - snapRadius) < 0.1f) // ensures it's the right distance away from the other cell
+                if (h.collider != null && !skipObjs.Contains(h.transform.gameObject) && Mathf.Abs(Vector2.Distance(transform.position, h.transform.position) - snapRadius) < 0.1f) // ensures it's the right distance away from the other cell
                 {
                     Cell other = h.transform.gameObject.GetComponent<Cell>();
+                    skipObjs.Add(other.gameObject);
+                    other.skipObjs.Add(gameObject);
 
                     if (other.connections >= other.maxConnections)
-                    {
-                        bannedCells.Add(other.gameObject);
                         continue;
+
+                    connections++;
+                    connected.Add(other);
+                    other.connections++;
+                    other.connected.Add(this);
+
+                    if (!locked)
+                    {
+                        LockTo(other.transform);
+
+                        // positions the node to the right distance
+                        Vector2 dir = (other.transform.position - transform.position).normalized;
+                        Vector2 snapPosition = (Vector2)other.transform.position - dir * Mathf.Max(snapRadius, other.snapRadius);
+                        transform.position = snapPosition;
                     }
 
-                    connected.Add(other);
+                    OnSnap(other);
 
-                    Lock(other.transform);
-
-                    Vector2 dir = (other.transform.position - transform.position).normalized;
-                    Vector2 snapPosition = (Vector2)other.transform.position - dir * Mathf.Max(snapRadius, other.snapRadius);
-                    transform.position = snapPosition;
-
-                    FixedJoint2D joint = gameObject.AddComponent<FixedJoint2D>();
-                    joint.connectedBody = other.GetComponent<Rigidbody2D>();
-
+                    // spawn connector
                     GameObject connObj = Instantiate(connector, connectorParent);
                     CellConnector cConn = connObj.GetComponent<CellConnector>();
                     cConn.c1 = gameObject;
                     cConn.c2 = other.gameObject;
-
-                    connections++;
                 }
             }
         }
@@ -82,18 +85,22 @@ public class Cell : MonoBehaviour
     {
         if (!locked && collision.gameObject.layer == LayerMask.NameToLayer("Terrain"))
         {
-            Lock(collision.transform);
-            FixedJoint2D joint = gameObject.AddComponent<FixedJoint2D>();
-            joint.connectedBody = collision.transform.GetComponent<Rigidbody2D>();
-            joint.frequency = 20;
+            LockTo(collision.transform);
+            //FixedJoint2D joint = gameObject.AddComponent<FixedJoint2D>();
+            //joint.connectedBody = collision.transform.GetComponent<Rigidbody2D>();
+            //joint.frequency = 100;
+
+            rb.bodyType = RigidbodyType2D.Static;
         }
     }
 
-    private void Lock(Transform other)
+    private void LockTo(Transform other)
     {
         locked = true;
         col.radius = lockedRadius;
         if (transform.parent == null && other.CompareTag("Cell"))
             transform.SetParent(other);
     }
+
+    protected abstract void OnSnap(Cell other);
 }

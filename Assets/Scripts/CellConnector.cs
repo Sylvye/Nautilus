@@ -19,14 +19,14 @@ public class CellConnector : MonoBehaviour
     void Start()
     {
         SetSolid(solid);
-        transform.position = Vector3.zero;
+        transform.position = Vector3.forward * 3;
     }
 
-    void FixedUpdate()
+    void Update()
     {
         if (c1 == null || c2 == null)
         {
-            Destroy(this);
+            Destroy(gameObject);
             return;
         }
         lr.SetPositions(new Vector3[] { c1.transform.position, c2.transform.position });

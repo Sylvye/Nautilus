@@ -13,7 +13,9 @@ public class PlayerMovement : MonoBehaviour
     private PlayerInputActions inputActions;
     private Vector2 moveInput;
     private Vector2 velocity;
+    private bool facingRight;
     private bool grounded;
+    private bool bumpedHead;
     private Rigidbody2D rb;
     private Collider2D col;
     private bool jumpRequested;
@@ -27,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
         inputActions = new PlayerInputActions();
         col = GetComponent<Collider2D>();
         jumpable = LayerMask.GetMask("Terrain", "Cell", "Connector");
+        facingRight = true;
     }
 
     private void OnEnable()
