@@ -43,54 +43,99 @@ public abstract class Cell : MonoBehaviour
         if (connections < maxConnections)
         {
             RaycastHit2D[] hit = Physics2D.CircleCastAll(transform.position, snapRadius, Vector2.zero, 0, cellLayerMask);
-            foreach (RaycastHit2D h in hit)
+            float snapWindow = 0.1f;
+
+            if (locked)
             {
-                if (h.collider != null && !skipObjs.Contains(h.transform.gameObject) && Mathf.Abs(Vector2.Distance(transform.position, h.transform.position) - snapRadius) < 0.1f) // ensures it's the right distance away from the other cell
+                foreach (RaycastHit2D h in hit)
                 {
-                    Cell other = h.transform.gameObject.GetComponent<Cell>();
-                    skipObjs.Add(other.gameObject);
-                    other.skipObjs.Add(gameObject);
-
-                    if (other.connections >= other.maxConnections)
-                        continue;
-
-                    connections++;
-                    connected.Add(other);
-                    other.connections++;
-                    other.connected.Add(this);
-
-                    if (!locked)
+                    if (h.collider != null && !skipObjs.Contains(h.transform.gameObject) && Mathf.Abs(Vector2.Distance(transform.position, h.transform.position) - snapRadius) < snapWindow) // ensures it's the right distance away from the other cell
                     {
+                        Cell other = h.transform.gameObject.GetComponent<Cell>();
+
+                        if (!other.locked)
+                            continue; // dont connect to unlocked nodes
+
+                        skipObjs.Add(other.gameObject);
+                        other.skipObjs.Add(gameObject);
+
+                        if (other.connections >= other.maxConnections)
+                            continue;
+
+                        connections++;
+                        connected.Add(other);
+                        skipObjs.Add(other.gameObject);
+                        other.connections++;
+                        other.connected.Add(this);
+                        other.skipObjs.Add(gameObject);
+
+                        OnSnap(other);
+
+                        // spawn connector
+                        GameObject connObj = Instantiate(connector, connectorParent);
+                        CellConnector cConn = connObj.GetComponent<CellConnector>();
+                        cConn.c1 = gameObject;
+                        cConn.c2 = other.gameObject;
+                    }
+                }
+            }
+            else
+            {
+                foreach (RaycastHit2D h in hit)
+                {
+                    if (h.collider != null && !skipObjs.Contains(h.transform.gameObject) && Mathf.Abs(Vector2.Distance(transform.position, h.transform.position) - snapRadius) < snapWindow) // ensures it's the right distance away from the other cell
+                    {
+                        Cell other = h.transform.gameObject.GetComponent<Cell>();
+
+                        if (other.connections >= other.maxConnections)
+                        {
+                            skipObjs.Add(other.gameObject);
+                            other.skipObjs.Add(gameObject);
+                            continue;
+                        }
+
+                        connections++;
+                        connected.Add(other);
+                        skipObjs.Add(other.gameObject);
+                        other.connections++;
+                        other.connected.Add(this);
+                        other.skipObjs.Add(gameObject);
+                        if (!other.locked)
+                            other.LockTo(transform);
+
                         LockTo(other.transform);
 
                         // positions the node to the right distance
                         Vector2 dir = (other.transform.position - transform.position).normalized;
-                        Vector2 snapPosition = (Vector2)other.transform.position - dir * Mathf.Max(snapRadius, other.snapRadius);
+                        Vector2 snapPosition = (Vector2)other.transform.position - dir * snapRadius;
                         transform.position = snapPosition;
+
+                        OnSnap(other);
+
+                        // spawn connector
+                        GameObject connObj = Instantiate(connector, connectorParent);
+                        CellConnector cConn = connObj.GetComponent<CellConnector>();
+                        cConn.c1 = gameObject;
+                        cConn.c2 = other.gameObject;
                     }
-
-                    OnSnap(other);
-
-                    // spawn connector
-                    GameObject connObj = Instantiate(connector, connectorParent);
-                    CellConnector cConn = connObj.GetComponent<CellConnector>();
-                    cConn.c1 = gameObject;
-                    cConn.c2 = other.gameObject;
                 }
             }
+
+            
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!locked && collision.gameObject.layer == LayerMask.NameToLayer("Terrain"))
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Terrain"))
         {
             LockTo(collision.transform);
-            //FixedJoint2D joint = gameObject.AddComponent<FixedJoint2D>();
-            //joint.connectedBody = collision.transform.GetComponent<Rigidbody2D>();
-            //joint.frequency = 100;
+            FixedJoint2D joint = gameObject.AddComponent<FixedJoint2D>();
+            joint.connectedBody = collision.transform.GetComponent<Rigidbody2D>();
+            joint.frequency = 100;
+            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
 
-            rb.bodyType = RigidbodyType2D.Static;
+            //rb.bodyType = RigidbodyType2D.Static;
         }
     }
 
@@ -98,7 +143,7 @@ public abstract class Cell : MonoBehaviour
     {
         locked = true;
         col.radius = lockedRadius;
-        if (transform.parent == null && other.CompareTag("Cell"))
+        if (other.CompareTag("Cell"))
             transform.SetParent(other);
     }
 

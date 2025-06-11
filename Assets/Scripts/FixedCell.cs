@@ -6,5 +6,9 @@ public class FixedCell : Cell
     {
         FixedJoint2D joint = gameObject.AddComponent<FixedJoint2D>();
         joint.connectedBody = other.GetComponent<Rigidbody2D>();
+        joint.autoConfigureConnectedAnchor = true;
+        joint.enableCollision = true;
+        joint.dampingRatio = 0.7f;
+        joint.frequency = 2;
     }
 }
