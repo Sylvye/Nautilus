@@ -20,17 +20,17 @@ public abstract class Cell : MonoBehaviour
     private List<Cell> connected;
 
     private Rigidbody2D rb;
-    private CircleCollider2D col;
+    private Gimbal gimbal;
     private LayerMask cellLayerMask;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        col = GetComponent<CircleCollider2D>();
         cellLayerMask = LayerMask.GetMask("Cell");
         skipObjs = new HashSet<GameObject>();
         connected = new List<Cell>();
         connectorParent = GameObject.Find("Connectors").transform;
+        gimbal = GetComponentInChildren<Gimbal>();
     }
 
     private void Start()
@@ -120,14 +120,12 @@ public abstract class Cell : MonoBehaviour
                     }
                 }
             }
-
-            
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Terrain"))
+        if (!locked && collision.gameObject.layer == LayerMask.NameToLayer("Terrain"))
         {
             LockTo(collision.transform);
             FixedJoint2D joint = gameObject.AddComponent<FixedJoint2D>();
@@ -142,7 +140,6 @@ public abstract class Cell : MonoBehaviour
     private void LockTo(Transform other)
     {
         locked = true;
-        col.radius = lockedRadius;
         if (other.CompareTag("Cell"))
             transform.SetParent(other);
     }
