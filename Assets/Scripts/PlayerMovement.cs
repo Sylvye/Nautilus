@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -10,8 +11,16 @@ public class PlayerMovement : MonoBehaviour
     public float speed;
     private bool facingRight;
     private bool shifting;
-    // save size of body hitbox here to allow for switching between the two sizes
-    [SerializeField] private bool grounded;
+    public float shiftSpeedMult;
+    public float shiftJumpMult;
+    public Vector2 shiftSize;
+    public Vector2 shiftOffset;
+    private Vector2 standingSize;
+    private Vector2 standingOffset;
+    private Vector2 lastGroundedPosition;
+    private Vector2 lastGroundedVelocity;
+    [SerializeField] private bool isGrounded;
+    private bool wasGrounded;
 
     [Header("Jump")]
     public float jump;
@@ -40,7 +49,6 @@ public class PlayerMovement : MonoBehaviour
     private PlayerInputActions inputActions;
     private PlayerAbilityHandler abilityHandler;
     private Vector2 moveInput;
-    private Vector2 velocity;
     private Rigidbody2D rb;
     private LayerMask collidable;
 
@@ -51,6 +59,7 @@ public class PlayerMovement : MonoBehaviour
         inputActions = new PlayerInputActions();
         collidable = LayerMask.GetMask("Terrain", "Cell", "Connector");
         facingRight = true;
+        standingSize = bodyCol.size;
     }
 
     private void Start()
@@ -79,19 +88,30 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        bool wasGrounded = grounded;
-        grounded = IsGrounded();
-        if (grounded && !wasGrounded) // just landed
+        wasGrounded = isGrounded;
+        isGrounded = CheckGrounded();
+        if (isGrounded && !wasGrounded) // just landed
         {
             isJumping = false;
             wasFalling = false;
             rb.gravityScale = originalGravityScale;
         }
-        else if (!grounded && wasGrounded)
+        else if (!isGrounded && wasGrounded && !isJumping) // if just walked off a platform WITHOUT JUMPING
         {
-            coyoteTimeStart = Time.time;
+            if (shifting)
+            {
+                transform.position = lastGroundedPosition; // prevent player from moving off an edge whilst shifting
+                rb.linearVelocity = Vector2.zero;
+                isGrounded = true;
+                Debug.Log("moved back");
+            }
+            else
+            {
+                coyoteTimeStart = Time.time;
+            }
         }
 
+        // hang time
         if (isJumping)
         {
             if (!wasFalling && rb.linearVelocity.y < 0)
@@ -111,6 +131,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
+        // flip player if you turn around
         if (facingRight && moveInput.x < 0)
         {
             Turn(false);
@@ -120,41 +141,59 @@ public class PlayerMovement : MonoBehaviour
             Turn(true);
         }
 
+        // movement
         float targetXVelocity = moveInput.x * speed;
-        float acceleration = moveInput.x != 0 ? (grounded ? groundAcceleration : airAcceleration) : (grounded ? groundDeceleration : airDeceleration);
+        float acceleration = moveInput.x != 0 ? (isGrounded ? groundAcceleration : airAcceleration) : (isGrounded ? groundDeceleration : airDeceleration);
+        if (shifting && moveInput.x != 0)
+        {
+            targetXVelocity *= shiftSpeedMult;
+            acceleration *= shiftSpeedMult;
+        }
         float xVel = moveInput.x != 0 ? Mathf.Lerp(rb.linearVelocity.x, targetXVelocity, acceleration * Time.deltaTime) : Mathf.Lerp(rb.linearVelocity.x, 0, acceleration * Time.deltaTime);
         rb.linearVelocity = new Vector2(xVel, rb.linearVelocity.y);
 
-        if (jumpRequested && !isJumping && (grounded || coyoteTimeStart + coyoteTime >= Time.time))
+        // do jump
+        if (jumpRequested && !isJumping && (isGrounded || coyoteTimeStart + coyoteTime >= Time.time))
         {
-            rb.AddForceY(jump, ForceMode2D.Impulse);
+            rb.AddForceY(jump * (shifting ? shiftJumpMult : 1), ForceMode2D.Impulse);
             isJumping = true;
             rb.gravityScale *= fallMultiplier;
             jumpRequested = false;
         }
 
+        // use item
         if (attackRequested)
         {
             abilityHandler.Fire();
             attackRequested = false;
         }
 
-        if (shifting)
+        // shift logic (hitbox & safewalk)
+        if (shifting) // LERP SIZES/OFFSETS FOR SMOOTHER COLLISIONS WHEN STANDING UP INTO SOMETHING
         {
+            bodyCol.size = shiftSize;
+            bodyCol.offset = new Vector2(standingOffset.x, (standingSize.y - shiftSize.y)/-2 + standingOffset.y);
 
+            if (isGrounded)
+            {
+                lastGroundedPosition = transform.position;
+                lastGroundedVelocity = rb.linearVelocity;
+            }
         }
         else
         {
-            bodyCol.size = new Vector2(bodyCol.size.x, bodyCol.size.y);
+            bodyCol.size = standingSize;
+            bodyCol.offset = standingOffset;
         }
 
+        // disable jump if time since pressing jump was longer than the jump buffer
         if (jumpRequested && jumpBufferStart + jumpBuffer < Time.time)
         {
             jumpRequested = false;
         }
     }
 
-    private bool IsGrounded()
+    private bool CheckGrounded()
     {
         float detectionRayLength = 0.05f;
         Vector2 origin = new(transform.position.x, feetCol.bounds.min.y);

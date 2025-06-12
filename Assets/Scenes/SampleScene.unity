@@ -1319,12 +1319,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 607cfe4714f28264d9bd888a2e1f7231, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundAcceleration: 10
-  airAcceleration: 10
-  groundDeceleration: 0
-  airDeceleration: 0
+  groundAcceleration: 8
+  airAcceleration: 8
+  groundDeceleration: 12
+  airDeceleration: 12
   speed: 5
-  grounded: 1
+  shiftSpeedMult: 0.5
+  shiftJumpMult: 0.8
+  shiftSize: {x: 0.6, y: 1}
+  shiftOffset: {x: 0, y: 0}
+  isGrounded: 0
   jump: 15
   fallMultiplier: 2
   isJumping: 0
@@ -1479,7 +1483,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1.6}
+  m_Size: {x: 0.8, y: 1.6}
   m_EdgeRadius: 0
 --- !u!1 &1183957731
 GameObject:
