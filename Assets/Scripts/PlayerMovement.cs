@@ -18,7 +18,6 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 standingSize;
     private Vector2 standingOffset;
     private Vector2 lastGroundedPosition;
-    private Vector2 lastGroundedVelocity;
     [SerializeField] private bool isGrounded;
     private bool wasGrounded;
 
@@ -28,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
     private float originalGravityScale;
     private bool jumpRequested;
     private bool jumpReleaseRequested;
+    public float jumpCancelDeceleration;
     [SerializeField ] private bool isJumping;
     private bool wasFalling;
     public float hangTime;
@@ -60,6 +60,7 @@ public class PlayerMovement : MonoBehaviour
         collidable = LayerMask.GetMask("Terrain", "Cell", "Connector");
         facingRight = true;
         standingSize = bodyCol.size;
+        standingOffset = bodyCol.offset;
     }
 
     private void Start()
@@ -94,6 +95,7 @@ public class PlayerMovement : MonoBehaviour
         {
             isJumping = false;
             wasFalling = false;
+            jumpReleaseRequested = false;
             rb.gravityScale = originalGravityScale;
         }
         else if (!isGrounded && wasGrounded && !isJumping) // if just walked off a platform WITHOUT JUMPING
@@ -103,7 +105,7 @@ public class PlayerMovement : MonoBehaviour
                 transform.position = lastGroundedPosition; // prevent player from moving off an edge whilst shifting
                 rb.linearVelocity = Vector2.zero;
                 isGrounded = true;
-                Debug.Log("moved back");
+                //Debug.Log("moved back");
             }
             else
             {
@@ -114,10 +116,17 @@ public class PlayerMovement : MonoBehaviour
         // hang time
         if (isJumping)
         {
-            if (!wasFalling && rb.linearVelocity.y < 0)
+            if (jumpReleaseRequested && rb.linearVelocity.y > 0)
             {
-                wasFalling = true;
-                hangTimeStart = Time.time;
+                rb.linearVelocityY = Mathf.Lerp(rb.linearVelocityY, 0, jumpCancelDeceleration * Time.fixedDeltaTime);
+            }
+            else
+            {
+                if (!wasFalling && rb.linearVelocity.y < 0)
+                {
+                    wasFalling = true;
+                    hangTimeStart = Time.time;
+                }
             }
 
             if (hangTimeStart + hangTime >= Time.time)
@@ -149,7 +158,7 @@ public class PlayerMovement : MonoBehaviour
             targetXVelocity *= shiftSpeedMult;
             acceleration *= shiftSpeedMult;
         }
-        float xVel = moveInput.x != 0 ? Mathf.Lerp(rb.linearVelocity.x, targetXVelocity, acceleration * Time.deltaTime) : Mathf.Lerp(rb.linearVelocity.x, 0, acceleration * Time.deltaTime);
+        float xVel = moveInput.x != 0 ? Mathf.Lerp(rb.linearVelocity.x, targetXVelocity, acceleration * Time.fixedDeltaTime) : Mathf.Lerp(rb.linearVelocity.x, 0, acceleration * Time.fixedDeltaTime);
         rb.linearVelocity = new Vector2(xVel, rb.linearVelocity.y);
 
         // do jump
@@ -177,7 +186,6 @@ public class PlayerMovement : MonoBehaviour
             if (isGrounded)
             {
                 lastGroundedPosition = transform.position;
-                lastGroundedVelocity = rb.linearVelocity;
             }
         }
         else

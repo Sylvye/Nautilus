@@ -1323,14 +1323,15 @@ MonoBehaviour:
   airAcceleration: 8
   groundDeceleration: 12
   airDeceleration: 12
-  speed: 5
+  speed: 6
   shiftSpeedMult: 0.5
   shiftJumpMult: 0.8
   shiftSize: {x: 0.6, y: 1}
   shiftOffset: {x: 0, y: 0}
-  isGrounded: 0
+  isGrounded: 1
   jump: 15
   fallMultiplier: 2
+  jumpCancelDeceleration: 6
   isJumping: 0
   hangTime: 0.04
   coyoteTime: 0.125
