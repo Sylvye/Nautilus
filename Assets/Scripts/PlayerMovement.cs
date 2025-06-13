@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Rendering;
+using static UnityEngine.UI.Image;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     private bool shifting;
     public float shiftSpeedMult;
     public float shiftJumpMult;
+    public float safeShiftRatio;
     public Vector2 shiftSize;
     public Vector2 shiftOffset;
     private Vector2 standingSize;
@@ -36,8 +38,6 @@ public class PlayerMovement : MonoBehaviour
     private float coyoteTimeStart;
     public float jumpBuffer;
     private float jumpBufferStart;
-
-
 
     [Header("Actions")]
     private bool attackRequested;
@@ -100,17 +100,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (!isGrounded && wasGrounded && !isJumping) // if just walked off a platform WITHOUT JUMPING
         {
-            if (shifting)
-            {
-                transform.position = lastGroundedPosition; // prevent player from moving off an edge whilst shifting
-                rb.linearVelocity = Vector2.zero;
-                isGrounded = true;
-                //Debug.Log("moved back");
-            }
-            else
-            {
-                coyoteTimeStart = Time.time;
-            }
+            coyoteTimeStart = Time.time;
         }
 
         // hang time
@@ -153,12 +143,32 @@ public class PlayerMovement : MonoBehaviour
         // movement
         float targetXVelocity = moveInput.x * speed;
         float acceleration = moveInput.x != 0 ? (isGrounded ? groundAcceleration : airAcceleration) : (isGrounded ? groundDeceleration : airDeceleration);
-        if (shifting && moveInput.x != 0)
+        float xVel;
+        if (shifting)
         {
-            targetXVelocity *= shiftSpeedMult;
-            acceleration *= shiftSpeedMult;
+            if (moveInput.x != 0)
+            {
+                targetXVelocity *= shiftSpeedMult;
+                acceleration *= shiftSpeedMult;
+            }
+
+            xVel = moveInput.x != 0 ? Mathf.Lerp(rb.linearVelocity.x, targetXVelocity, acceleration * Time.fixedDeltaTime) : Mathf.Lerp(rb.linearVelocity.x, 0, acceleration * Time.fixedDeltaTime);
+
+            if (isGrounded)
+            {
+                Vector2 origin = new Vector2(transform.position.x - feetCol.size.x / 2 * transform.localScale.x, feetCol.bounds.min.y - 0.05f);
+                if (facingRight)
+                    origin.x += (1 - safeShiftRatio)/2;
+                RaycastHit2D hit = Physics2D.Raycast(origin, Vector2.right, feetCol.size.x * safeShiftRatio * transform.localScale.x, collidable);
+                if (hit.collider == null)
+                {
+                    xVel = 0;
+                }
+            }
         }
-        float xVel = moveInput.x != 0 ? Mathf.Lerp(rb.linearVelocity.x, targetXVelocity, acceleration * Time.fixedDeltaTime) : Mathf.Lerp(rb.linearVelocity.x, 0, acceleration * Time.fixedDeltaTime);
+        else
+            xVel = moveInput.x != 0 ? Mathf.Lerp(rb.linearVelocity.x, targetXVelocity, acceleration * Time.fixedDeltaTime) : Mathf.Lerp(rb.linearVelocity.x, 0, acceleration * Time.fixedDeltaTime);
+
         rb.linearVelocity = new Vector2(xVel, rb.linearVelocity.y);
 
         // do jump
@@ -182,11 +192,6 @@ public class PlayerMovement : MonoBehaviour
         {
             bodyCol.size = shiftSize;
             bodyCol.offset = new Vector2(standingOffset.x, (standingSize.y - shiftSize.y)/-2 + standingOffset.y);
-
-            if (isGrounded)
-            {
-                lastGroundedPosition = transform.position;
-            }
         }
         else
         {
@@ -205,7 +210,7 @@ public class PlayerMovement : MonoBehaviour
     {
         float detectionRayLength = 0.05f;
         Vector2 origin = new(transform.position.x, feetCol.bounds.min.y);
-        Vector2 size = new(feetCol.bounds.size.x, detectionRayLength); // GROUND DETECTION RAY LENGTH
+        Vector2 size = new(feetCol.bounds.size.x, detectionRayLength); 
         return Physics2D.BoxCast(origin, size, 0, Vector2.down, detectionRayLength, collidable);
     }
 

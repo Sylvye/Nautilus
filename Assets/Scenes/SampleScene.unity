@@ -1326,6 +1326,7 @@ MonoBehaviour:
   speed: 6
   shiftSpeedMult: 0.5
   shiftJumpMult: 0.8
+  safeShiftRatio: 0.8
   shiftSize: {x: 0.6, y: 1}
   shiftOffset: {x: 0, y: 0}
   isGrounded: 1
