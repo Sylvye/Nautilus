@@ -22,6 +22,7 @@ public abstract class Cell : MonoBehaviour
     private Rigidbody2D rb;
     private Gimbal gimbal;
     private LayerMask cellLayerMask;
+    private Transform grid;
 
     void Awake()
     {
@@ -31,6 +32,8 @@ public abstract class Cell : MonoBehaviour
         connected = new List<Cell>();
         connectorParent = GameObject.Find("Connectors").transform;
         gimbal = GetComponentInChildren<Gimbal>();
+        grid = GameObject.Find("Grid").transform;
+        transform.parent = grid;
     }
 
     private void Start()

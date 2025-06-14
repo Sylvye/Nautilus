@@ -12,19 +12,17 @@ public class PlayerAbilityHandler : MonoBehaviour
 
     private Launcher objLauncher;
     private Transform spawned;
-    private Transform cells;
 
     private void Awake()
     {
         objLauncher = GetComponent<Launcher>();
         spawned = GameObject.Find("Spawned").transform;
-        cells = GameObject.Find("Cells").transform;
     }
 
     public void Fire()
     {
         Vector2 dir = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()) - transform.position;
-        objLauncher.Launch(objs[currentInvIndex], dir.normalized, launchPower, 1, cells); // TEMPORARY!!! MAKE EACH ITEM HAVE A DESIGNATED TARGET PARENT
+        objLauncher.Launch(objs[currentInvIndex], dir.normalized, launchPower, 1); // TEMPORARY!!! MAKE EACH ITEM HAVE A DESIGNATED TARGET PARENT
     }
 
     public void NextItem()
