@@ -50,14 +50,13 @@ public class PlayerMovement : MonoBehaviour
     private PlayerAbilityHandler abilityHandler;
     private Vector2 moveInput;
     private Rigidbody2D rb;
-    private LayerMask collidable;
+    public LayerMask collidable;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         abilityHandler = GetComponent<PlayerAbilityHandler>();
         inputActions = new PlayerInputActions();
-        collidable = LayerMask.GetMask("Terrain", "Cell", "Connector");
         facingRight = true;
         standingSize = bodyCol.size;
         standingOffset = bodyCol.offset;
@@ -154,7 +153,7 @@ public class PlayerMovement : MonoBehaviour
 
             xVel = moveInput.x != 0 ? Mathf.Lerp(rb.linearVelocity.x, targetXVelocity, acceleration * Time.fixedDeltaTime) : Mathf.Lerp(rb.linearVelocity.x, 0, acceleration * Time.fixedDeltaTime);
 
-            if (isGrounded)
+            if (isGrounded) // safeSneak
             {
                 Vector2 origin = new Vector2(transform.position.x - feetCol.size.x / 2 * transform.localScale.x, feetCol.bounds.min.y - 0.05f);
                 if (facingRight)

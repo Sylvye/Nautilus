@@ -5,6 +5,7 @@ using UnityEngine.Rendering;
 
 public abstract class Cell : MonoBehaviour
 {
+    public static int totalCells;
     public bool locked;
     public int connections = 0;
     public int maxConnections = 3;
@@ -39,6 +40,8 @@ public abstract class Cell : MonoBehaviour
     private void Start()
     {
         skipObjs.Add(gameObject);
+        totalCells++;
+        Debug.Log(totalCells);
     }
 
     void FixedUpdate()
