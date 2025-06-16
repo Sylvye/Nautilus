@@ -1,3 +1,4 @@
+using System.Xml;
 using UnityEngine;
 using UnityEngine.Rendering;
 using static UnityEngine.UI.Image;
@@ -148,14 +149,14 @@ public class PlayerMovement : MonoBehaviour
             if (moveInput.x != 0)
             {
                 targetXVelocity *= shiftSpeedMult;
-                acceleration *= shiftSpeedMult;
             }
 
             xVel = moveInput.x != 0 ? Mathf.Lerp(rb.linearVelocity.x, targetXVelocity, acceleration * Time.fixedDeltaTime) : Mathf.Lerp(rb.linearVelocity.x, 0, acceleration * Time.fixedDeltaTime);
 
             if (isGrounded) // safeSneak
             {
-                Vector2 origin = new Vector2(transform.position.x - feetCol.size.x / 2 * transform.localScale.x, feetCol.bounds.min.y - 0.05f);
+                float dist = 0.05f;
+                Vector2 origin = new Vector2(transform.position.x - feetCol.size.x / 2 * transform.localScale.x, feetCol.bounds.min.y - dist);
                 if (facingRight)
                     origin.x += (1 - safeShiftRatio)/2;
                 RaycastHit2D hit = Physics2D.Raycast(origin, Vector2.right, feetCol.size.x * safeShiftRatio * transform.localScale.x, collidable);
@@ -209,7 +210,7 @@ public class PlayerMovement : MonoBehaviour
     {
         float detectionRayLength = 0.05f;
         Vector2 origin = new(transform.position.x, feetCol.bounds.min.y);
-        Vector2 size = new(feetCol.bounds.size.x, detectionRayLength); 
+        Vector2 size = new(feetCol.bounds.size.x, detectionRayLength);
         return Physics2D.BoxCast(origin, size, 0, Vector2.down, detectionRayLength, collidable);
     }
 

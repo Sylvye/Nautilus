@@ -270,7 +270,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   main: {fileID: 0}
-  lerpSpeed: 1
+  lerpSpeed: 2
 --- !u!1 &569976335
 GameObject:
   m_ObjectHideFlags: 0
@@ -2534,12 +2534,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 607cfe4714f28264d9bd888a2e1f7231, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundAcceleration: 8
+  groundAcceleration: 12
   airAcceleration: 8
-  groundDeceleration: 12
+  groundDeceleration: 18
   airDeceleration: 12
   speed: 6
-  shiftSpeedMult: 0.5
+  shiftSpeedMult: 0.6
   shiftJumpMult: 0.8
   safeShiftRatio: 0.7
   shiftSize: {x: 0.6, y: 1}
@@ -2628,7 +2628,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.6, y: 0.2}
+  m_Size: {x: 0.8, y: 0.2}
   m_EdgeRadius: 0
 --- !u!114 &1156967647
 MonoBehaviour:
@@ -2703,7 +2703,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.6, y: 1.6}
+  m_Size: {x: 0.8, y: 1.6}
   m_EdgeRadius: 0
 --- !u!1 &1389627095
 GameObject:

@@ -5,7 +5,6 @@ using UnityEngine.Rendering;
 
 public abstract class Cell : MonoBehaviour
 {
-    public static int totalCells;
     public bool locked;
     public int connections = 0;
     public int maxConnections = 3;
@@ -28,7 +27,7 @@ public abstract class Cell : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        cellLayerMask = LayerMask.GetMask("Cell");
+        cellLayerMask = LayerMask.GetMask("Cell", "Flying Cell");
         skipObjs = new HashSet<GameObject>();
         connected = new List<Cell>();
         connectorParent = GameObject.Find("Connectors").transform;
@@ -40,8 +39,6 @@ public abstract class Cell : MonoBehaviour
     private void Start()
     {
         skipObjs.Add(gameObject);
-        totalCells++;
-        Debug.Log(totalCells);
     }
 
     void FixedUpdate()
@@ -131,21 +128,27 @@ public abstract class Cell : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!locked && collision.gameObject.layer == LayerMask.NameToLayer("Terrain"))
+        if (!locked)
         {
-            LockTo(collision.transform);
-            FixedJoint2D joint = gameObject.AddComponent<FixedJoint2D>();
-            joint.connectedBody = collision.transform.GetComponent<Rigidbody2D>();
-            joint.frequency = 100;
-            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+            if (collision.gameObject.layer == LayerMask.NameToLayer("Terrain"))
+            {
+                LockTo(collision.transform);
+                FixedJoint2D joint = gameObject.AddComponent<FixedJoint2D>();
+                joint.connectedBody = collision.transform.GetComponent<Rigidbody2D>();
+                joint.frequency = 100;
+                rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+            }
 
-            //rb.bodyType = RigidbodyType2D.Static;
+            gameObject.layer = LayerMask.NameToLayer("Cell");
+            transform.GetChild(0).gameObject.layer = LayerMask.NameToLayer("Cell");
         }
     }
 
     private void LockTo(Transform other)
     {
         locked = true;
+        gameObject.layer = LayerMask.NameToLayer("Cell");
+        transform.GetChild(0).gameObject.layer = LayerMask.NameToLayer("Cell");
         if (other.CompareTag("Cell"))
             transform.SetParent(other);
     }

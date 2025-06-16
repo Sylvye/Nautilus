@@ -30,7 +30,6 @@ public class MapController : MonoBehaviour
     {
         int r = WeightedRandom.SelectWeightedIndex(weights);
         GameObject lObj = Instantiate(levels[r].gameObject, currentPos, Quaternion.identity);
-        Debug.Log("level " + lObj.name + " generated");
         Level l = lObj.GetComponent<Level>();
         lObj.transform.parent = grid;
 
@@ -46,7 +45,6 @@ public class MapController : MonoBehaviour
     public void DestroyOldestLevel()
     {
         GameObject lastLevel = currentLevels[0];
-        Debug.Log("level " + lastLevel.name + " destroyed");
         currentLevels.Remove(lastLevel);
         Destroy(lastLevel);
         levelCount--;
