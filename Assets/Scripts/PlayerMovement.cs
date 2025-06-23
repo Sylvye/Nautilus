@@ -16,6 +16,8 @@ public class PlayerMovement : MonoBehaviour
     public float shiftSpeedMult;
     public float shiftJumpMult;
     public float safeShiftRatio;
+    private GameObject lastFloorTouched;
+    private Vector3 floorOffset;
     public Vector2 shiftSize;
     public Vector2 shiftOffset;
     private Vector2 standingSize;
@@ -163,8 +165,17 @@ public class PlayerMovement : MonoBehaviour
                 if (hit.collider == null)
                 {
                     xVel = 0;
+                    if (lastFloorTouched.TryGetComponent(out Rigidbody2D floorRB))
+                    {
+                        rb.linearVelocity = floorRB.linearVelocity;
+                    }
                 }
             }
+            else if (!isJumping && wasGrounded) // if fallen off in an unintended manner, correct it
+            {
+                transform.position = lastFloorTouched.transform.position + floorOffset;
+            }
+
         }
         else
             xVel = moveInput.x != 0 ? Mathf.Lerp(rb.linearVelocity.x, targetXVelocity, acceleration * Time.fixedDeltaTime) : Mathf.Lerp(rb.linearVelocity.x, 0, acceleration * Time.fixedDeltaTime);
@@ -211,7 +222,14 @@ public class PlayerMovement : MonoBehaviour
         float detectionRayLength = 0.05f;
         Vector2 origin = new(transform.position.x, feetCol.bounds.min.y);
         Vector2 size = new(feetCol.bounds.size.x, detectionRayLength);
-        return Physics2D.BoxCast(origin, size, 0, Vector2.down, detectionRayLength, collidable);
+
+        RaycastHit2D hit = Physics2D.BoxCast(origin, size, 0, Vector2.down, detectionRayLength, collidable);
+        if (hit)
+        {
+            lastFloorTouched = hit.transform.gameObject;
+            floorOffset = transform.position - lastFloorTouched.transform.position;
+        }
+        return hit;
     }
 
     private void Turn(bool facingR)

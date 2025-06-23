@@ -2534,9 +2534,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 607cfe4714f28264d9bd888a2e1f7231, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundAcceleration: 12
+  groundAcceleration: 15
   airAcceleration: 8
-  groundDeceleration: 18
+  groundDeceleration: 12
   airDeceleration: 12
   speed: 6
   shiftSpeedMult: 0.6
@@ -2545,7 +2545,7 @@ MonoBehaviour:
   shiftSize: {x: 0.6, y: 1}
   shiftOffset: {x: 0, y: 0}
   isGrounded: 1
-  jump: 15
+  jump: 16
   fallMultiplier: 2
   jumpCancelDeceleration: 6
   isJumping: 0
