@@ -16,27 +16,39 @@ public class Vessel : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    private void Update()
-    {
-        Debug.Log(rb.angularVelocity);
-    }
-
     public void Move(Vector2 input)
     {
-        float desiredAngle = AngleHelper.VectorToRadians(input);
+        Move(input, 1);
+    }
+
+    public void Move(Vector2 input, float mult)
+    {
+        float desiredAngle = AngleHelper.VectorToDegrees(input);
+        float rotationOffset = transform.eulerAngles.z;
+        Debug.DrawLine(transform.position, transform.position + (Vector3)AngleHelper.DegreesToVector(desiredAngle + rotationOffset) * 2, Color.blue);
         foreach (Thruster t in thrusters)
         {
-            float thrusterAngle = AngleHelper.VectorToRadians(-t.transform.localPosition);
+            float thrusterAngle = AngleHelper.VectorToDegrees(-t.transform.localPosition);
 
-            float difference = Mathf.Abs(desiredAngle - thrusterAngle);
-            if (difference > Mathf.PI / 2)
+            float difference = Mathf.Abs(Mathf.DeltaAngle(desiredAngle, thrusterAngle));
+            if (difference > 90)
             {
                 continue;
             }
-            float power = Mathf.Cos(difference);
+            float power = Mathf.Cos(difference * Mathf.Deg2Rad) * mult;
             t.Fire(power);
         }
-        float rotationOffset = transform.eulerAngles.z * Mathf.Deg2Rad;
-        Debug.DrawLine(transform.position, transform.position + (Vector3)AngleHelper.RadiansToVector(desiredAngle + rotationOffset) * 2, Color.yellow);
+    }
+
+    public void Stabilize(float power)
+    {
+        if (rb.angularVelocity > 0)
+        {
+
+        }
+        else if (rb.angularVelocity < 0)
+        {
+
+        }
     }
 }

@@ -1,5 +1,6 @@
 using System.Xml;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 using static UnityEngine.UI.Image;
 
@@ -17,7 +18,7 @@ public class PlayerController : MonoBehaviour
 
     private PlayerInputActions inputActions;
     private PlayerAbilityHandler abilityHandler;
-    private Vector2 moveInput;
+    [SerializeField]private Vector2 moveInput;
     private Rigidbody2D rb;
     public LayerMask collidable;
     private Vessel v;
@@ -58,7 +59,7 @@ public class PlayerController : MonoBehaviour
     {
         if (moveInput != Vector2.zero)
         {
-            v.Move(moveInput);
+            v.Move(moveInput, (boosting ? 2 : 1) * (shifting ? 0.5f : 1));
         }
     }
 }
