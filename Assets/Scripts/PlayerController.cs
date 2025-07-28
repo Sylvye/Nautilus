@@ -56,6 +56,9 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        v.Move(moveInput);
+        if (moveInput != Vector2.zero)
+        {
+            v.Move(moveInput);
+        }
     }
 }

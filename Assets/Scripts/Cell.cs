@@ -32,8 +32,6 @@ public abstract class Cell : MonoBehaviour
         connected = new List<Cell>();
         connectorParent = GameObject.Find("Connectors").transform;
         gimbal = GetComponentInChildren<Gimbal>();
-        grid = GameObject.Find("Grid").transform;
-        transform.parent = grid;
     }
 
     private void Start()
