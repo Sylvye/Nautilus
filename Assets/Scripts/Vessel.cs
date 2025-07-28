@@ -9,6 +9,7 @@ public class Vessel : MonoBehaviour
     public List<Thruster> thrusters;
     public List<Cannon> cannons;
     public AnimationCurve weightFalloffCurve;
+    public float stabilizationRate;
     private Rigidbody2D rb;
 
     private void Awake()
@@ -40,15 +41,16 @@ public class Vessel : MonoBehaviour
         }
     }
 
-    public void Stabilize(float power)
+    public void Stabilize()
     {
-        if (rb.angularVelocity > 0)
+        float angVel = Mathf.Abs(rb.angularVelocity);
+        if (angVel > 5)
         {
-
+            Move(rb.angularVelocity > 0 ? Vector2.right : Vector2.left, Mathf.Clamp(angVel / stabilizationRate, 0, 2));
         }
-        else if (rb.angularVelocity < 0)
+        else
         {
-
+            rb.angularVelocity = 0;
         }
     }
 }
