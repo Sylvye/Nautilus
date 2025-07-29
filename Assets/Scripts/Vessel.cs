@@ -32,12 +32,11 @@ public class Vessel : MonoBehaviour
             float thrusterAngle = AngleHelper.VectorToDegrees(-t.transform.localPosition);
 
             float difference = Mathf.Abs(Mathf.DeltaAngle(desiredAngle, thrusterAngle));
-            if (difference > 90)
+            if (difference < 90)
             {
-                continue;
+                float power = Mathf.Cos(difference * Mathf.Deg2Rad) * mult;
+                t.Fire(power);
             }
-            float power = Mathf.Cos(difference * Mathf.Deg2Rad) * mult;
-            t.Fire(power);
         }
     }
 
