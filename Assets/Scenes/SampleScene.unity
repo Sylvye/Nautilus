@@ -167,7 +167,7 @@ Transform:
   m_GameObject: {fileID: 125150379}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.70710576, w: 0.70710784}
-  m_LocalPosition: {x: 0.33333334, y: 0, z: 0}
+  m_LocalPosition: {x: 0.33333334, y: 0, z: 1}
   m_LocalScale: {x: 0.125, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -232,6 +232,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 587efdfc42705e249af48fb7092461e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHP: 100
+  hp: 100
+  respawnCooldown: 0
   power: 1
   fireFX: {fileID: 1301789209}
 --- !u!212 &125150383
@@ -307,7 +310,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5420239360155422764, guid: 893bdf4528898d141b7e57746b525c2f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 5420239360155422764, guid: 893bdf4528898d141b7e57746b525c2f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -341,11 +344,102 @@ PrefabInstance:
       propertyPath: m_Name
       value: Thruster Fire
       objectReference: {fileID: 0}
+    - target: {fileID: 7675052303077851088, guid: 893bdf4528898d141b7e57746b525c2f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 893bdf4528898d141b7e57746b525c2f, type: 3}
+--- !u!1 &153991695
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 153991696}
+  - component: {fileID: 153991697}
+  m_Layer: 7
+  m_Name: Shield
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &153991696
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153991695}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 2}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 1156967642}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &153991697
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153991695}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Color: {r: 1, g: 0.4669811, b: 0.75001144, a: 0.5019608}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -398,8 +492,8 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
-  m_Antialiasing: 0
+  m_RenderPostProcessing: 1
+  m_Antialiasing: 1
   m_AntialiasingQuality: 2
   m_StopNaN: 0
   m_Dithering: 0
@@ -454,7 +548,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 8
+  orthographic size: 9
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -625,7 +719,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5420239360155422764, guid: 893bdf4528898d141b7e57746b525c2f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 5420239360155422764, guid: 893bdf4528898d141b7e57746b525c2f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -658,6 +752,10 @@ PrefabInstance:
     - target: {fileID: 7675052303077851088, guid: 893bdf4528898d141b7e57746b525c2f, type: 3}
       propertyPath: m_Name
       value: Thruster Fire
+      objectReference: {fileID: 0}
+    - target: {fileID: 7675052303077851088, guid: 893bdf4528898d141b7e57746b525c2f, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -695,6 +793,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 587efdfc42705e249af48fb7092461e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHP: 500
+  hp: 500
+  respawnCooldown: 0
   power: 4
   fireFX: {fileID: 118153385}
 --- !u!212 &858686228
@@ -761,7 +862,7 @@ Transform:
   m_GameObject: {fileID: 858686226}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalPosition: {x: 0, y: -0.5, z: 1}
   m_LocalScale: {x: 0.25, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -842,7 +943,7 @@ Transform:
   m_GameObject: {fileID: 875948071}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.7071058, w: 0.7071078}
-  m_LocalPosition: {x: -0.33333334, y: 0, z: 0}
+  m_LocalPosition: {x: -0.33333334, y: 0, z: 1}
   m_LocalScale: {x: 0.125, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -907,6 +1008,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 587efdfc42705e249af48fb7092461e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHP: 100
+  hp: 100
+  respawnCooldown: 0
   power: 1
   fireFX: {fileID: 915378123}
 --- !u!212 &875948075
@@ -1050,7 +1154,6 @@ GameObject:
   - component: {fileID: 1156967644}
   - component: {fileID: 1156967650}
   - component: {fileID: 1156967643}
-  - component: {fileID: 1156967648}
   - component: {fileID: 1156967649}
   m_Layer: 7
   m_Name: Player
@@ -1132,6 +1235,8 @@ Transform:
   - {fileID: 1785232952}
   - {fileID: 875948072}
   - {fileID: 125150380}
+  - {fileID: 1397969635}
+  - {fileID: 153991696}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1156967643
@@ -1146,11 +1251,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 607cfe4714f28264d9bd888a2e1f7231, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bodyCol: {fileID: 1156967650}
-  moveInput: {x: 0, y: 0}
-  collidable:
-    serializedVersion: 2
-    m_Bits: 72
 --- !u!50 &1156967644
 Rigidbody2D:
   serializedVersion: 5
@@ -1164,7 +1264,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDamping: 1
+  m_LinearDamping: 0.75
   m_AngularDamping: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -1178,23 +1278,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &1156967648
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1156967638}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b670e680c0700e47b59a166cf9f83dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objs:
-  - {fileID: 8320936735862429893, guid: 38873e60d1caa7345bd0affc77c54923, type: 3}
-  - {fileID: 8320936735862429893, guid: 51250e1310e75c1408114da498993812, type: 3}
-  currentInvIndex: 0
-  launchPower: 8
 --- !u!114 &1156967649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1207,13 +1290,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc12d3e1048f96442be0b92cb252211b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHP: 1000
+  hp: 1000
+  attacking: 0
   thrusters:
   - {fileID: 858686227}
   - {fileID: 1255918025}
   - {fileID: 1785232950}
   - {fileID: 875948074}
   - {fileID: 125150382}
-  cannons: []
+  cannons:
+  - {fileID: 1397969638}
   weightFalloffCurve:
     serializedVersion: 2
     m_Curve:
@@ -1238,7 +1325,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  stabilizationRate: 150
+  stabilizationRate: 50
 --- !u!60 &1156967650
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1320,6 +1407,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 587efdfc42705e249af48fb7092461e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHP: 250
+  hp: 250
+  respawnCooldown: 0
   power: 2
   fireFX: {fileID: 2000532320}
 --- !u!212 &1255918026
@@ -1386,7 +1476,7 @@ Transform:
   m_GameObject: {fileID: 1255918024}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.38268274, w: 0.9238798}
-  m_LocalPosition: {x: -0.5, y: -0.33333334, z: 0}
+  m_LocalPosition: {x: -0.5, y: -0.33333334, z: 1}
   m_LocalScale: {x: 0.125, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -1449,6 +1539,113 @@ ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 851017894908056530, guid: 893bdf4528898d141b7e57746b525c2f, type: 3}
   m_PrefabInstance: {fileID: 8506747656636162073}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1397969634
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1397969635}
+  - component: {fileID: 1397969637}
+  - component: {fileID: 1397969638}
+  m_Layer: 7
+  m_Name: Cannon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1397969635
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1397969634}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 1156967642}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1397969637
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1397969634}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Color: {r: 0.6698113, g: 0.6698113, b: 0.6698113, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!114 &1397969638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1397969634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de750807b64190f4995de2c021601029, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHP: 300
+  hp: 300
+  respawnCooldown: 0
+  swivel: 0
+  proj: {fileID: -1799790596901766248, guid: a5a2cc22fd0a7ad409813cb44a380887, type: 3}
+  attackSpeed: 10
+  power: 10
 --- !u!1001 &1636458406
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1467,7 +1664,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5420239360155422764, guid: 893bdf4528898d141b7e57746b525c2f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 5420239360155422764, guid: 893bdf4528898d141b7e57746b525c2f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1500,6 +1697,10 @@ PrefabInstance:
     - target: {fileID: 7675052303077851088, guid: 893bdf4528898d141b7e57746b525c2f, type: 3}
       propertyPath: m_Name
       value: Thruster Fire
+      objectReference: {fileID: 0}
+    - target: {fileID: 7675052303077851088, guid: 893bdf4528898d141b7e57746b525c2f, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1537,6 +1738,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 587efdfc42705e249af48fb7092461e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHP: 250
+  hp: 250
+  respawnCooldown: 0
   power: 2
   fireFX: {fileID: 88834515}
 --- !u!212 &1785232951
@@ -1603,7 +1807,7 @@ Transform:
   m_GameObject: {fileID: 1785232949}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.38268274, w: 0.9238798}
-  m_LocalPosition: {x: 0.5, y: -0.33333334, z: 0}
+  m_LocalPosition: {x: 0.5, y: -0.33333334, z: 1}
   m_LocalScale: {x: 0.125, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -1674,7 +1878,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5420239360155422764, guid: 893bdf4528898d141b7e57746b525c2f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 5420239360155422764, guid: 893bdf4528898d141b7e57746b525c2f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1708,6 +1912,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Thruster Fire
       objectReference: {fileID: 0}
+    - target: {fileID: 7675052303077851088, guid: 893bdf4528898d141b7e57746b525c2f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1723,6 +1931,55 @@ ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 851017894908056530, guid: 893bdf4528898d141b7e57746b525c2f, type: 3}
   m_PrefabInstance: {fileID: 1636458406}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2075273144
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2075273146}
+  - component: {fileID: 2075273145}
+  m_Layer: 0
+  m_Name: Global Volume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2075273145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2075273144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: ad829c6ef3c91c748b4cdde1b9aca87e, type: 2}
+--- !u!4 &2075273146
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2075273144}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.6823804, y: 2.4138877, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &8506747656636162073
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1741,7 +1998,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5420239360155422764, guid: 893bdf4528898d141b7e57746b525c2f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 5420239360155422764, guid: 893bdf4528898d141b7e57746b525c2f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1775,6 +2032,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Thruster Fire
       objectReference: {fileID: 0}
+    - target: {fileID: 7675052303077851088, guid: 893bdf4528898d141b7e57746b525c2f, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1788,3 +2049,4 @@ SceneRoots:
   - {fileID: 619394802}
   - {fileID: 1156967642}
   - {fileID: 1047656904}
+  - {fileID: 2075273146}

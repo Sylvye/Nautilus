@@ -6,28 +6,15 @@ using static UnityEngine.UI.Image;
 
 public class PlayerController : MonoBehaviour
 {
-    [Header("Motion")]
     private bool boosting;
     private bool shifting;
-
-    [Header("Actions")]
-    private bool attackRequested;
-
-    [Header("Other")]
-    public Collider2D bodyCol;
-
-    private PlayerInputActions inputActions;
-    private PlayerAbilityHandler abilityHandler;
-    [SerializeField]private Vector2 moveInput;
-    private Rigidbody2D rb;
-    public LayerMask collidable;
     private Vessel v;
+    private Vector2 moveInput;
+    private PlayerInputActions inputActions;
 
     void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
         v = GetComponent<Vessel>();
-        abilityHandler = GetComponent<PlayerAbilityHandler>();
         inputActions = new PlayerInputActions();
     }
 
@@ -43,11 +30,10 @@ public class PlayerController : MonoBehaviour
         inputActions.Player.Move.canceled += _ => moveInput = Vector2.zero;
         inputActions.Player.Jump.performed += _ => boosting = true;
         inputActions.Player.Jump.canceled += _ => boosting = false;
-        inputActions.Player.Attack.performed += _ => abilityHandler.Fire(); 
+        inputActions.Player.Attack.performed += _ => v.attacking = true; 
+        inputActions.Player.Attack.canceled += _ => v.attacking = false; 
         inputActions.Player.Sprint.performed += _ => shifting = true;
         inputActions.Player.Sprint.canceled += _ => shifting = false;
-        inputActions.Player.Next.performed += _ => abilityHandler.NextItem();
-        inputActions.Player.Previous.performed += _ => abilityHandler.PrevItem();
     }
 
     void OnDisable()

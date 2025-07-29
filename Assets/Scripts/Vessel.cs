@@ -6,15 +6,32 @@ using UnityEditor.Rendering;
 
 public class Vessel : MonoBehaviour
 {
+    public float maxHP;
+    public float hp;
+    public bool attacking;
     public List<Thruster> thrusters;
     public List<Cannon> cannons;
     public AnimationCurve weightFalloffCurve;
     public float stabilizationRate;
     private Rigidbody2D rb;
+    private Collider2D col;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        col = rb.GetComponent<Collider2D>();
+    }
+
+    private void FixedUpdate()
+    {
+        if (attacking)
+        {
+            foreach (Cannon c in cannons)
+            {
+                if (c.CanFire())
+                    c.Activate();
+            }
+        }
     }
 
     public void Move(Vector2 input)
@@ -35,7 +52,7 @@ public class Vessel : MonoBehaviour
             if (difference < 90)
             {
                 float power = Mathf.Cos(difference * Mathf.Deg2Rad) * mult;
-                t.Fire(power);
+                t.Activate(power);
             }
         }
     }
@@ -50,6 +67,16 @@ public class Vessel : MonoBehaviour
         else
         {
             rb.angularVelocity = 0;
+        }
+    }
+
+    public void Damage(float amount)
+    {
+        hp -= amount;
+        if (hp < 0)
+        {
+            hp = 0;
+            Destroy(gameObject); // TEMP, replace with a death animation of some kind
         }
     }
 }

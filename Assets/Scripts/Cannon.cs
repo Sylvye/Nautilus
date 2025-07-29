@@ -1,16 +1,7 @@
 using UnityEngine;
 
-public class Cannon : MonoBehaviour
+public abstract class Cannon : VesselComponent
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public abstract void Activate();
+    public abstract bool CanFire();
 }
