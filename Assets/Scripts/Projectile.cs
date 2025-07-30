@@ -26,9 +26,18 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    public void OnCollide(Vessel hit)
+    public void OnCollide(Body hit)
     {
         Destroy(gameObject);
         hit.Damage(baseDamage * rb.linearVelocity.magnitude);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision != null && collision.gameObject.TryGetComponent(out Body hit))
+        {
+            OnCollide(hit);
+        }
+        Destroy(gameObject);
     }
 }

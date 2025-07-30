@@ -4,10 +4,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Rendering;
 
-public class Vessel : MonoBehaviour
+public class Vessel : Body
 {
-    public float maxHP;
-    public float hp;
     public bool attacking;
     public List<Thruster> thrusters;
     public List<Cannon> cannons;
@@ -67,16 +65,6 @@ public class Vessel : MonoBehaviour
         else
         {
             rb.angularVelocity = 0;
-        }
-    }
-
-    public void Damage(float amount)
-    {
-        hp -= amount;
-        if (hp < 0)
-        {
-            hp = 0;
-            Destroy(gameObject); // TEMP, replace with a death animation of some kind
         }
     }
 }

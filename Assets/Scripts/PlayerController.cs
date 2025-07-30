@@ -28,12 +28,12 @@ public class PlayerController : MonoBehaviour
         inputActions.Player.Enable();
         inputActions.Player.Move.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
         inputActions.Player.Move.canceled += _ => moveInput = Vector2.zero;
-        inputActions.Player.Jump.performed += _ => boosting = true;
-        inputActions.Player.Jump.canceled += _ => boosting = false;
-        inputActions.Player.Attack.performed += _ => v.attacking = true; 
-        inputActions.Player.Attack.canceled += _ => v.attacking = false; 
-        inputActions.Player.Sprint.performed += _ => shifting = true;
-        inputActions.Player.Sprint.canceled += _ => shifting = false;
+        inputActions.Player.Jump.performed += _ => v.attacking = true;
+        inputActions.Player.Jump.canceled += _ => v.attacking = false;
+        inputActions.Player.Boost.performed += _ => boosting = true;
+        inputActions.Player.Boost.canceled += _ => boosting = false;
+        inputActions.Player.Nudge.performed += _ => shifting = true;
+        inputActions.Player.Nudge.canceled += _ => shifting = false;
     }
 
     void OnDisable()
