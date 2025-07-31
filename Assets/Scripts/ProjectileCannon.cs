@@ -11,10 +11,13 @@ public class ProjectileCannon : Cannon
 
     public override void Activate()
     {
-        Vector2 dir = swivel ? Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()) - transform.position : AngleHelper.DegreesToVector(transform.eulerAngles.z + 90);
+        if (!respawning)
+        {
+            Vector2 dir = swivel ? Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()) - transform.position : AngleHelper.DegreesToVector(transform.eulerAngles.z + 90);
 
-        Launch(proj.gameObject, dir, power, 0.1f);
-        nextAttack = Time.time + 1 / attackSpeed;
+            Launch(proj.gameObject, dir, power, 0.1f);
+            nextAttack = Time.time + 1 / attackSpeed;
+        }
     }
 
     public override bool CanFire()

@@ -5,6 +5,7 @@ public class Projectile : MonoBehaviour
     public float acceleration;
     public float baseDamage;
     public float lifetime;
+    public Damage.Type type;
     private Rigidbody2D rb;
     private Collider2D col;
     private float despawnTime;
@@ -29,7 +30,8 @@ public class Projectile : MonoBehaviour
     public void OnCollide(Body hit)
     {
         Destroy(gameObject);
-        hit.Damage(baseDamage * rb.linearVelocity.magnitude);
+        float damageAmt = baseDamage * rb.linearVelocity.magnitude;
+        hit.DealDamage(new Damage(damageAmt, type));
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

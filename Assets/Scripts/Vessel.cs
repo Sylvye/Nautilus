@@ -11,13 +11,10 @@ public class Vessel : Body
     public List<Cannon> cannons;
     public AnimationCurve weightFalloffCurve;
     public float stabilizationRate;
-    private Rigidbody2D rb;
-    private Collider2D col;
 
-    private void Awake()
+    protected override void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
-        col = rb.GetComponent<Collider2D>();
+        base.Awake();
     }
 
     private void FixedUpdate()

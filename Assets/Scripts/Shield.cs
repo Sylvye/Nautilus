@@ -3,10 +3,10 @@ using UnityEngine;
 public class Shield : VesselComponent
 {
     public float angularVelocity;
-    private Rigidbody2D rb;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         rb = GetComponent<Rigidbody2D>();
     }
 

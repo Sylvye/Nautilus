@@ -1,44 +1,35 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public abstract class VesselComponent : MonoBehaviour
+public abstract class VesselComponent : Body
 {
-    public float maxHP;
-    public float hp;
-    public float respawnCooldown; // leave at 0 for non-respawning components
+    public float respawnCooldown;
+    public bool respawning = false;
     protected Rigidbody2D vesselRB;
-    protected Collider2D col;
     private SpriteRenderer sr;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         vesselRB = GetComponentInParent<Rigidbody2D>();
-        col = GetComponent<Collider2D>();
         sr = GetComponentInParent<SpriteRenderer>();
     }
 
-    public virtual void Damage(float amount)
+    public override bool OnDeath()
     {
-        hp -= amount;
-        if (hp < 0)
-        {
-            hp = 0;
-            if (respawnCooldown > 0)
-            {
-                StartCoroutine(RespawnCoroutine());
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
-        }
+        SpawnDeathFX();
+        StartCoroutine(RespawnCoroutine());
+        return true;
     }
 
     private IEnumerator RespawnCoroutine()
     {
         sr.enabled = false;
         col.enabled = false;
+        respawning = true;
         yield return new WaitForSeconds(respawnCooldown);
+        respawning = false;
         sr.enabled = true;
         col.enabled = true;
     }
