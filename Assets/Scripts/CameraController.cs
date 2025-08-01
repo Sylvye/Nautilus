@@ -23,6 +23,8 @@ public class CameraController : MonoBehaviour
         main = this;
         ppc = GetComponent<PixelPerfectCamera>();
         refRes = new Vector2(ppc.refResolutionX, ppc.refResolutionY);
+        currentSize = 1;
+        targetSize = 1;
     }
 
     private void Update()

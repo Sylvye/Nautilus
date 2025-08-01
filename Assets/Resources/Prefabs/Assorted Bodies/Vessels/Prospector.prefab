@@ -29,14 +29,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1073491041113669814}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.49999917, w: 0.8660259}
-  m_LocalPosition: {x: -0.3333333, y: 0, z: 1}
-  m_LocalScale: {x: 0.125, y: 0.25, z: 0.25}
+  m_LocalRotation: {x: 0, y: 0, z: -0.38268343, w: 0.92387956}
+  m_LocalPosition: {x: -0.375, y: -0.25, z: 1}
+  m_LocalScale: {x: 0.1875, y: 0.375, z: 0.375}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 341728487203309633}
   m_Father: {fileID: 5787360286355055545}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -60}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -45}
 --- !u!212 &116853936079025724
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -104,8 +104,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 587efdfc42705e249af48fb7092461e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 250
-  hp: 250
+  maxHP: 300
+  hp: 300
   collisionDamageMult: 1
   deathFX: {fileID: 7675052303077851088, guid: 10faa5fd307623f4c9d54a027064af22, type: 3}
   resistances: []
@@ -205,7 +205,7 @@ FixedJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.3333333, y: 0}
+  m_ConnectedAnchor: {x: -0.375, y: -0.25}
   m_DampingRatio: 0
   m_Frequency: 0
 --- !u!1 &1965503083374391105
@@ -239,7 +239,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8713128594951623867}
@@ -292,12 +292,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0e0f8bb3518f6ab46846825204e1a83c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 0.796875, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -315,7 +315,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1.2
+  m_Mass: 1.5
   m_LinearDamping: 0.9
   m_AngularDamping: 0.05
   m_GravityScale: 0
@@ -367,18 +367,23 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.28866667}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 2}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.796875, y: 1}
+    newSize: {x: 0.796875, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0, y: 0.5773587}
-      - {x: -0.5, y: -0.28866667}
-      - {x: 0.5, y: -0.28866667}
+    - - {x: -0.3200295, y: 0.12092683}
+      - {x: -0.3980696, y: -0.22382633}
+      - {x: -0.17602311, y: -0.50023913}
+      - {x: 0.17599693, y: -0.4998982}
+      - {x: 0.3977576, y: -0.22247063}
+      - {x: 0.32023612, y: 0.12105092}
+      - {x: 0.10122948, y: 0.50048685}
+      - {x: -0.100863054, y: 0.4992075}
   m_UseDelaunayMesh: 0
 --- !u!114 &2142928270192008078
 MonoBehaviour:
@@ -404,8 +409,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc12d3e1048f96442be0b92cb252211b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 1000
-  hp: 1000
+  maxHP: 1500
+  hp: 1500
   collisionDamageMult: 2
   deathFX: {fileID: 7675052303077851088, guid: e67ee981bf80dbb46b119bd67d89eea2, type: 3}
   resistances:
@@ -462,7 +467,7 @@ GameObject:
   - component: {fileID: 4167902592735710804}
   - component: {fileID: 6405507554353052323}
   m_Layer: 7
-  m_Name: Bow Thruster
+  m_Name: Bow Quarry Thruster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -477,9 +482,9 @@ Transform:
   m_GameObject: {fileID: 3569746220218355875}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 1, w: 0.0000029504295}
-  m_LocalPosition: {x: 0, y: 0.5, z: 1}
-  m_LocalScale: {x: 0.25, y: 0.5, z: 0.5}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 0.625, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.4, z: 0.1}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3576307149537801510}
   m_Father: {fileID: 5787360286355055545}
@@ -551,8 +556,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 587efdfc42705e249af48fb7092461e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 500
-  hp: 500
+  maxHP: 400
+  hp: 400
   collisionDamageMult: 1
   deathFX: {fileID: 7675052303077851088, guid: 10faa5fd307623f4c9d54a027064af22, type: 3}
   resistances: []
@@ -652,7 +657,7 @@ FixedJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0, y: 0.5}
+  m_ConnectedAnchor: {x: 0, y: 0.625}
   m_DampingRatio: 0
   m_Frequency: 0
 --- !u!1 &4805519965036272989
@@ -684,14 +689,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4805519965036272989}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: 0.49999917, w: 0.8660259}
-  m_LocalPosition: {x: 0.3333333, y: 0, z: 1}
-  m_LocalScale: {x: 0.125, y: 0.25, z: 0.25}
+  m_LocalRotation: {x: 0, y: 0, z: 0.38268343, w: 0.92387956}
+  m_LocalPosition: {x: 0.375, y: -0.25, z: 1}
+  m_LocalScale: {x: 0.1875, y: 0.375, z: 0.375}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7133730351543130884}
   m_Father: {fileID: 5787360286355055545}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 60}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 45}
 --- !u!212 &4243811239526714338
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -759,8 +764,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 587efdfc42705e249af48fb7092461e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 250
-  hp: 250
+  maxHP: 300
+  hp: 300
   collisionDamageMult: 1
   deathFX: {fileID: 7675052303077851088, guid: 10faa5fd307623f4c9d54a027064af22, type: 3}
   resistances: []
@@ -860,7 +865,7 @@ FixedJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.3333333, y: 0}
+  m_ConnectedAnchor: {x: 0.375, y: -0.25}
   m_DampingRatio: 0
   m_Frequency: 0
 --- !u!1 &5642513142370056738
@@ -893,9 +898,9 @@ Transform:
   m_GameObject: {fileID: 5642513142370056738}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.5, z: 1}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: -0.625, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 985740534206145688}
   m_Father: {fileID: 5787360286355055545}
@@ -967,8 +972,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 587efdfc42705e249af48fb7092461e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 500
-  hp: 500
+  maxHP: 750
+  hp: 750
   collisionDamageMult: 1
   deathFX: {fileID: 7675052303077851088, guid: 10faa5fd307623f4c9d54a027064af22, type: 3}
   resistances: []
@@ -1068,7 +1073,7 @@ FixedJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0, y: -0.5}
+  m_ConnectedAnchor: {x: 0, y: -0.625}
   m_DampingRatio: 0
   m_Frequency: 0
 --- !u!1001 &2898232453518920488
