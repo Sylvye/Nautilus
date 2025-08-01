@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -6,6 +7,7 @@ public abstract class VesselComponent : Body
 {
     public float respawnCooldown;
     public bool respawning = false;
+    protected Vessel parentVessel;
     protected Rigidbody2D vesselRB;
     private SpriteRenderer sr;
 
@@ -14,6 +16,7 @@ public abstract class VesselComponent : Body
         base.Awake();
         vesselRB = GetComponentInParent<Rigidbody2D>();
         sr = GetComponentInParent<SpriteRenderer>();
+        parentVessel = GetComponentInParent<Vessel>();
     }
 
     public override bool OnDeath()
@@ -21,6 +24,11 @@ public abstract class VesselComponent : Body
         SpawnDeathFX();
         StartCoroutine(RespawnCoroutine());
         return true;
+    }
+
+    public override List<Resistance> GetResists()
+    {
+        return parentVessel.resistances;
     }
 
     private IEnumerator RespawnCoroutine()

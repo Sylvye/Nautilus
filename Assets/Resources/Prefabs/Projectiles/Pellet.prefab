@@ -168,3 +168,4 @@ MonoBehaviour:
   acceleration: 0
   baseDamage: 1
   lifetime: 6
+  type: 2

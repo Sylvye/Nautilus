@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3851848446177341455}
   - component: {fileID: 390480331692958797}
+  - component: {fileID: 6602319482212028076}
   - component: {fileID: 7470930567870848310}
-  - component: {fileID: 1199894972598848459}
   - component: {fileID: 6822690709991146179}
   m_Layer: 0
   m_Name: Sparkler
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 76044beacbf72d143bd8670d2d2f8fdd, type: 3}
   m_Color: {r: 1, g: 0.773145, b: 0.5613208, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -90,35 +90,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &7470930567870848310
-Rigidbody2D:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5100057296577194560}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 0.2
-  m_LinearDamping: 1
-  m_AngularDamping: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!61 &1199894972598848459
-BoxCollider2D:
+--- !u!60 &6602319482212028076
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -161,8 +134,52 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.35290107, y: 0.35524434}
+      - {x: 0.14739516, y: 0.3563401}
+      - {x: -0.0005557854, y: 0.5010046}
+      - {x: -0.14581521, y: 0.35686842}
+      - {x: -0.35623223, y: 0.35654074}
+      - {x: -0.35561338, y: 0.14915362}
+      - {x: -0.50319105, y: 0.00044182874}
+      - {x: -0.3551334, y: -0.14686196}
+      - {x: -0.3557994, y: -0.35449848}
+      - {x: -0.14593351, y: -0.35557923}
+      - {x: 0.0005916655, y: -0.49958917}
+      - {x: 0.14820258, y: -0.3543859}
+      - {x: 0.35433018, y: -0.35438597}
+      - {x: 0.3552322, y: -0.14650239}
+      - {x: 0.5020092, y: 0.00078544766}
+      - {x: 0.3558378, y: 0.14817798}
+  m_UseDelaunayMesh: 0
+--- !u!50 &7470930567870848310
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5100057296577194560}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.2
+  m_LinearDamping: 1
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!114 &6822690709991146179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,5 +196,6 @@ MonoBehaviour:
   hp: 20
   collisionDamageMult: 1
   deathFX: {fileID: 7675052303077851088, guid: 10faa5fd307623f4c9d54a027064af22, type: 3}
+  resistances: []
   col: {fileID: 0}
   rb: {fileID: 0}

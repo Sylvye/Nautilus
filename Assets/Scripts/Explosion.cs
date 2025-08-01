@@ -8,6 +8,7 @@ public class Explosion : MonoBehaviour
     public float shockwaveRadius;
     public float shockwavePower;
     public float shockwaveDamage;
+    public float screenShakeIntensity;
 
     private void Awake()
     {
@@ -39,5 +40,6 @@ public class Explosion : MonoBehaviour
                 }
             }
         }
+        CameraController.main.ScreenShake(screenShakeIntensity);
     }
 }

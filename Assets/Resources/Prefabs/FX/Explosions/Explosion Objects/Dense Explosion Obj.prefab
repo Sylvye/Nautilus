@@ -4907,6 +4907,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseDamage: 5
+  type: 3
 --- !u!114 &6529821505216854410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4927,3 +4928,4 @@ MonoBehaviour:
   shockwaveRadius: 4
   shockwavePower: 8
   shockwaveDamage: 200
+  screenShakeIntensity: 1

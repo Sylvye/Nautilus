@@ -4,6 +4,7 @@ using UnityEngine;
 public class Thruster : VesselComponent
 {
     public float power;
+    public float forceMult;
     public ParticleSystem fireFX;
     private float startSpeedMin;
     private float startSpeedMax;
@@ -42,7 +43,7 @@ public class Thruster : VesselComponent
 
             float flatMult = 10;
             Vector2 forceDir = AngleHelper.DegreesToVector(transform.eulerAngles.z + 90).normalized;
-            Vector2 force = mult * flatMult * forceDir;
+            Vector2 force = mult * flatMult * forceMult * forceDir;
             Vector2 relative = (Vector2)transform.position - vesselRB.worldCenterOfMass;
             float torque = relative.x * force.y - relative.y * force.x;
             vesselRB.AddForce(force, ForceMode2D.Force);

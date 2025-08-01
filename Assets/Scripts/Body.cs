@@ -26,7 +26,7 @@ public class Body : MonoBehaviour
     {
         if (hp > 0)
         {
-            float amt = amount.Evaluate(resistances);
+            float amt = amount.Evaluate(GetResists());
             hp -= amt;
             if (amt < 100)
                 Debug.Log(gameObject.name + ": Just took ~" + Mathf.Round(amt) + " damage!");
@@ -58,6 +58,11 @@ public class Body : MonoBehaviour
         {
             Instantiate(deathFX, transform.position, Quaternion.identity);
         }
+    }
+
+    public virtual List<Resistance> GetResists()
+    {
+        return resistances;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
