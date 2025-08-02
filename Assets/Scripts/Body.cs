@@ -22,7 +22,7 @@ public class Body : MonoBehaviour
     /// </summary>
     /// <param name="amount"></param>
     /// <returns></returns>
-    public virtual bool DealDamage(Damage amount)
+    public bool DealDamage(Damage amount)
     {
         if (hp > 0)
         {

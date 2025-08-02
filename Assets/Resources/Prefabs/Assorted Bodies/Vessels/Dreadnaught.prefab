@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7658095677320754993}
   - component: {fileID: 1290641837290964212}
-  - component: {fileID: 7044390091181408641}
   - component: {fileID: 8066754076615683028}
-  - component: {fileID: 1290498945866734535}
+  - component: {fileID: 7044390091181408641}
+  - component: {fileID: 612068013049189973}
   m_Layer: 7
   m_Name: Stern Cannon
   m_TagString: Untagged
@@ -90,31 +90,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7044390091181408641
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 442522975011804678}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de750807b64190f4995de2c021601029, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHP: 300
-  hp: 300
-  collisionDamageMult: 0
-  deathFX: {fileID: 0}
-  resistances: []
-  col: {fileID: 0}
-  rb: {fileID: 0}
-  respawnCooldown: 8
-  respawning: 0
-  swivel: 1
-  proj: {fileID: -1799790596901766248, guid: a5a2cc22fd0a7ad409813cb44a380887, type: 3}
-  attackSpeed: 10
-  power: 10
 --- !u!50 &8066754076615683028
 Rigidbody2D:
   serializedVersion: 5
@@ -142,8 +117,33 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!255 &1290498945866734535
-FixedJoint2D:
+--- !u!114 &7044390091181408641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 442522975011804678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de750807b64190f4995de2c021601029, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHP: 300
+  hp: 300
+  collisionDamageMult: 1
+  deathFX: {fileID: 7675052303077851088, guid: 10faa5fd307623f4c9d54a027064af22, type: 3}
+  resistances: []
+  col: {fileID: 0}
+  rb: {fileID: 0}
+  respawnCooldown: 8
+  respawning: 0
+  mouseAim: 1
+  proj: {fileID: -1799790596901766248, guid: a5a2cc22fd0a7ad409813cb44a380887, type: 3}
+  attackSpeed: 10
+  power: 10
+--- !u!233 &612068013049189973
+HingeJoint2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -159,8 +159,15 @@ FixedJoint2D:
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: -0.16666667}
-  m_DampingRatio: 0
-  m_Frequency: 0
+  m_UseConnectedAnchor: 1
+  m_UseMotor: 0
+  m_Motor:
+    m_MotorSpeed: 0
+    m_MaximumMotorForce: 10000
+  m_UseLimits: 0
+  m_AngleLimits:
+    m_LowerAngle: 0
+    m_UpperAngle: 359
 --- !u!1 &652778472166450444
 GameObject:
   m_ObjectHideFlags: 0
@@ -400,7 +407,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8713128594951623867}
@@ -553,7 +560,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 8
+  m_Mass: 10
   m_LinearDamping: 0.9
   m_AngularDamping: 0.05
   m_GravityScale: 0
@@ -856,9 +863,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3410458202287507278}
   - component: {fileID: 3652713838515470832}
-  - component: {fileID: 1624438476817551320}
   - component: {fileID: 1896474397648842384}
-  - component: {fileID: 2599741688720307120}
+  - component: {fileID: 1624438476817551320}
+  - component: {fileID: 335199147387490457}
   m_Layer: 7
   m_Name: Bow Cannon
   m_TagString: Untagged
@@ -936,31 +943,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1624438476817551320
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5017693831258792927}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de750807b64190f4995de2c021601029, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHP: 300
-  hp: 300
-  collisionDamageMult: 0
-  deathFX: {fileID: 0}
-  resistances: []
-  col: {fileID: 0}
-  rb: {fileID: 0}
-  respawnCooldown: 8
-  respawning: 0
-  swivel: 1
-  proj: {fileID: -1799790596901766248, guid: a5a2cc22fd0a7ad409813cb44a380887, type: 3}
-  attackSpeed: 10
-  power: 10
 --- !u!50 &1896474397648842384
 Rigidbody2D:
   serializedVersion: 5
@@ -988,8 +970,33 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!255 &2599741688720307120
-FixedJoint2D:
+--- !u!114 &1624438476817551320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5017693831258792927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de750807b64190f4995de2c021601029, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHP: 300
+  hp: 300
+  collisionDamageMult: 1
+  deathFX: {fileID: 7675052303077851088, guid: 10faa5fd307623f4c9d54a027064af22, type: 3}
+  resistances: []
+  col: {fileID: 0}
+  rb: {fileID: 0}
+  respawnCooldown: 8
+  respawning: 0
+  mouseAim: 1
+  proj: {fileID: -1799790596901766248, guid: a5a2cc22fd0a7ad409813cb44a380887, type: 3}
+  attackSpeed: 10
+  power: 10
+--- !u!233 &335199147387490457
+HingeJoint2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1005,8 +1012,15 @@ FixedJoint2D:
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0.16666667}
-  m_DampingRatio: 0
-  m_Frequency: 0
+  m_UseConnectedAnchor: 1
+  m_UseMotor: 0
+  m_Motor:
+    m_MotorSpeed: 0
+    m_MaximumMotorForce: 10000
+  m_UseLimits: 0
+  m_AngleLimits:
+    m_LowerAngle: 0
+    m_UpperAngle: 359
 --- !u!1 &5642513142370056738
 GameObject:
   m_ObjectHideFlags: 0
@@ -2055,6 +2069,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7068534085435662977}
     m_Modifications:
+    - target: {fileID: 851017894908056530, guid: 893bdf4528898d141b7e57746b525c2f, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5420239360155422764, guid: 893bdf4528898d141b7e57746b525c2f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2122,6 +2140,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1646121226102102400}
     m_Modifications:
+    - target: {fileID: 851017894908056530, guid: 893bdf4528898d141b7e57746b525c2f, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5420239360155422764, guid: 893bdf4528898d141b7e57746b525c2f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.000003695488
@@ -2189,6 +2211,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3757194646785332834}
     m_Modifications:
+    - target: {fileID: 851017894908056530, guid: 893bdf4528898d141b7e57746b525c2f, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5420239360155422764, guid: 893bdf4528898d141b7e57746b525c2f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2256,6 +2282,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8713128594951623867}
     m_Modifications:
+    - target: {fileID: 851017894908056530, guid: 893bdf4528898d141b7e57746b525c2f, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5420239360155422764, guid: 893bdf4528898d141b7e57746b525c2f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2390,6 +2420,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8941256047507050788}
     m_Modifications:
+    - target: {fileID: 851017894908056530, guid: 893bdf4528898d141b7e57746b525c2f, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5420239360155422764, guid: 893bdf4528898d141b7e57746b525c2f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.0000039339066

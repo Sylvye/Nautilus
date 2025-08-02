@@ -3,7 +3,6 @@ using UnityEngine.InputSystem;
 
 public class ProjectileCannon : Cannon
 {
-    public bool swivel;
     public Projectile proj;
     public float attackSpeed;
     public float power;
@@ -13,7 +12,7 @@ public class ProjectileCannon : Cannon
     {
         if (!respawning)
         {
-            Vector2 dir = swivel ? Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()) - transform.position : AngleHelper.DegreesToVector(transform.eulerAngles.z + 90);
+            Vector2 dir = AngleHelper.DegreesToVector(transform.eulerAngles.z + 90);
 
             Launch(proj.gameObject, dir, power, 0.1f);
             nextAttack = Time.time + 1 / attackSpeed;
