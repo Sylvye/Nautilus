@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 851017894908056530}
   - component: {fileID: 3764663053784651074}
   - component: {fileID: 5384380366588508688}
-  m_Layer: 2
+  m_Layer: 8
   m_Name: Thruster Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3793,7 +3793,7 @@ ParticleSystem:
     radiusScale: 0.1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 891
+      m_Bits: 961
     maxCollisionShapes: 512
     quality: 0
     voxelSize: 0.5
@@ -4849,3 +4849,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseDamage: 1
   type: 3
+  source: {fileID: 0}

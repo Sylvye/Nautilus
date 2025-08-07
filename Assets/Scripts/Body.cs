@@ -29,9 +29,9 @@ public class Body : MonoBehaviour
             float amt = amount.Evaluate(GetResists());
             hp -= amt;
             if (amt < 100)
-                Debug.Log(gameObject.name + ": Just took ~" + Mathf.Round(amt) + " damage!");
+                Debug.Log(transform.root.name + (transform.root.name == gameObject.name ? "" : "/" + gameObject.name) + ": Just took ~" + Mathf.Round(amt) + " damage!");
             else
-                Debug.LogWarning(gameObject.name + ": Just took ~" + Mathf.Round(amt) + " damage!");
+                Debug.LogWarning(transform.root.name + (transform.root.name == gameObject.name ? "" : "/" + gameObject.name) + ": Just took ~" + Mathf.Round(amt) + " damage!");
             if (hp < 0)
             {
                 hp = 0;

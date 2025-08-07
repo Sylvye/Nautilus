@@ -4,8 +4,7 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - Terrain
-  - Cell
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -15,7 +14,7 @@ TagManager:
   - UI
   - Bodies
   - Player
-  - 
+  - Particles
   - 
   - 
   - 

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4576749139988155680}
   - component: {fileID: 5306048511024034578}
   - component: {fileID: 3762858341543946387}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Space Dust
   m_TagString: Untagged
   m_Icon: {fileID: 0}

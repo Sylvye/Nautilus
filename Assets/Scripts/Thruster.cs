@@ -48,7 +48,7 @@ public class Thruster : VesselComponent
             float torque = relative.x * force.y - relative.y * force.x;
             vesselRB.AddForce(force, ForceMode2D.Force);
             vesselRB.AddTorque(torque, ForceMode2D.Force);
-            Debug.DrawLine(transform.position, transform.position - (Vector3)force, g.Evaluate(Mathf.Clamp(ratio, 0, 1)));
+            Debug.DrawLine(transform.position, transform.position - (Vector3)force/flatMult, g.Evaluate(Mathf.Clamp(ratio, 0, 1)));
         }
     }
 }

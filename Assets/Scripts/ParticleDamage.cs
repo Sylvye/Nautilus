@@ -7,16 +7,21 @@ public class ParticleDamage : MonoBehaviour
 {
     public float baseDamage;
     public Damage.Type type;
+    public Body source;
     private ParticleSystem ps;
 
     private void Awake()
     {
         ps = GetComponent<ParticleSystem>();
+        if (transform.root != null)
+        {
+            source = transform.root.GetComponent<Body>();
+        }
     }
 
     void OnParticleCollision(GameObject other)
     {
-        if (other.TryGetComponent(out Body body))
+        if (other.TryGetComponent(out Body body) && body.transform.root.gameObject != source.gameObject)
         {
             List<ParticleCollisionEvent> collisionEvents = new();
             int eventCount = ps.GetCollisionEvents(other, collisionEvents);

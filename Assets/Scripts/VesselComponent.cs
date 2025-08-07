@@ -7,7 +7,7 @@ public abstract class VesselComponent : Body
 {
     public float respawnCooldown;
     public bool respawning = false;
-    protected Vessel parentVessel;
+    public Vessel parentVessel;
     protected Rigidbody2D vesselRB;
     private SpriteRenderer sr;
 
