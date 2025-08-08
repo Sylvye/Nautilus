@@ -623,7 +623,7 @@ MonoBehaviour:
   separationForceMult: 10
   alignmentForceMult: 10
   cohesionForceMult: 1
-  trackingForceMult: 1
+  trackingForceMult: 10
 --- !u!114 &2950537553589586710
 MonoBehaviour:
   m_ObjectHideFlags: 0

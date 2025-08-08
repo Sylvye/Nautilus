@@ -5,7 +5,6 @@ using static UnityEngine.InputSystem.Controls.AxisControl;
 public class BoidController : MonoBehaviour
 {
     public bool debug;
-    [SerializeField]private float angleToForward;
     
     public string id;
     public float speed;
@@ -84,7 +83,7 @@ public class BoidController : MonoBehaviour
 
         // tracking
         if (tracking)
-            steerForce += (destination - (Vector2)transform.position).normalized * trackingForceMult;
+            steerForce += (destination - (Vector2)transform.position).normalized * (trackingForceMult + (nearby == 0 ? alignmentForceMult : 0));
 
         // debug
         if (debug)
@@ -108,8 +107,8 @@ public class BoidController : MonoBehaviour
             }
             if (angleLimit < 360)
             {
-                Debug.DrawLine(transform.position, transform.position + (Vector3)AngleHelper.DegreesToVector(transform.eulerAngles.z - angleLimit + 90) * 2, Color.white);
-                Debug.DrawLine(transform.position, transform.position + (Vector3)AngleHelper.DegreesToVector(transform.eulerAngles.z + angleLimit + 90) * 2, Color.white);
+                Debug.DrawLine(transform.position, transform.position + (Vector3)AngleHelper.DegreesToVector(transform.eulerAngles.z - angleLimit / 2 + 90) * 2, Color.white);
+                Debug.DrawLine(transform.position, transform.position + (Vector3)AngleHelper.DegreesToVector(transform.eulerAngles.z + angleLimit / 2 + 90) * 2, Color.white);
             }
         }
 
@@ -117,22 +116,20 @@ public class BoidController : MonoBehaviour
 
         if (localSteer != Vector2.zero)
         {
-            angleToForward = Vector2.SignedAngle(Vector2.up, localSteer);
+            float angleToForward = Vector2.SignedAngle(localSteer, Vector2.up);
             float magnitude = localSteer.magnitude;
 
-            Debug.DrawLine(transform.position, transform.position + (Vector3)localSteer * magnitude * speed * 2, Color.blue);
+            Debug.DrawLine(transform.position, transform.position + (Vector3)steerForce.normalized * 2, Color.blue);
 
-            if (angleToForward <= angleLimit) // within forward arc
+            if (angleLimit == 360 || Mathf.Abs(angleToForward) <= angleLimit / 2) // within forward arc
             {
                 v.Move(localSteer, magnitude * speed);
             }
             else // clamp bad angles to nearest limit
             {
-                float clampedAngle = Mathf.Clamp(Vector2.SignedAngle(localSteer, Vector2.right), -angleLimit, angleLimit);
-
-                Vector2 clampedLocalSteer = Quaternion.Inverse(transform.rotation) * AngleHelper.DegreesToVector(clampedAngle) * magnitude;
-                Debug.DrawLine(transform.position, transform.position + (Vector3)clampedLocalSteer * magnitude * speed * 2, Color.red);
-                v.Move(clampedLocalSteer, magnitude * speed);
+                Vector2 clampedLocalSteerDir = (angleToForward < 0 ? AngleHelper.DegreesToVector(angleLimit / 2 + 90) : AngleHelper.DegreesToVector(-angleLimit / 2 + 90));
+                Debug.DrawLine(transform.position, transform.position + (Vector3)AngleHelper.DegreesToVector(AngleHelper.VectorToDegrees(clampedLocalSteerDir) + transform.eulerAngles.z) * 2, Color.red);
+                v.Move(clampedLocalSteerDir, magnitude * speed);
             }
 
             if (Mathf.Sin(AngleHelper.VectorToRadians(localSteer)) > 0.9f)

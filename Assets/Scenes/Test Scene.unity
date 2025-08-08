@@ -171,14 +171,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7782072128546377219, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
-      propertyPath: trackingForceMult
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 7782072128546377219, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
-      propertyPath: alignmentForceMult
-      value: 10
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -240,14 +232,6 @@ PrefabInstance:
     - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7782072128546377219, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
-      propertyPath: trackingForceMult
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 7782072128546377219, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
-      propertyPath: alignmentForceMult
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -326,14 +310,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7782072128546377219, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
-      propertyPath: trackingForceMult
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 7782072128546377219, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
-      propertyPath: alignmentForceMult
-      value: 10
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -390,14 +366,6 @@ PrefabInstance:
     - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7782072128546377219, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
-      propertyPath: trackingForceMult
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 7782072128546377219, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
-      propertyPath: alignmentForceMult
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -616,14 +584,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7782072128546377219, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
-      propertyPath: trackingForceMult
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 7782072128546377219, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
-      propertyPath: alignmentForceMult
-      value: 10
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -686,14 +646,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7782072128546377219, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
-      propertyPath: trackingForceMult
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 7782072128546377219, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
-      propertyPath: alignmentForceMult
-      value: 10
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -750,14 +702,6 @@ PrefabInstance:
     - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7782072128546377219, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
-      propertyPath: trackingForceMult
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 7782072128546377219, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
-      propertyPath: alignmentForceMult
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

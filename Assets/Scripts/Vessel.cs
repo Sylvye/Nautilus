@@ -38,6 +38,7 @@ public class Vessel : Body
     {
         float desiredAngle = AngleHelper.VectorToDegrees(input);
         float rotationOffset = transform.eulerAngles.z;
+        //Debug.DrawLine(transform.position, transform.position + (Vector3)AngleHelper.DegreesToVector(desiredAngle + rotationOffset) * 2, Color.blue);
         foreach (Thruster t in thrusters)
         {
             float thrusterAngle = AngleHelper.VectorToDegrees(-t.transform.localPosition);
