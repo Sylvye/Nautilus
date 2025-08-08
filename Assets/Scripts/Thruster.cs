@@ -31,13 +31,14 @@ public class Thruster : VesselComponent
     {
         if (!respawning)
         {
+            ratio = Mathf.Clamp(ratio, 0, 2);
             float mult = power * ratio;
             float finalMult = Mathf.Clamp(Mathf.Sqrt(mult), 0.5f, 10);
             var fireFXmain = fireFX.main;
             var fireFXShape = fireFX.shape;
             fireFXmain.startSpeed = new ParticleSystem.MinMaxCurve(startSpeedMin * finalMult, startSpeedMax * finalMult);
             fireFXmain.startSize = new ParticleSystem.MinMaxCurve(startSizeMin * finalMult, startSizeMax * finalMult);
-            fireFXShape.angle = startAngle * (1 + Mathf.Clamp(ratio - 1, 0, 2));
+            fireFXShape.angle = startAngle * ratio;
 
             fireFX.Emit((int)(mult * 5));
 
@@ -48,7 +49,7 @@ public class Thruster : VesselComponent
             float torque = relative.x * force.y - relative.y * force.x;
             vesselRB.AddForce(force, ForceMode2D.Force);
             vesselRB.AddTorque(torque, ForceMode2D.Force);
-            Debug.DrawLine(transform.position, transform.position - (Vector3)force/flatMult, g.Evaluate(Mathf.Clamp(ratio, 0, 1)));
+            //Debug.DrawLine(transform.position, transform.position - (Vector3)force/flatMult, g.Evaluate(Mathf.Clamp(ratio, 0, 1)));
         }
     }
 }

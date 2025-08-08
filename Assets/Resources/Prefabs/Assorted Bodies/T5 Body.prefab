@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6822690709991146179}
   m_Layer: 6
   m_Name: T5 Body
-  m_TagString: Untagged
+  m_TagString: Debris
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -28,10 +28,8 @@ public class Body : MonoBehaviour
         {
             float amt = amount.Evaluate(GetResists());
             hp -= amt;
-            if (amt < 100)
+            if (amt >= maxHP * 0.25f)
                 Debug.Log(transform.root.name + (transform.root.name == gameObject.name ? "" : "/" + gameObject.name) + ": Just took ~" + Mathf.Round(amt) + " damage!");
-            else
-                Debug.LogWarning(transform.root.name + (transform.root.name == gameObject.name ? "" : "/" + gameObject.name) + ": Just took ~" + Mathf.Round(amt) + " damage!");
             if (hp < 0)
             {
                 hp = 0;
@@ -69,8 +67,8 @@ public class Body : MonoBehaviour
     {
         if (collision.collider != null && collision.gameObject.TryGetComponent(out Body other))
         {
-            Debug.Log(gameObject.name + ": Collided with " + collision.gameObject.name + "\nVelocity: " + collision.relativeVelocity.magnitude);
             float damageAmount = collision.relativeVelocity.magnitude * rb.mass * collisionDamageMult;
+            Debug.Log(gameObject.name + ": Collided with " + collision.gameObject.name + "\nVelocity: " + collision.relativeVelocity.magnitude + ", Damage: ~" + Mathf.Round(damageAmount));
             other.DealDamage(new Damage(damageAmount, Damage.Type.Kinetic, this));
         }
     }

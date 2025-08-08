@@ -612,16 +612,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debug: 1
   id: Skrimisher
-  speed: 1
-  visionRadius: 10
+  speed: 0.1
+  visionRadius: 15
   visionMask:
     serializedVersion: 2
     m_Bits: 64
-  forwardAngleLimit: 180
-  backwardAngleLimit: 0
-  separation: 10
-  alignment: 2
-  cohesion: 1
+  tracking: 0
+  destination: {x: 0, y: 0}
+  angleLimit: 90
+  separationForceMult: 10
+  alignmentForceMult: 10
+  cohesionForceMult: 1
+  trackingForceMult: 1
 --- !u!114 &2950537553589586710
 MonoBehaviour:
   m_ObjectHideFlags: 0

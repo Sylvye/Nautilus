@@ -1,21 +1,25 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 using static UnityEngine.InputSystem.Controls.AxisControl;
 
 public class BoidController : MonoBehaviour
 {
     public bool debug;
-
+    [SerializeField]private float angleToForward;
+    
     public string id;
     public float speed;
     public float visionRadius;
     public LayerMask visionMask;
+    public bool tracking;
+    public Vector2 destination;
     [Header("Movement Constraints")]
-    [Range(0, 180)] public float forwardAngleLimit;
-    [Range(0, 180)] public float backwardAngleLimit;
+    [Range(0, 360)] public float angleLimit;
     [Header("Boid constraints")]
-    public float separation;
-    public float alignment;
-    public float cohesion;
+    public float separationForceMult;
+    public float alignmentForceMult;
+    public float cohesionForceMult;
+    public float trackingForceMult;
     private Vessel v;
 
     private void Awake()
@@ -35,82 +39,102 @@ public class BoidController : MonoBehaviour
 
         foreach (Collider2D hit in hits)
         {
-            if (hit != null && hit.CompareTag("Enemy") && hit.TryGetComponent(out Vessel hitV) && hitV != v)
+            if (hit != null)
             {
-                avgCenter += (Vector2)hitV.transform.position;
-                avgAlign += (Vector2)hitV.transform.right;
+                if (hit.CompareTag("Enemy") && hit.TryGetComponent(out Vessel hitV) && hitV != v)
+                {
+                    avgCenter += (Vector2)hitV.transform.position;
+                    avgAlign += (Vector2)hitV.transform.up;
 
-                Vector2 offset = transform.position - hitV.transform.position;
-                float distSqr = offset.sqrMagnitude;
-                if (distSqr > 0.001f) // avoid div by 0
-                    separationForce += offset / distSqr;
+                    Vector2 offset = transform.position - hitV.transform.position;
+                    float distSqr = offset.sqrMagnitude;
+                    if (distSqr > 0.001f) // avoid div by 0
+                        separationForce += offset / distSqr;
 
-                nearby++;
+                    nearby++;
+                }
+                else if (hit.CompareTag("Debris")) // still avoid space debris but dont try to orient with 'em
+                {
+                    Vector2 offset = transform.position - hit.transform.position;
+                    float distSqr = offset.sqrMagnitude;
+                    if (distSqr > 0.001f) // avoid div by 0
+                        separationForce += offset / distSqr * 2;
+                }
             }
         }
-        Debug.Log(nearby + " nearby enemies");
-
-        avgCenter /= nearby;
-        avgAlign /= nearby;
-
 
         Vector2 steerForce = Vector2.zero;
 
-        //separation
-        steerForce += separationForce * separation;
+        // separation
+        steerForce += separationForce * separationForceMult;
 
-        //alignment
         if (nearby > 0)
         {
+            // averaging
             avgAlign /= nearby;
-            steerForce += avgAlign.normalized * alignment;
+            avgCenter /= nearby;
+
+            // alignment
+            avgAlign /= nearby;
+            steerForce += avgAlign.normalized * alignmentForceMult;
+
+            // cohesion
+            steerForce += (avgCenter - (Vector2)transform.position) * cohesionForceMult;
         }
 
-        // cohesion
-        steerForce += (avgCenter - (Vector2)transform.position) * cohesion;
+        // tracking
+        if (tracking)
+            steerForce += (destination - (Vector2)transform.position).normalized * trackingForceMult;
 
         // debug
         if (debug)
         {
-            DrawCircle(transform.position, visionRadius, 90, Color.yellow);
-            DrawCircle(avgCenter, 0.25f, 15, Color.green);
-            Debug.DrawLine(transform.position, avgCenter, Color.green);
-            Debug.DrawLine(transform.position, transform.position + (Vector3)separationForce.normalized * 2, Color.hotPink);
-            Debug.DrawLine(transform.position, transform.position + (Vector3)avgAlign.normalized, Color.purple);
-        }
-
-        Vector2 localSteer = Quaternion.Inverse(transform.rotation) * steerForce; // BLACK MAGIC
-
-        if (localSteer != Vector2.zero)
-        {
-            float angleToForward = Vector2.SignedAngle(Vector2.up, localSteer);
-
-            if (angleToForward >= -forwardAngleLimit && angleToForward <= forwardAngleLimit)
+            if (nearby > 0)
             {
-                // within forward arc
-                v.Move(localSteer);
-            }
-            else if (angleToForward >= 180f - backwardAngleLimit || angleToForward <= -180f + backwardAngleLimit)
-            {
-                // within rear arc
-                v.Move(localSteer);
+                DrawDebugCircle(avgCenter, 0.15f, 15, Color.green);
+                Debug.DrawLine(transform.position, avgCenter, Color.green);
+                Debug.DrawLine(transform.position, transform.position + (Vector3)avgAlign.normalized, Color.purple);
+                Debug.DrawLine(transform.position, transform.position + (Vector3)separationForce.normalized * 2, Color.hotPink);
+                DrawDebugCircle(transform.position, visionRadius, 90, Color.greenYellow);
             }
             else
             {
-                // outside allowed arc – clamp to nearest limit
-                float clampedAngle;
-                if (angleToForward > forwardAngleLimit && angleToForward < 180f - backwardAngleLimit)
-                    clampedAngle = forwardAngleLimit;
-                else if (angleToForward < -forwardAngleLimit && angleToForward > -180f + backwardAngleLimit)
-                    clampedAngle = -forwardAngleLimit;
-                else
-                    clampedAngle = angleToForward > 0 ? 180f - backwardAngleLimit : -180f + backwardAngleLimit;
+                DrawDebugCircle(transform.position, visionRadius, 90, Color.yellow);
+            }
+            if (tracking)
+            {
+                Debug.DrawLine(transform.position, destination, Color.cyan);
+                DrawDebugCircle(destination, 0.3f, 30, Color.cyan);
+            }
+            if (angleLimit < 360)
+            {
+                Debug.DrawLine(transform.position, transform.position + (Vector3)AngleHelper.DegreesToVector(transform.eulerAngles.z - angleLimit + 90) * 2, Color.white);
+                Debug.DrawLine(transform.position, transform.position + (Vector3)AngleHelper.DegreesToVector(transform.eulerAngles.z + angleLimit + 90) * 2, Color.white);
+            }
+        }
 
-                Vector2 clampedLocalSteer = AngleHelper.DegreesToVector(clampedAngle) * localSteer.magnitude;
-                v.Move(clampedLocalSteer);
+        Vector2 localSteer = Quaternion.Inverse(transform.rotation) * steerForce; // Converts world vector into relative local vector
+
+        if (localSteer != Vector2.zero)
+        {
+            angleToForward = Vector2.SignedAngle(Vector2.up, localSteer);
+            float magnitude = localSteer.magnitude;
+
+            Debug.DrawLine(transform.position, transform.position + (Vector3)localSteer * magnitude * speed * 2, Color.blue);
+
+            if (angleToForward <= angleLimit) // within forward arc
+            {
+                v.Move(localSteer, magnitude * speed);
+            }
+            else // clamp bad angles to nearest limit
+            {
+                float clampedAngle = Mathf.Clamp(Vector2.SignedAngle(localSteer, Vector2.right), -angleLimit, angleLimit);
+
+                Vector2 clampedLocalSteer = Quaternion.Inverse(transform.rotation) * AngleHelper.DegreesToVector(clampedAngle) * magnitude;
+                Debug.DrawLine(transform.position, transform.position + (Vector3)clampedLocalSteer * magnitude * speed * 2, Color.red);
+                v.Move(clampedLocalSteer, magnitude * speed);
             }
 
-            v.Move(localSteer);
             if (Mathf.Sin(AngleHelper.VectorToRadians(localSteer)) > 0.9f)
             {
                 v.Stabilize();
@@ -118,7 +142,7 @@ public class BoidController : MonoBehaviour
         }
     }
 
-    private void DrawCircle(Vector3 center, float radius, int segments, Color color)
+    private void DrawDebugCircle(Vector3 center, float radius, int segments, Color color)
     {
         float angleStep = 360f / segments;
         Vector3 previousPoint = center + new Vector3(Mathf.Cos(0), Mathf.Sin(0), 0) * radius;

@@ -21,7 +21,7 @@ public class ParticleDamage : MonoBehaviour
 
     void OnParticleCollision(GameObject other)
     {
-        if (other.TryGetComponent(out Body body) && body.transform.root.gameObject != source.gameObject)
+        if (other.TryGetComponent(out Body body) && (source == null || body.transform.root.gameObject != source.gameObject))
         {
             List<ParticleCollisionEvent> collisionEvents = new();
             int eventCount = ps.GetCollisionEvents(other, collisionEvents);
