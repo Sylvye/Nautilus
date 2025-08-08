@@ -57,7 +57,7 @@ public class BoidController : MonoBehaviour
                     Vector2 offset = transform.position - hit.transform.position;
                     float distSqr = offset.sqrMagnitude;
                     if (distSqr > 0.001f) // avoid div by 0
-                        separationForce += offset / distSqr * 2;
+                        separationForce += offset / distSqr * hit.GetComponent<Rigidbody2D>().mass;
                 }
             }
         }
@@ -119,7 +119,8 @@ public class BoidController : MonoBehaviour
             float angleToForward = Vector2.SignedAngle(localSteer, Vector2.up);
             float magnitude = localSteer.magnitude;
 
-            Debug.DrawLine(transform.position, transform.position + (Vector3)steerForce.normalized * 2, Color.blue);
+            if (debug)
+                Debug.DrawLine(transform.position, transform.position + (Vector3)steerForce.normalized * 2, Color.blue);
 
             if (angleLimit == 360 || Mathf.Abs(angleToForward) <= angleLimit / 2) // within forward arc
             {
@@ -128,11 +129,12 @@ public class BoidController : MonoBehaviour
             else // clamp bad angles to nearest limit
             {
                 Vector2 clampedLocalSteerDir = (angleToForward < 0 ? AngleHelper.DegreesToVector(angleLimit / 2 + 90) : AngleHelper.DegreesToVector(-angleLimit / 2 + 90));
-                Debug.DrawLine(transform.position, transform.position + (Vector3)AngleHelper.DegreesToVector(AngleHelper.VectorToDegrees(clampedLocalSteerDir) + transform.eulerAngles.z) * 2, Color.red);
                 v.Move(clampedLocalSteerDir, magnitude * speed);
+                if (debug)
+                    Debug.DrawLine(transform.position, transform.position + (Vector3)AngleHelper.DegreesToVector(AngleHelper.VectorToDegrees(clampedLocalSteerDir) + transform.eulerAngles.z) * 2, Color.red);
             }
 
-            if (Mathf.Sin(AngleHelper.VectorToRadians(localSteer)) > 0.9f)
+            if (Mathf.Sin(AngleHelper.VectorToRadians(localSteer)) > 0.8f)
             {
                 v.Stabilize();
             }

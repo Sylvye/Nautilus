@@ -119,7 +119,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &128266062
+--- !u!1001 &7395116
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -129,15 +129,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1965503083374391105, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
       propertyPath: m_Name
-      value: BOID Skirmisher
+      value: BOID Skirmisher (4)
       objectReference: {fileID: 0}
     - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 7.8
       objectReference: {fileID: 0}
     - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -10
+      value: -7.11
       objectReference: {fileID: 0}
     - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -176,12 +176,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
---- !u!1 &177713426 stripped
+--- !u!1 &34881213 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1965503083374391105, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
-  m_PrefabInstance: {fileID: 323476938}
+  m_PrefabInstance: {fileID: 2010046869}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &323476938
+--- !u!1001 &150686947
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -195,11 +195,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.024342
+      value: 12.67
       objectReference: {fileID: 0}
     - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.828722
+      value: -3.48
       objectReference: {fileID: 0}
     - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -238,27 +238,260 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
---- !u!1 &412661519 stripped
+--- !u!1001 &307513512
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1965503083374391105, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+      propertyPath: m_Name
+      value: BOID Skirmisher (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -20.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -10.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+--- !u!1 &350129830 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1965503083374391105, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
-  m_PrefabInstance: {fileID: 1280890494}
+  m_PrefabInstance: {fileID: 1904316734}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &594120093 stripped
+--- !u!1 &420297343 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1965503083374391105, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
-  m_PrefabInstance: {fileID: 128266062}
+  m_PrefabInstance: {fileID: 499107790}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1212455062 stripped
+--- !u!1 &469645171 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1965503083374391105, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
-  m_PrefabInstance: {fileID: 1686760744}
+  m_PrefabInstance: {fileID: 7395116}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1243064860 stripped
+--- !u!1001 &499107790
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1965503083374391105, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+      propertyPath: m_Name
+      value: BOID Skirmisher (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -7.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -10.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+--- !u!1001 &819056258
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1965503083374391105, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+      propertyPath: m_Name
+      value: BOID Skirmisher (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -18.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -7.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+--- !u!1 &936921433 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1965503083374391105, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
-  m_PrefabInstance: {fileID: 1298840106}
+  m_PrefabInstance: {fileID: 150686947}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1280890494
+--- !u!1001 &1230341168
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1965503083374391105, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+      propertyPath: m_Name
+      value: BOID Skirmisher
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -21.889517
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.291472
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+--- !u!1 &1231357865 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1965503083374391105, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+  m_PrefabInstance: {fileID: 307513512}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1388189132
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -272,11 +505,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.7003405
+      value: -12.69
       objectReference: {fileID: 0}
     - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -11.439443
+      value: -9.82
       objectReference: {fileID: 0}
     - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -315,7 +548,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
---- !u!1001 &1298840106
+--- !u!1001 &1395912417
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -325,15 +558,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1965503083374391105, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
       propertyPath: m_Name
-      value: BOID Skirmisher (6)
+      value: BOID Skirmisher (8)
       objectReference: {fileID: 0}
     - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.09039
+      value: -2.86
       objectReference: {fileID: 0}
     - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.425458
+      value: -10.02
       objectReference: {fileID: 0}
     - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -435,7 +668,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 10.509868
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -460,7 +693,7 @@ Transform:
   m_GameObject: {fileID: 1414028809}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.7088847, y: -10.631363, z: -10}
+  m_LocalPosition: {x: -4.6097584, y: -6.8050003, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -523,16 +756,105 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targets:
-  - {fileID: 594120093}
-  - {fileID: 1491531367}
-  - {fileID: 412661519}
-  - {fileID: 1743224455}
-  - {fileID: 1212455062}
-  - {fileID: 177713426}
-  - {fileID: 1243064860}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1678855226}
+  - {fileID: 34881213}
+  - {fileID: 350129830}
+  - {fileID: 1737477841}
+  - {fileID: 2115182830}
+  - {fileID: 469645171}
+  - {fileID: 1916873051}
+  - {fileID: 420297343}
+  - {fileID: 1231357865}
+  - {fileID: 936921433}
   padding: 2
   minSize: 10
---- !u!1001 &1425775905
+--- !u!1 &1678855226 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1965503083374391105, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+  m_PrefabInstance: {fileID: 1230341168}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1737477841 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1965503083374391105, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+  m_PrefabInstance: {fileID: 1395912417}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1904316734
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1965503083374391105, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+      propertyPath: m_Name
+      value: BOID Skirmisher (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 10.89
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -9.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+--- !u!1 &1916873051 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1965503083374391105, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
+  m_PrefabInstance: {fileID: 1388189132}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2010046869
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -546,11 +868,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.432276
+      value: 3.2
       objectReference: {fileID: 0}
     - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -13.10533
+      value: -9.63
       objectReference: {fileID: 0}
     - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -589,139 +911,23 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
---- !u!1 &1491531367 stripped
+--- !u!1 &2115182830 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1965503083374391105, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
-  m_PrefabInstance: {fileID: 1633479602}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &1633479602
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1965503083374391105, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
-      propertyPath: m_Name
-      value: BOID Skirmisher (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.6065722
-      objectReference: {fileID: 0}
-    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -10.444882
-      objectReference: {fileID: 0}
-    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
---- !u!1001 &1686760744
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1965503083374391105, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
-      propertyPath: m_Name
-      value: BOID Skirmisher (4)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.3771083
-      objectReference: {fileID: 0}
-    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -8.157394
-      objectReference: {fileID: 0}
-    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5787360286355055545, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
---- !u!1 &1743224455 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1965503083374391105, guid: 7783bca0ac980fa41bf837054fa6949a, type: 3}
-  m_PrefabInstance: {fileID: 1425775905}
+  m_PrefabInstance: {fileID: 819056258}
   m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1414028812}
-  - {fileID: 128266062}
-  - {fileID: 1633479602}
-  - {fileID: 1280890494}
-  - {fileID: 1425775905}
-  - {fileID: 1686760744}
-  - {fileID: 323476938}
-  - {fileID: 1298840106}
+  - {fileID: 1230341168}
+  - {fileID: 2010046869}
+  - {fileID: 1904316734}
+  - {fileID: 1395912417}
+  - {fileID: 819056258}
+  - {fileID: 7395116}
+  - {fileID: 1388189132}
+  - {fileID: 499107790}
+  - {fileID: 307513512}
+  - {fileID: 150686947}
