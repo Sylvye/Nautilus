@@ -613,7 +613,7 @@ MonoBehaviour:
   debug: 1
   id: Skrimisher
   speed: 0.1
-  visionRadius: 15
+  visionRadius: 30
   visionMask:
     serializedVersion: 2
     m_Bits: 64

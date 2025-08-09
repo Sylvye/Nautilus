@@ -616,7 +616,7 @@ MonoBehaviour:
   debug: 1
   id: Spectre
   speed: 0.1
-  visionRadius: 25
+  visionRadius: 50
   visionMask:
     serializedVersion: 2
     m_Bits: 64

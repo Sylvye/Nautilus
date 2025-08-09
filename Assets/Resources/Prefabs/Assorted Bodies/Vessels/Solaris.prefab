@@ -1078,15 +1078,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 851017894908056530, guid: 893bdf4528898d141b7e57746b525c2f, type: 3}
       propertyPath: CollisionModule.collidesWith.m_Bits
-      value: 961
+      value: 833
       objectReference: {fileID: 0}
     - target: {fileID: 5420239360155422764, guid: 893bdf4528898d141b7e57746b525c2f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.01
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5420239360155422764, guid: 893bdf4528898d141b7e57746b525c2f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.5
+      value: -0.6
       objectReference: {fileID: 0}
     - target: {fileID: 5420239360155422764, guid: 893bdf4528898d141b7e57746b525c2f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1153,15 +1153,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 851017894908056530, guid: 893bdf4528898d141b7e57746b525c2f, type: 3}
       propertyPath: CollisionModule.collidesWith.m_Bits
-      value: 961
+      value: 833
       objectReference: {fileID: 0}
     - target: {fileID: 5420239360155422764, guid: 893bdf4528898d141b7e57746b525c2f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.000003695488
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5420239360155422764, guid: 893bdf4528898d141b7e57746b525c2f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.5
+      value: -0.6
       objectReference: {fileID: 0}
     - target: {fileID: 5420239360155422764, guid: 893bdf4528898d141b7e57746b525c2f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1236,7 +1236,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 851017894908056530, guid: 6eba45803a958254a9f3af117d293734, type: 3}
       propertyPath: CollisionModule.collidesWith.m_Bits
-      value: 961
+      value: 833
       objectReference: {fileID: 0}
     - target: {fileID: 5420239360155422764, guid: 6eba45803a958254a9f3af117d293734, type: 3}
       propertyPath: m_LocalScale.x
@@ -1256,7 +1256,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5420239360155422764, guid: 6eba45803a958254a9f3af117d293734, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.001320254
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5420239360155422764, guid: 6eba45803a958254a9f3af117d293734, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1323,15 +1323,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 851017894908056530, guid: 893bdf4528898d141b7e57746b525c2f, type: 3}
       propertyPath: CollisionModule.collidesWith.m_Bits
-      value: 961
+      value: 833
       objectReference: {fileID: 0}
     - target: {fileID: 5420239360155422764, guid: 893bdf4528898d141b7e57746b525c2f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.0000039339066
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5420239360155422764, guid: 893bdf4528898d141b7e57746b525c2f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.49
+      value: -0.6
       objectReference: {fileID: 0}
     - target: {fileID: 5420239360155422764, guid: 893bdf4528898d141b7e57746b525c2f, type: 3}
       propertyPath: m_LocalPosition.z

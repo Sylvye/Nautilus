@@ -16,6 +16,7 @@ public class CameraController : MonoBehaviour
     private float currentSize;
     private Transform playerTransform;
     private PixelPerfectCamera ppc;
+    private Material backgroundMaterial;
 
     void Awake()
     {
@@ -25,6 +26,7 @@ public class CameraController : MonoBehaviour
         refRes = new Vector2(ppc.refResolutionX, ppc.refResolutionY);
         currentSize = 1;
         targetSize = 1;
+        backgroundMaterial = GameObject.Find("Background").GetComponent<SpriteRenderer>().material;
     }
 
     private void Update()
@@ -36,6 +38,7 @@ public class CameraController : MonoBehaviour
         transform.position = (Vector3)lerpPos + (Vector3)ssOffset + Vector3.back * 10;
         currentSize = Mathf.Lerp(currentSize, targetSize, scaleSpeed * Time.deltaTime);
         SetRefResolutionSize(currentSize); // TEST THIS!!!!
+        backgroundMaterial.SetVector("_Offset", (Vector2)transform.position);
     }
 
     public void ScreenShake(float intensity)
