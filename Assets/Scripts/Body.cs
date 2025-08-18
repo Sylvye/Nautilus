@@ -5,6 +5,7 @@ public class Body : MonoBehaviour
 {
     public float maxHP;
     public float hp;
+    public float regeneration;
     public float collisionDamageMult;
     public GameObject deathFX;
     public List<Resistance> resistances;
@@ -15,6 +16,16 @@ public class Body : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         col = rb.GetComponent<Collider2D>();
+    }
+
+    protected virtual void FixedUpdate()
+    {
+        if (hp < maxHP)
+        {
+            hp += regeneration;
+            if (hp > maxHP)
+                hp = maxHP;
+        }
     }
 
     /// <summary>

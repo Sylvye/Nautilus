@@ -42,6 +42,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _Angle_Speed: 14.83
+    - _Offset_Mult: 0.0001
     - _Power: 2
     - _Shade_Scale: 1
     - _Star_Step: 0.01
@@ -49,13 +50,14 @@ Material:
     m_Colors:
     - _CausticsColor: {r: 2, g: 2, b: 2, a: 1}
     - _Caustics_Color: {r: 2, g: 0.3490566, b: 1.0476235, a: 1}
-    - _Color_1: {r: 0, g: 0.09741862, b: 0.3745098, a: 1}
-    - _Color_2: {r: 0.3745098, g: 0, b: 0.17130393, a: 1}
-    - _Color_3: {r: 0.0014920235, g: 0, b: 1, a: 1}
-    - _Color_4: {r: 0.3745098, g: 0, b: 0.017603006, a: 1}
+    - _Color_1: {r: 0, g: 0.028301895, b: 0.017028462, a: 1}
+    - _Color_2: {r: 0, g: 0.054252267, b: 0.09411765, a: 1}
+    - _Color_3: {r: 0.00074601173, g: 0, b: 0.5, a: 1}
+    - _Color_4: {r: 0.066995144, g: 0, b: 0.5, a: 1}
     - _MainColor: {r: 0.54245275, g: 0.7907141, b: 1, a: 1}
     - _Main_Color: {r: 0, g: 0.774848, b: 1.4980392, a: 1}
-    - _Scale: {r: 1, g: 1, b: 0, a: 0}
+    - _Offset: {r: 0, g: 0, b: 0, a: 0}
+    - _Scale: {r: 2, g: 2, b: 0, a: 0}
     - _Star_Color: {r: 2.0000002, g: 2.0000002, b: 2.0000002, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

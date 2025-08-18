@@ -40,6 +40,6 @@ public class Explosion : MonoBehaviour
                 }
             }
         }
-        CameraController.main.ScreenShake(screenShakeIntensity);
+        MainCameraController.main.ScreenShake(screenShakeIntensity);
     }
 }

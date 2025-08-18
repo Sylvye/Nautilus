@@ -3,9 +3,9 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-public class CameraController : MonoBehaviour
+public class MainCameraController : MonoBehaviour
 {
-    public static CameraController main;
+    public static MainCameraController main;
     public float followSpeed;
     public float scaleSpeed;
     public float ssFalloff;
@@ -20,8 +20,8 @@ public class CameraController : MonoBehaviour
 
     void Awake()
     {
-        playerTransform = GameObject.FindWithTag("Player").transform;
         main = this;
+        playerTransform = GameObject.FindWithTag("Player").transform;
         ppc = GetComponent<PixelPerfectCamera>();
         refRes = new Vector2(ppc.refResolutionX, ppc.refResolutionY);
         currentSize = 1;

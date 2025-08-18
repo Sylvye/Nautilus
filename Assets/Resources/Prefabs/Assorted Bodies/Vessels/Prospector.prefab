@@ -1318,12 +1318,28 @@ PrefabInstance:
     m_TransformParent: {fileID: 7441969051146594383}
     m_Modifications:
     - target: {fileID: 851017894908056530, guid: 6eba45803a958254a9f3af117d293734, type: 3}
+      propertyPath: ShapeModule.angle
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 851017894908056530, guid: 6eba45803a958254a9f3af117d293734, type: 3}
       propertyPath: ShapeModule.radius.value
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 851017894908056530, guid: 6eba45803a958254a9f3af117d293734, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 851017894908056530, guid: 6eba45803a958254a9f3af117d293734, type: 3}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 851017894908056530, guid: 6eba45803a958254a9f3af117d293734, type: 3}
       propertyPath: CollisionModule.collidesWith.m_Bits
       value: 833
+      objectReference: {fileID: 0}
+    - target: {fileID: 851017894908056530, guid: 6eba45803a958254a9f3af117d293734, type: 3}
+      propertyPath: InheritVelocityModule.m_Curve.scalar
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5420239360155422764, guid: 6eba45803a958254a9f3af117d293734, type: 3}
       propertyPath: m_LocalPosition.x

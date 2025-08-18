@@ -9,7 +9,7 @@ public class Vessel : Body
     public bool attacking;
     public List<Thruster> thrusters;
     public List<Cannon> cannons;
-    public AnimationCurve weightFalloffCurve;
+    //public AnimationCurve weightFalloffCurve;
     public float stabilizationRate;
 
     protected override void Awake()
@@ -17,8 +17,9 @@ public class Vessel : Body
         base.Awake();
     }
 
-    private void FixedUpdate()
+    protected override void FixedUpdate()
     {
+        base.FixedUpdate();
         if (attacking)
         {
             foreach (Cannon c in cannons)

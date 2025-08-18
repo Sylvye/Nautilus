@@ -42,7 +42,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _Angle_Speed: 14.83
-    - _Offset_Mult: 0.001
+    - _Offset_Mult: 0.0001
     - _Power: 2
     - _Shade_Scale: 1
     - _Star_Step: 0.01

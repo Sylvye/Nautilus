@@ -2,6 +2,7 @@ using System.Xml;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 using static UnityEngine.UI.Image;
 
 public class PlayerController : MonoBehaviour
@@ -12,10 +13,19 @@ public class PlayerController : MonoBehaviour
     private Vector2 moveInput;
     private PlayerInputActions inputActions;
 
+    private VolumeProfile globalVolumeProfile;
+    private ChromaticAberration chromaticAberration;
+
+    public static PlayerController main;
+
     void Awake()
     {
+        main = this;
         v = GetComponent<Vessel>();
         inputActions = new PlayerInputActions();
+        globalVolumeProfile = GameObject.Find("Global Volume").GetComponent<Volume>().profile;
+        globalVolumeProfile.TryGet(out ChromaticAberration ca);
+        chromaticAberration = ca;
     }
 
     private void Start()
@@ -34,6 +44,7 @@ public class PlayerController : MonoBehaviour
         inputActions.Player.Boost.canceled += _ => boosting = false;
         inputActions.Player.Nudge.performed += _ => shifting = true;
         inputActions.Player.Nudge.canceled += _ => shifting = false;
+        inputActions.Player.Toggle_Map.performed += _ => CameraManager.ToggleCamera();
     }
 
     void OnDisable()
@@ -55,5 +66,10 @@ public class PlayerController : MonoBehaviour
         {
             v.Stabilize();
         }
+    }
+
+    private void Update()
+    {
+        chromaticAberration.intensity.value = Mathf.Lerp(0.1f, 1, 1 - (v.hp / v.maxHP));
     }
 }
