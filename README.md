@@ -1,5 +1,4 @@
 # Nautilus
-(placeholder name)
 
 A 2D, waypoint-driven, bullet hell, biomechanical ship builder! (also an immersive sim!)
 (a mouthful, I know)
@@ -10,4 +9,5 @@ But always remember, your human weaponry and defenses weren't designed with this
 
 Inspiration from: Mosa Lina, Nova Drift, Wynncraft, and horseshoe crabs.
 
-![horseshoe](https://github.com/user-attachments/assets/e4d54dac-341f-486d-af7a-3d83ef673549)
+### Early alpha showcase:  
+[![Early alpha showcase](https://img.youtube.com/vi/aBHwH2TkjDs/0.jpg)](https://www.youtube.com/watch?v=aBHwH2TkjDs)
