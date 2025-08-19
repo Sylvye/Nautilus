@@ -131,6 +131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 300
   hp: 300
+  regeneration: 0
   collisionDamageMult: 1
   deathFX: {fileID: 7675052303077851088, guid: 10faa5fd307623f4c9d54a027064af22, type: 3}
   resistances: []
@@ -275,6 +276,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 100
   hp: 100
+  regeneration: 0
   collisionDamageMult: 1
   deathFX: {fileID: 7675052303077851088, guid: 10faa5fd307623f4c9d54a027064af22, type: 3}
   resistances: []
@@ -603,6 +605,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 2500
   hp: 2500
+  regeneration: 1
   collisionDamageMult: 2
   deathFX: {fileID: 7675052303077851088, guid: 11d3be045654d674fa8426bc4748d9a8, type: 3}
   resistances:
@@ -622,30 +625,6 @@ MonoBehaviour:
   cannons:
   - {fileID: 1624438476817551320}
   - {fileID: 7044390091181408641}
-  weightFalloffCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
   stabilizationRate: 100
 --- !u!1 &2385347206975222811
 GameObject:
@@ -753,6 +732,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 600
   hp: 600
+  regeneration: 0
   collisionDamageMult: 1
   deathFX: {fileID: 7675052303077851088, guid: 10faa5fd307623f4c9d54a027064af22, type: 3}
   resistances: []
@@ -987,6 +967,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 300
   hp: 300
+  regeneration: 0
   collisionDamageMult: 1
   deathFX: {fileID: 7675052303077851088, guid: 10faa5fd307623f4c9d54a027064af22, type: 3}
   resistances: []
@@ -1131,6 +1112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 600
   hp: 600
+  regeneration: 0
   collisionDamageMult: 1
   deathFX: {fileID: 7675052303077851088, guid: 10faa5fd307623f4c9d54a027064af22, type: 3}
   resistances: []
@@ -1340,6 +1322,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 100
   hp: 100
+  regeneration: 0
   collisionDamageMult: 1
   deathFX: {fileID: 7675052303077851088, guid: 10faa5fd307623f4c9d54a027064af22, type: 3}
   resistances: []
@@ -1549,6 +1532,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 600
   hp: 600
+  regeneration: 0
   collisionDamageMult: 1
   deathFX: {fileID: 7675052303077851088, guid: 10faa5fd307623f4c9d54a027064af22, type: 3}
   resistances: []
@@ -1758,6 +1742,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 500
   hp: 500
+  regeneration: 0
   collisionDamageMult: 1
   deathFX: {fileID: 7675052303077851088, guid: 10faa5fd307623f4c9d54a027064af22, type: 3}
   resistances: []
@@ -1967,6 +1952,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 500
   hp: 500
+  regeneration: 0
   collisionDamageMult: 1
   deathFX: {fileID: 7675052303077851088, guid: 10faa5fd307623f4c9d54a027064af22, type: 3}
   resistances: []

@@ -2029,6 +2029,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   tracking: 0
+  overshoot: 1
   target: {fileID: 0}
   angleLimit: 300
   separationForceMult: 20
@@ -2049,7 +2050,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 2500
   hp: 2500
-  regeneration: 1
+  regeneration: 0.1
   collisionDamageMult: 2
   deathFX: {fileID: 7675052303077851088, guid: 11d3be045654d674fa8426bc4748d9a8, type: 3}
   resistances:

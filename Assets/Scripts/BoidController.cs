@@ -11,6 +11,7 @@ public class BoidController : MonoBehaviour
     public float visionRadius;
     public LayerMask visionMask;
     public bool tracking;
+    public float overshoot;
     public GameObject target;
     [Header("Movement Constraints")]
     [Range(0, 360)] public float angleLimit;
@@ -81,10 +82,13 @@ public class BoidController : MonoBehaviour
             steerForce += (avgCenter - (Vector2)transform.position) * cohesionForceMult;
         }
 
+        Vector2 goal = target.transform.position;
         // tracking
         if (tracking && target != null)
         {
-            steerForce += (Vector2)(target.transform.position - transform.position).normalized * (trackingForceMult + (nearby == 0 ? alignmentForceMult : 0));
+            if (target.TryGetComponent(out Rigidbody2D trb))
+                goal += trb.linearVelocity * overshoot;
+            steerForce += (goal - (Vector2)transform.position).normalized * (trackingForceMult + (nearby == 0 ? alignmentForceMult : 0));
         }
 
         // debug
@@ -104,8 +108,8 @@ public class BoidController : MonoBehaviour
             }
             if (tracking)
             {
-                Debug.DrawLine(transform.position, target.transform.position, Color.cyan);
-                DrawDebugCircle(target.transform.position, 0.3f, 30, Color.cyan);
+                Debug.DrawLine(transform.position, goal, Color.cyan);
+                DrawDebugCircle(goal, 0.3f, 30, Color.cyan);
             }
             if (angleLimit < 360)
             {
