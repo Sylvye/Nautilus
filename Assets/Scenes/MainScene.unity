@@ -355,7 +355,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e96cf87c97adfd8418c427e5caa537ff, type: 2}
+  - {fileID: 2100000, guid: cfdfdfdb11f0fc24ba6bb35b8a2db38c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -397,7 +397,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 999}
-  m_LocalScale: {x: 110, y: 110, z: 110}
+  m_LocalScale: {x: 150, y: 150, z: 150}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 519420032}
@@ -1387,7 +1387,7 @@ MonoBehaviour:
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 1
-  m_Antialiasing: 1
+  m_Antialiasing: 2
   m_AntialiasingQuality: 2
   m_StopNaN: 0
   m_Dithering: 0
@@ -1435,14 +1435,14 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.10652463
-    width: 0.4377565
-    height: 0.42609853
+    y: 0.013315579
+    width: 1
+    height: 0.9733688
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 18
+  orthographic size: 22.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1488,9 +1488,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ComponentVersion: 1
-  m_AssetsPPU: 20
-  m_RefResolutionX: 1440
-  m_RefResolutionY: 720
+  m_AssetsPPU: 8
+  m_RefResolutionX: 720
+  m_RefResolutionY: 360
   m_CropFrame: 4
   m_GridSnapping: 2
   m_FilterMode: 1
@@ -1513,7 +1513,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followSpeed: 10
   scaleSpeed: 5
-  ssFalloff: 1
+  ssFalloff: 10
 --- !u!1001 &528164284
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2043,14 +2043,6 @@ PrefabInstance:
     - target: {fileID: 5787360286355055545, guid: 14d4c30ee7b8ea947a67488f89eb6649, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7035198260009652906, guid: 14d4c30ee7b8ea947a67488f89eb6649, type: 3}
-      propertyPath: m_ConnectedAnchor.x
-      value: -0.375
-      objectReference: {fileID: 0}
-    - target: {fileID: 7147304492872676150, guid: 14d4c30ee7b8ea947a67488f89eb6649, type: 3}
-      propertyPath: m_ConnectedAnchor.x
-      value: 0.375
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3967,9 +3959,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.10652463
-    width: 0.4377565
-    height: 0.42609853
+    y: 0.013315579
+    width: 1
+    height: 0.9733688
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
