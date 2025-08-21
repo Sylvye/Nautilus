@@ -11,3 +11,7 @@ Inspiration from: Mosa Lina, Nova Drift, Wynncraft, and horseshoe crabs.
 
 ### Early alpha showcase:  
 [![Early alpha showcase](https://img.youtube.com/vi/aBHwH2TkjDs/0.jpg)](https://www.youtube.com/watch?v=aBHwH2TkjDs)
+
+### Nebulae showcase
+[![Nebulae showcase](https://img.youtube.com/vi/OTiHhaSnmUI/0.jpg)](https://www.youtube.com/watch?v=OTiHhaSnmUI)  
+(new as of previous showcase)
