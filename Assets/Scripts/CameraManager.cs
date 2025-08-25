@@ -8,6 +8,8 @@ public static class CameraManager
         map
     }
 
+    private static float prevTimeScale;
+
     public static Camera mainCamera = MainCameraController.main.GetComponent<Camera>();
     public static Camera mapCamera = MapCameraController.main.GetComponent<Camera>();
     public static CameraType cameraType = CameraType.main;
@@ -19,11 +21,14 @@ public static class CameraManager
         {
             mainCamera.enabled = true;
             mapCamera.enabled = false;
+            prevTimeScale = Time.timeScale;
+            Time.timeScale = 0;
         }
         else
         {
             mainCamera.enabled = false;
             mapCamera.enabled = true;
+            Time.timeScale = prevTimeScale;
         }
     }
 
@@ -33,11 +38,16 @@ public static class CameraManager
         {
             mainCamera.enabled = false;
             mapCamera.enabled = true;
+            cameraType = CameraType.map;
+            prevTimeScale = Time.timeScale;
+            Time.timeScale = 0;
         }
         else
         {
             mainCamera.enabled = true;
             mapCamera.enabled = false;
+            cameraType = CameraType.main;
+            Time.timeScale = prevTimeScale;
         }
     }
 }
