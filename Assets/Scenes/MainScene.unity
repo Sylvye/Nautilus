@@ -645,7 +645,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 50}
-  m_LocalScale: {x: 110, y: 110, z: 110}
+  m_LocalScale: {x: 110, y: 110, z: 0}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1831021365}
@@ -957,8 +957,8 @@ Transform:
   m_GameObject: {fileID: 310697115}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 32.29, y: 5.66, z: 0}
-  m_LocalScale: {x: 100, y: 100, z: 5}
+  m_LocalPosition: {x: 26, y: -4, z: 0}
+  m_LocalScale: {x: 150, y: 150, z: 7.5}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1424590367}
@@ -1184,9 +1184,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.10652463
-    width: 0.4377565
-    height: 0.42609853
+    y: 0.055893075
+    width: 1
+    height: 0.8882139
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -2530,7 +2530,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.2}
+  m_LocalScale: {x: 0.025, y: 0.025, z: 0.05}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 310697117}
@@ -3097,7 +3097,7 @@ Camera:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1831021359}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_ClearFlags: 2
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
@@ -3118,9 +3118,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.10652463
+    y: 0.09720535
     width: 0.4377565
-    height: 0.42609853
+    height: 0.3888214
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -3690,8 +3690,8 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 1831021365}
   - {fileID: 519420032}
+  - {fileID: 1831021365}
   - {fileID: 619394802}
   - {fileID: 2075273146}
   - {fileID: 669983899}
