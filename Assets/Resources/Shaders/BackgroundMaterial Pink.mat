@@ -47,15 +47,15 @@ Material:
     - _Galaxy_Noise_Scale: 4
     - _Galaxy_Offset_Mult: 0.0001
     - _Galaxy_Power: 5
-    - _Galaxy_Scale: 2
-    - _Galaxy_Size: 2
+    - _Galaxy_Scale: 4
+    - _Galaxy_Size: 4
     - _Galaxy_Star_Power: 1.2
     - _Galaxy_Step: 0.8
     - _Offset_Mult: 0.0001
     - _Power: 2
     - _Scale: 0
-    - _Shade_Scale: 1
-    - _Star_Density: 4
+    - _Shade_Scale: 2
+    - _Star_Density: 8
     - _Star_Offset_Mult: 0.0001
     - _Star_Step: 0.02
     - _Tile_Speed: 0.01

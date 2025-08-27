@@ -40,6 +40,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_662c9368728a40058937e4392409b28e_Texture_1_Texture2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_db83927545384af19d4756de230345b9_Texture_1_Texture2D:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -66,9 +70,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Thickness: 0.2
+    - _Grid_Size: 1
+    - _Size: 1
+    - _SubGrid_size: 2
+    - _Thickness: 0.01
     - _Zoom: 0
     m_Colors:
+    - _Grid_Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Subgrid_Color: {r: 0.47843137, g: 0.47843137, b: 0.47843137, a: 1}
     - _Tiling: {r: 1, g: 1, b: 0, a: 0}
     - _Whar: {r: 0.5, g: 0.5, b: 0, a: 0}
   m_BuildTextureStacks: []
