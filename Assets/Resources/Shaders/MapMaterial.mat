@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Map Material
+  m_Name: MapMaterial
   m_Shader: {fileID: -6465566751694194690, guid: 4f01edac160b77b4e837145199e430a3, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -70,9 +70,9 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Grid_Size: 1
+    - _Grid_Size: 0.25
     - _Size: 1
-    - _SubGrid_size: 2
+    - _SubGrid_size: 10
     - _Thickness: 0.01
     - _Zoom: 0
     m_Colors:

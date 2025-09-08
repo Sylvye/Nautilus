@@ -1,5 +1,6 @@
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Rendering.Universal;
 
 public class MapCameraController : MonoBehaviour
@@ -12,6 +13,10 @@ public class MapCameraController : MonoBehaviour
     private Vector2 refRes;
     private GameObject grid;
     private Vector3 gridOriginalScale;
+    private bool mouseDown;
+    private Camera c;
+    private Vector2 mDelta;
+    private Vector2 lastMPos;
 
     private void Awake()
     {
@@ -21,12 +26,17 @@ public class MapCameraController : MonoBehaviour
         refRes = new(ppc.refResolutionX, ppc.refResolutionY);
         grid = GameObject.Find("Grid");
         gridOriginalScale = grid.transform.localScale;
+        c = GetComponent<Camera>();
     }
 
     private void OnEnable()
     {
         inputActions.Enable();
         inputActions.UI.ScrollWheel.performed += scrl => zoomAmount += scrl.ReadValue<Vector2>().y * zoomSpeed;
+        inputActions.Player.Attack.performed += _ => mouseDown = true;
+        inputActions.Player.Attack.canceled += _ => mouseDown = false;
+        inputActions.Player.Look.performed += look => mDelta = look.ReadValue<Vector2>();
+        inputActions.Player.Look.canceled += _ => mDelta = Vector2.zero;
     }
 
     private void OnDisable()
@@ -45,8 +55,24 @@ public class MapCameraController : MonoBehaviour
                 ppc.refResolutionX = (int)(refRes.x * zoomAmount);
                 ppc.refResolutionY = (int)(refRes.y * zoomAmount);
                 grid.transform.localScale = gridOriginalScale * zoomAmount;
-                // TEMP: update grid scale value here
-                Debug.Log(zoomAmount);
+
+                if (mouseDown)
+                {
+                    Vector2 mPos = Mouse.current.position.ReadValue();
+                    Vector2 WMPos = c.ScreenToWorldPoint(mPos);
+                    Vector2 lastWMPos = c.ScreenToWorldPoint(lastMPos);
+
+                    transform.position += (Vector3)(lastWMPos - WMPos);
+
+                    lastMPos = mPos;
+                }
+                else
+                {
+                    lastMPos = Mouse.current.position.ReadValue();
+                }
+
+                    // TEMP: update grid scale value here
+                    Debug.Log(zoomAmount);
                 break;
         }
     }
