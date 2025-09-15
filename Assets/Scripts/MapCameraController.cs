@@ -32,7 +32,7 @@ public class MapCameraController : MonoBehaviour
     private void OnEnable()
     {
         inputActions.Enable();
-        inputActions.UI.ScrollWheel.performed += scrl => zoomAmount += scrl.ReadValue<Vector2>().y * zoomSpeed;
+        inputActions.UI.ScrollWheel.performed += scrl => zoomAmount = Mathf.Clamp(zoomAmount + scrl.ReadValue<Vector2>().y * -zoomSpeed, 1, 10);
         inputActions.Player.Attack.performed += _ => mouseDown = true;
         inputActions.Player.Attack.canceled += _ => mouseDown = false;
         inputActions.Player.Look.performed += look => mDelta = look.ReadValue<Vector2>();
@@ -52,9 +52,9 @@ public class MapCameraController : MonoBehaviour
                 transform.position = new Vector3(PlayerController.main.transform.position.x, PlayerController.main.transform.position.y, -100);
                 break;
             case CameraManager.CameraType.map:
-                ppc.refResolutionX = (int)(refRes.x * zoomAmount);
-                ppc.refResolutionY = (int)(refRes.y * zoomAmount);
-                grid.transform.localScale = gridOriginalScale * zoomAmount;
+                ppc.refResolutionX = (int)(refRes.x * (int)zoomAmount);
+                ppc.refResolutionY = (int)(refRes.y * (int)zoomAmount);
+                grid.transform.localScale = gridOriginalScale * (int)zoomAmount;
 
                 if (mouseDown)
                 {
