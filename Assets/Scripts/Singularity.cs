@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ForceApplier : MonoBehaviour
+public class Singularity : MonoBehaviour
 {
     public float radius;
     public bool invSqrLaw;
@@ -26,7 +26,7 @@ public class ForceApplier : MonoBehaviour
 
         foreach (Collider2D hit in hits)
         {
-            if (hit.TryGetComponent(out Rigidbody2D r))
+            if (hit.TryGetComponent(out Rigidbody2D r) && hit.gameObject != gameObject)
             {
                 Vector2 dir = transform.position - r.transform.position;
                 float str = strength * (invSqrLaw ? 1/Mathf.Pow(dir.magnitude, 2) : 1);

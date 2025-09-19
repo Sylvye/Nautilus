@@ -41,7 +41,7 @@ public class Body : MonoBehaviour
             hp -= amt;
             if (amt >= maxHP * 0.25f)
                 Debug.Log(transform.root.name + (transform.root.name == gameObject.name ? "" : "/" + gameObject.name) + ": Just took ~" + Mathf.Round(amt) + " damage!");
-            if (hp < 0)
+            if (hp <= 0)
             {
                 hp = 0;
                 return OnDeath();
