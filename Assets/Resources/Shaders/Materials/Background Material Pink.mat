@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BackgroundMaterial Blue
+  m_Name: Background Material Pink
   m_Shader: {fileID: -6465566751694194690, guid: 8d3b6166957711f4faddf4a7f370a671, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -47,15 +47,15 @@ Material:
     - _Galaxy_Noise_Scale: 4
     - _Galaxy_Offset_Mult: 0.0001
     - _Galaxy_Power: 5
-    - _Galaxy_Scale: 2
-    - _Galaxy_Size: 2
+    - _Galaxy_Scale: 4
+    - _Galaxy_Size: 4
     - _Galaxy_Star_Power: 1.2
     - _Galaxy_Step: 0.8
     - _Offset_Mult: 0.0001
     - _Power: 2
     - _Scale: 0
-    - _Shade_Scale: 1
-    - _Star_Density: 3
+    - _Shade_Scale: 2
+    - _Star_Density: 8
     - _Star_Offset_Mult: 0.0001
     - _Star_Step: 0.02
     - _Tile_Speed: 0.01
@@ -63,11 +63,11 @@ Material:
     - _CausticsColor: {r: 2, g: 2, b: 2, a: 1}
     - _Caustics_Color: {r: 2, g: 0.3490566, b: 1.0476235, a: 1}
     - _Color_1: {r: 0, g: 0.01303787, b: 0.03773582, a: 1}
-    - _Color_2: {r: 0.0039215675, g: 0.016115803, b: 0.039215688, a: 1}
-    - _Color_3: {r: 0.0020272874, g: 0, b: 0.14117648, a: 1}
-    - _Color_4: {r: 0, g: 0.1792453, b: 0.0364001, a: 1}
-    - _DGalaxy_Color: {r: 0.8997895, g: 0.7607843, b: 1.4980392, a: 1}
-    - _Galaxy_Color: {r: 0.36893263, g: 0.39977887, b: 1.5336025, a: 1}
+    - _Color_2: {r: 0.03773582, g: 0.0026699868, b: 0.018741833, a: 1}
+    - _Color_3: {r: 0.061012115, g: 0, b: 0.14150941, a: 1}
+    - _Color_4: {r: 0.066037714, g: 0, b: 0.0019422875, a: 1}
+    - _DGalaxy_Color: {r: 1.4980392, g: 0.7560859, b: 1.2641625, a: 1}
+    - _Galaxy_Color: {r: 1.1486983, g: 0.34135845, b: 0.5373827, a: 1}
     - _Galaxy_Scale: {r: 2, g: 1, b: 0, a: 0}
     - _Galaxy_Scale_1: {r: 1, g: 1, b: 0, a: 0}
     - _MainColor: {r: 0.54245275, g: 0.7907141, b: 1, a: 1}

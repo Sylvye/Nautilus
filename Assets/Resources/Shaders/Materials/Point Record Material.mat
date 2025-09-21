@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RecordMaterial
+  m_Name: Point Record Material
   m_Shader: {fileID: -6465566751694194690, guid: 7dc01ac863fc96f46b3fb244ff653bfd, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -24,6 +24,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -43,8 +47,8 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _Color_1: {r: 0.6933962, g: 0.8635973, b: 1, a: 1}
-    - _Color_2: {r: 0.3160377, g: 1, b: 0.7403564, a: 1}
+    - _Color_1: {r: 1, g: 0.65033126, b: 0.6084906, a: 1}
+    - _Color_2: {r: 1, g: 0.8584783, b: 0.4575472, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &1693485929036879790
