@@ -1,9 +1,10 @@
 # Nautilus
+###### *"sails like a vessel"*
 
 A 2D, waypoint-driven, bullet hell, biomechanical ship builder! (also an immersive sim!)
 (a mouthful, I know)
 
-Construct a vessel and traverse a beautiful yet eerie cosmic/marine environment. Track down signals to find and collect loot! Face intelligent biomechanical entities, mine resources, and slowly discover more about the alien world you are stuck in.
+Construct a vessel and traverse a beautiful yet eerie cosmic/marine environment. Track down signals to find POIs and uncover their stories! Encounter intelligent biomechanical entities, mine resources, and slowly discover more about the world you are sent to explore.
 
 But always remember, your human weaponry and defenses weren't designed with this environment in mind. Any encounter could result in significant damage to your hull, or worse.
 
