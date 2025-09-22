@@ -10,11 +10,18 @@ But always remember, your human weaponry and defenses weren't designed with this
 
 Inspiration from: Mosa Lina, Nova Drift, Wynncraft, and horseshoe crabs.
 
+## Showcases / sneak peaks
+
 ### Early alpha showcase video:  
 [![Early alpha showcase](https://img.youtube.com/vi/aBHwH2TkjDs/0.jpg)](https://www.youtube.com/watch?v=aBHwH2TkjDs)
 
 ### New nebulae showcase video
 [![Nebulae showcase](https://img.youtube.com/vi/OTiHhaSnmUI/0.jpg)](https://www.youtube.com/watch?v=OTiHhaSnmUI)
 
+## Screenshots
+
 ### Black Hole with accretion disk
 <img width="1783" height="884" alt="image" src="https://github.com/user-attachments/assets/5cb7837e-b03f-40fd-9e46-dcb270eb29b6" />
+
+<img width="1117" height="804" alt="image" src="https://github.com/user-attachments/assets/30820ca7-9e7b-41db-89a1-6e8c11aeb6e8" />
+
