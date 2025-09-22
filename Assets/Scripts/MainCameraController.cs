@@ -11,19 +11,19 @@ public class MainCameraController : MonoBehaviour
     public float ssFalloff;
     private float ssIntensity;
     private Vector2 lerpPos;
-    private Vector2 refRes;
+    private float startSize;
     private float targetSize;
     private float currentSize;
     private Transform playerTransform;
-    private PixelPerfectCamera ppc;
+    private Camera c;
     private Material backgroundMaterial;
 
     void Awake()
     {
         main = this;
         playerTransform = GameObject.FindWithTag("Player").transform;
-        ppc = GetComponent<PixelPerfectCamera>();
-        refRes = new Vector2(ppc.refResolutionX, ppc.refResolutionY);
+        c = GetComponent<Camera>();
+        startSize = c.orthographicSize;
         currentSize = 1;
         targetSize = 1;
         backgroundMaterial = GameObject.Find("Background").GetComponent<SpriteRenderer>().material;
@@ -53,7 +53,6 @@ public class MainCameraController : MonoBehaviour
 
     private void SetRefResolutionSize(float size)
     {
-        ppc.refResolutionX = (int)(refRes.x * size);
-        ppc.refResolutionY = (int)(refRes.y * size);
+        c.orthographicSize = startSize*size;
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,8 +10,8 @@ public class Body : MonoBehaviour
     public float collisionDamageMult;
     public GameObject deathFX;
     public List<Resistance> resistances;
-    public Collider2D col;
-    public Rigidbody2D rb;
+    [NonSerialized] public Collider2D col;
+    [NonSerialized] public Rigidbody2D rb;
 
     protected virtual void Awake()
     {
@@ -82,5 +83,11 @@ public class Body : MonoBehaviour
             Debug.Log(gameObject.name + ": Collided with " + collision.gameObject.name + "\nVelocity: " + collision.relativeVelocity.magnitude + ", Damage: ~" + Mathf.Round(damageAmount));
             other.DealDamage(new Damage(damageAmount, Damage.Type.Kinetic, this));
         }
+    }
+
+    private void OnValidate()
+    {
+        if (!Application.isPlaying)
+            hp = maxHP;
     }
 }

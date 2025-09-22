@@ -1,8 +1,7 @@
 using UnityEngine;
 
-public class DirectionRecord : MonoBehaviour, Record
+public class DirectionRecord : Record
 {
-    public Vector2 position;
     public float angle;
     public LineRenderer lr;
 

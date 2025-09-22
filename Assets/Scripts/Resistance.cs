@@ -18,6 +18,7 @@ public class Resistance
         mult = mlt;
     }
 
+    // resistances are "equal" if they have the same type
     public override bool Equals(Object obj)
     {
         if (obj == null || GetType() != obj.GetType())

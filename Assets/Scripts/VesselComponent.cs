@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -6,8 +7,8 @@ using UnityEngine;
 public abstract class VesselComponent : Body
 {
     public float respawnCooldown;
-    public bool respawning = false;
-    public Vessel parentVessel;
+    [NonSerialized] public bool respawning = false;
+    [NonSerialized] public Vessel parentVessel;
     protected Rigidbody2D vesselRB;
     private SpriteRenderer sr;
 
@@ -26,7 +27,7 @@ public abstract class VesselComponent : Body
         return true;
     }
 
-    public override List<Resistance> GetResists()
+    public override List<Resistance> GetResists() // rework this entirely
     {
         return parentVessel.resistances;
     }
@@ -34,11 +35,13 @@ public abstract class VesselComponent : Body
     private IEnumerator RespawnCoroutine()
     {
         sr.enabled = false;
-        col.enabled = false;
+        if (col != null)
+            col.enabled = false;
         respawning = true;
         yield return new WaitForSeconds(respawnCooldown);
         respawning = false;
         sr.enabled = true;
-        col.enabled = true;
+        if (col != null)
+            col.enabled = true;
     }
 }

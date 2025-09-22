@@ -1,8 +1,7 @@
 using UnityEngine;
 
-public class AreaRecord : MonoBehaviour, Record
+public class AreaRecord : Record
 {
-    public Vector2 position;
     public float radius;
 
     public void SetRadius(float r)

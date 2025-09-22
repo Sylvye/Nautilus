@@ -9,24 +9,22 @@ public class MapCameraController : MonoBehaviour
     public float zoomSpeed;
     private PlayerInputActions inputActions;
     private float zoomAmount = 1;
-    private PixelPerfectCamera ppc;
-    private Vector2 refRes;
+    private Camera c;
+    private float startSize;
     private GameObject grid;
     private Vector3 gridOriginalScale;
     private bool mouseDown;
-    private Camera c;
     private Vector2 mDelta;
     private Vector2 lastMPos;
 
     private void Awake()
     {
         main = this;
-        ppc = GetComponent<PixelPerfectCamera>();
         inputActions = new PlayerInputActions();
-        refRes = new(ppc.refResolutionX, ppc.refResolutionY);
         grid = GameObject.Find("Grid");
         gridOriginalScale = grid.transform.localScale;
         c = GetComponent<Camera>();
+        startSize = c.orthographicSize;
     }
 
     private void OnEnable()
@@ -52,9 +50,8 @@ public class MapCameraController : MonoBehaviour
                 transform.position = new Vector3(PlayerController.main.transform.position.x, PlayerController.main.transform.position.y, -100);
                 break;
             case CameraManager.CameraType.map:
-                ppc.refResolutionX = (int)(refRes.x * (int)zoomAmount);
-                ppc.refResolutionY = (int)(refRes.y * (int)zoomAmount);
-                grid.transform.localScale = gridOriginalScale * (int)zoomAmount;
+                c.orthographicSize = startSize * zoomAmount;
+                grid.transform.localScale = gridOriginalScale * zoomAmount;
 
                 if (mouseDown)
                 {
@@ -70,9 +67,6 @@ public class MapCameraController : MonoBehaviour
                 {
                     lastMPos = Mouse.current.position.ReadValue();
                 }
-
-                    // TEMP: update grid scale value here
-                    Debug.Log(zoomAmount);
                 break;
         }
     }

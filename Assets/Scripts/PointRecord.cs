@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PointRecord : MonoBehaviour, Record
+public class PointRecord : Record
 {
-    public Vector2 position;
+
 }

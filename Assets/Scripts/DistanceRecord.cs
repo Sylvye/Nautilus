@@ -1,8 +1,7 @@
 using UnityEngine;
 
-public class DistanceRecord : MonoBehaviour, Record
+public class DistanceRecord : Record
 {
-    public Vector2 position;
     public float radius;
 
     public void SetRadius(float r)
