@@ -7,6 +7,7 @@ public class MapCameraController : MonoBehaviour
 {
     public static MapCameraController main;
     public float zoomSpeed;
+    public Vector2 zoomClamp;
     private PlayerInputActions inputActions;
     private float zoomAmount = 1;
     private Camera c;
@@ -30,7 +31,7 @@ public class MapCameraController : MonoBehaviour
     private void OnEnable()
     {
         inputActions.Enable();
-        inputActions.UI.ScrollWheel.performed += scrl => zoomAmount = Mathf.Clamp(zoomAmount + scrl.ReadValue<Vector2>().y * -zoomSpeed, 1, 10);
+        inputActions.UI.ScrollWheel.performed += scrl => zoomAmount = Mathf.Clamp(zoomAmount + scrl.ReadValue<Vector2>().y * -zoomSpeed, zoomClamp.x, zoomClamp.y);
         inputActions.Player.Attack.performed += _ => mouseDown = true;
         inputActions.Player.Attack.canceled += _ => mouseDown = false;
         inputActions.Player.Look.performed += look => mDelta = look.ReadValue<Vector2>();

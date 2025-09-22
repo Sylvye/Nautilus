@@ -47,9 +47,10 @@ Material:
     - _Opacity: 0
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Radius: 1.114
+    - _Radius: 1.112
     - _Shade: 0.5
-    - _Thickness: 0.004
+    - _Smoothness: 1.001
+    - _Thickness: 0.005
     m_Colors:
     - _Color: {r: 0.86048764, g: 0.5801887, b: 1, a: 1}
     - _Color_1: {r: 0.68202424, g: 0.63529414, b: 1, a: 1}

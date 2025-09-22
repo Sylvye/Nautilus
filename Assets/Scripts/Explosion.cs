@@ -30,6 +30,7 @@ public class Explosion : MonoBehaviour
         if (shockwaveRadius > 0)
         {
             Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, shockwaveRadius, targets);
+            DrawDebugCircle(transform.position, shockwaveRadius, 30, Color.orange, 2);
             foreach (Collider2D hit in hits)
             {
                 if (hit != null && hit.TryGetComponent(out Body body))
@@ -41,5 +42,19 @@ public class Explosion : MonoBehaviour
             }
         }
         MainCameraController.main.ScreenShake(screenShakeIntensity);
+    }
+
+    private void DrawDebugCircle(Vector3 center, float radius, int segments, Color color, float time)
+    {
+        float angleStep = 360f / segments;
+        Vector3 previousPoint = center + new Vector3(Mathf.Cos(0), Mathf.Sin(0), 0) * radius;
+
+        for (int i = 1; i <= segments; i++)
+        {
+            float angle = angleStep * i * Mathf.Deg2Rad;
+            Vector3 nextPoint = center + new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0) * radius;
+            Debug.DrawLine(previousPoint, nextPoint, color);
+            previousPoint = nextPoint;
+        }
     }
 }

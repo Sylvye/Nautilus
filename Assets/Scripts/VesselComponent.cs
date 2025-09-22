@@ -7,6 +7,8 @@ using UnityEngine;
 public abstract class VesselComponent : Body
 {
     public float respawnCooldown;
+    public bool componentCollisions;
+    public bool parentCollisions;
     [NonSerialized] public bool respawning = false;
     [NonSerialized] public Vessel parentVessel;
     protected Rigidbody2D vesselRB;
@@ -20,16 +22,50 @@ public abstract class VesselComponent : Body
         parentVessel = GetComponentInParent<Vessel>();
     }
 
+    protected virtual void Start()
+    {
+        if (!componentCollisions)
+        {
+            for (int i = 0; i < parentVessel.transform.childCount; i++)
+            {
+                Transform t = parentVessel.transform.GetChild(i);
+                if (t.TryGetComponent(out Collider2D cc))
+                {
+                    Physics2D.IgnoreCollision(col, cc);
+                }
+            }
+        }
+
+        if (!parentCollisions && TryGetComponent(out Collider2D c))
+        {
+            Physics2D.IgnoreCollision(col, c);
+        }
+
+        List<Resistance> resistanceProducts = new();
+        foreach (Resistance r in resistances)
+        {
+            Resistance newR = new Resistance(r.type, r.mult);
+
+            Predicate<Resistance> predR = x => x.type == r.type;
+            if (resistances.Exists(predR))
+            {
+                Resistance r2 = resistances.Find(predR);
+                if (r2.inherit)
+                    newR.mult *= r2.mult;
+            }
+
+            resistanceProducts.Add(newR);
+        }
+    }
+
     public override bool OnDeath()
     {
         SpawnDeathFX();
-        StartCoroutine(RespawnCoroutine());
+        if (respawnCooldown > 0)
+            StartCoroutine(RespawnCoroutine());
+        else
+            Destroy(gameObject);
         return true;
-    }
-
-    public override List<Resistance> GetResists() // rework this entirely
-    {
-        return parentVessel.resistances;
     }
 
     private IEnumerator RespawnCoroutine()
@@ -43,5 +79,6 @@ public abstract class VesselComponent : Body
         sr.enabled = true;
         if (col != null)
             col.enabled = true;
+        hp = maxHP;
     }
 }

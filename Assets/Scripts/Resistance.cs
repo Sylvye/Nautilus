@@ -5,6 +5,7 @@ public class Resistance
 {
     public Damage.Type type;
     public float mult;
+    public bool inherit;
 
     public Resistance(Damage.Type typ)
     {

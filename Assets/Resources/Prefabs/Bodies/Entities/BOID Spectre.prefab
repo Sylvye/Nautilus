@@ -82,7 +82,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.69655627, g: 0.52910286, b: 0.7735849, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -110,11 +110,9 @@ MonoBehaviour:
   collisionDamageMult: 1
   deathFX: {fileID: 7675052303077851088, guid: 10faa5fd307623f4c9d54a027064af22, type: 3}
   resistances: []
-  col: {fileID: 0}
-  rb: {fileID: 0}
   respawnCooldown: 8
-  respawning: 0
-  parentVessel: {fileID: 0}
+  componentCollisions: 0
+  parentCollisions: 0
   power: 2
   forceMult: 1
   fireFX: {fileID: 7152980713265707005}
@@ -134,7 +132,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 0
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -295,7 +293,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: bdbb3b18e9b91e04c98ecba949d2916c, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9101002, g: 0.7122642, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -414,6 +412,7 @@ MonoBehaviour:
   overshoot: 0.1
   target: {fileID: 0}
   angleLimit: 120
+  stabilize: 1
   separationForceMult: 10
   alignmentForceMult: 10
   cohesionForceMult: 1
@@ -438,10 +437,10 @@ MonoBehaviour:
   resistances:
   - type: 3
     mult: 0.4
+    inherit: 1
   - type: 1
     mult: 1.5
-  col: {fileID: 0}
-  rb: {fileID: 0}
+    inherit: 1
   attacking: 0
   thrusters:
   - {fileID: 6311982887523665104}
@@ -532,7 +531,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.69655627, g: 0.52910286, b: 0.7735849, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -560,11 +559,9 @@ MonoBehaviour:
   collisionDamageMult: 1
   deathFX: {fileID: 7675052303077851088, guid: 10faa5fd307623f4c9d54a027064af22, type: 3}
   resistances: []
-  col: {fileID: 0}
-  rb: {fileID: 0}
   respawnCooldown: 8
-  respawning: 0
-  parentVessel: {fileID: 0}
+  componentCollisions: 0
+  parentCollisions: 0
   power: 4
   forceMult: 1
   fireFX: {fileID: 3400199846239546889}
@@ -584,7 +581,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 0
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -742,7 +739,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.69655627, g: 0.52910286, b: 0.7735849, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -770,11 +767,9 @@ MonoBehaviour:
   collisionDamageMult: 1
   deathFX: {fileID: 7675052303077851088, guid: 10faa5fd307623f4c9d54a027064af22, type: 3}
   resistances: []
-  col: {fileID: 0}
-  rb: {fileID: 0}
   respawnCooldown: 8
-  respawning: 0
-  parentVessel: {fileID: 0}
+  componentCollisions: 0
+  parentCollisions: 0
   power: 4
   forceMult: 1
   fireFX: {fileID: 622653485131057541}
@@ -794,7 +789,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 0
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -952,7 +947,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.69655627, g: 0.52910286, b: 0.7735849, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -980,11 +975,9 @@ MonoBehaviour:
   collisionDamageMult: 1
   deathFX: {fileID: 7675052303077851088, guid: 10faa5fd307623f4c9d54a027064af22, type: 3}
   resistances: []
-  col: {fileID: 0}
-  rb: {fileID: 0}
   respawnCooldown: 8
-  respawning: 0
-  parentVessel: {fileID: 0}
+  componentCollisions: 0
+  parentCollisions: 0
   power: 2
   forceMult: 1
   fireFX: {fileID: 2813425100605630153}
@@ -1004,7 +997,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 0
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2

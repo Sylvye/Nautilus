@@ -4908,6 +4908,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseDamage: 5
   type: 3
+  source: {fileID: 0}
 --- !u!114 &6529821505216854410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4926,6 +4927,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 192
   shockwaveRadius: 2
-  shockwavePower: 1
+  shockwavePower: 50
   shockwaveDamage: 0
   screenShakeIntensity: 0.01

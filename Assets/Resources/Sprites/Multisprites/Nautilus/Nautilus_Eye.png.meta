@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e90569bef3817ee46be095714f82a413
+guid: 336606aea3d8631499b00b222cc46eaa
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6923538443862618162
-    second: NautilusEye_0
+      213: -4403237296993187124
+    second: Nautilus_Eye_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: NautilusEye_0
+      name: Nautilus_Eye_0
       rect:
         serializedVersion: 2
-        x: 439
-        y: 386
-        width: 291
-        height: 291
+        x: 7
+        y: 7
+        width: 334
+        height: 334
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 230313f3889551060800000000000000
-      internalID: 6923538443862618162
+      spriteID: cca48faf10f84e2c0800000000000000
+      internalID: -4403237296993187124
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      NautilusEye_0: 6923538443862618162
+      Nautilus_Eye_0: -4403237296993187124
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

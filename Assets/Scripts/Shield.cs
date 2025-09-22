@@ -10,8 +10,9 @@ public class Shield : VesselComponent
         rb = GetComponent<Rigidbody2D>();
     }
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         rb.angularDamping = 0;
         rb.angularVelocity = angularVelocity;
     }

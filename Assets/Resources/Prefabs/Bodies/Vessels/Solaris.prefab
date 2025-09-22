@@ -110,11 +110,9 @@ MonoBehaviour:
   collisionDamageMult: 1
   deathFX: {fileID: 7675052303077851088, guid: 10faa5fd307623f4c9d54a027064af22, type: 3}
   resistances: []
-  col: {fileID: 0}
-  rb: {fileID: 0}
   respawnCooldown: 5
-  respawning: 0
-  parentVessel: {fileID: 0}
+  componentCollisions: 0
+  parentCollisions: 0
   power: 2
   forceMult: 1
   fireFX: {fileID: 7801838259666970613}
@@ -134,7 +132,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 0
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -443,9 +441,8 @@ MonoBehaviour:
   deathFX: {fileID: 7675052303077851088, guid: 0879b12cdcf2f79498e72fae81cc929a, type: 3}
   resistances:
   - type: 3
-    mult: 0.5
-  col: {fileID: 0}
-  rb: {fileID: 0}
+    mult: 0.4
+    inherit: 1
   attacking: 0
   thrusters:
   - {fileID: 1672901161825238495}
@@ -564,11 +561,9 @@ MonoBehaviour:
   collisionDamageMult: 1
   deathFX: {fileID: 7675052303077851088, guid: 10faa5fd307623f4c9d54a027064af22, type: 3}
   resistances: []
-  col: {fileID: 0}
-  rb: {fileID: 0}
   respawnCooldown: 5
-  respawning: 0
-  parentVessel: {fileID: 0}
+  componentCollisions: 0
+  parentCollisions: 0
   power: 4
   forceMult: 1
   fireFX: {fileID: 2591816412934691066}
@@ -588,7 +583,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 0
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -826,11 +821,9 @@ MonoBehaviour:
   collisionDamageMult: 1
   deathFX: {fileID: 7675052303077851088, guid: 10faa5fd307623f4c9d54a027064af22, type: 3}
   resistances: []
-  col: {fileID: 0}
-  rb: {fileID: 0}
   respawnCooldown: 0
-  respawning: 0
-  parentVessel: {fileID: 0}
+  componentCollisions: 0
+  parentCollisions: 0
   mouseAim: 1
   ps: {fileID: 7437977057495477402}
   rate: 20
@@ -945,11 +938,9 @@ MonoBehaviour:
   collisionDamageMult: 1
   deathFX: {fileID: 7675052303077851088, guid: 10faa5fd307623f4c9d54a027064af22, type: 3}
   resistances: []
-  col: {fileID: 0}
-  rb: {fileID: 0}
   respawnCooldown: 5
-  respawning: 0
-  parentVessel: {fileID: 0}
+  componentCollisions: 0
+  parentCollisions: 0
   power: 2
   forceMult: 1
   fireFX: {fileID: 8240924573875341051}
@@ -969,7 +960,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 0
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2

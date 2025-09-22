@@ -1,34 +1,34 @@
 fileFormatVersion: 2
-guid: 619958f1a1cd7c74d83c5a103ce724e3
+guid: 407af6dcc2e1ac44d85e13e3be5734a2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2331706376379968387
-    second: NautilusMarkings_0
+      213: -7948194837032574428
+    second: Nautilus_Markings_0
   - first:
-      213: 2639309540353544920
-    second: NautilusMarkings_1
+      213: 5378499865954605960
+    second: Nautilus_Markings_1
   - first:
-      213: -6112419596836486544
-    second: NautilusMarkings_2
+      213: -4278079556740946957
+    second: Nautilus_Markings_2
   - first:
-      213: 757668230222671411
-    second: NautilusMarkings_3
+      213: -5160318053860844232
+    second: Nautilus_Markings_3
   - first:
-      213: -3839977310836267855
-    second: NautilusMarkings_4
+      213: -2777632003188901745
+    second: Nautilus_Markings_4
   - first:
-      213: -8187873656441158586
-    second: NautilusMarkings_5
+      213: 3015319939239783132
+    second: Nautilus_Markings_5
   - first:
-      213: 1159533611350365903
-    second: NautilusMarkings_6
+      213: -4154874289129646335
+    second: Nautilus_Markings_6
   - first:
-      213: -8778267428957771413
-    second: NautilusMarkings_7
+      213: 905314742576886727
+    second: Nautilus_Markings_7
   - first:
-      213: 7706775066304155158
-    second: NautilusMarkings_8
+      213: -4540729438889518714
+    second: Nautilus_Markings_8
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -124,13 +124,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: NautilusMarkings_0
+      name: Nautilus_Markings_0
       rect:
         serializedVersion: 2
-        x: 24
-        y: 665
-        width: 266
-        height: 111
+        x: 28
+        y: 741
+        width: 307
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,20 +139,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 38b24ac6892eb5020800000000000000
-      internalID: 2331706376379968387
+      spriteID: 422641538e652b190800000000000000
+      internalID: -7948194837032574428
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NautilusMarkings_1
+      name: Nautilus_Markings_1
       rect:
         serializedVersion: 2
-        x: 160
-        y: 642
-        width: 234
-        height: 269
+        x: 185
+        y: 715
+        width: 269
+        height: 310
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,20 +161,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8d292151b06b0a420800000000000000
-      internalID: 2639309540353544920
+      spriteID: 88bd5bea12544aa40800000000000000
+      internalID: 5378499865954605960
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NautilusMarkings_2
+      name: Nautilus_Markings_2
       rect:
         serializedVersion: 2
-        x: 307
-        y: 711
-        width: 95
-        height: 278
+        x: 354
+        y: 794
+        width: 110
+        height: 321
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -183,20 +183,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 072cc6cf2c25c2ba0800000000000000
-      internalID: -6112419596836486544
+      spriteID: 3f368933f4531a4c0800000000000000
+      internalID: -4278079556740946957
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NautilusMarkings_3
+      name: Nautilus_Markings_3
       rect:
         serializedVersion: 2
-        x: 425
-        y: 658
-        width: 132
-        height: 265
+        x: 491
+        y: 734
+        width: 151
+        height: 306
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -205,20 +205,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 33e6508bd37c38a00800000000000000
-      internalID: 757668230222671411
+      spriteID: 83dd69f021ed268b0800000000000000
+      internalID: -5160318053860844232
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NautilusMarkings_4
+      name: Nautilus_Markings_4
       rect:
         serializedVersion: 2
         x: 4
-        y: 607
-        width: 402
-        height: 81
+        y: 675
+        width: 464
+        height: 93
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -227,20 +227,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1b46b0a1bf8a5bac0800000000000000
-      internalID: -3839977310836267855
+      spriteID: f883b2dd86ed379d0800000000000000
+      internalID: -2777632003188901745
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NautilusMarkings_5
+      name: Nautilus_Markings_5
       rect:
         serializedVersion: 2
-        x: 7
-        y: 462
-        width: 354
-        height: 130
+        x: 8
+        y: 508
+        width: 409
+        height: 149
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -249,20 +249,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 644cb0a6a44de5e80800000000000000
-      internalID: -8187873656441158586
+      spriteID: cda2a86428198d920800000000000000
+      internalID: 3015319939239783132
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NautilusMarkings_6
+      name: Nautilus_Markings_6
       rect:
         serializedVersion: 2
-        x: 46
-        y: 294
-        width: 350
-        height: 303
+        x: 54
+        y: 313
+        width: 403
+        height: 350
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -271,20 +271,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fc61aa11dad771010800000000000000
-      internalID: 1159533611350365903
+      spriteID: 1071606f8dbe656c0800000000000000
+      internalID: -4154874289129646335
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NautilusMarkings_7
+      name: Nautilus_Markings_7
       rect:
         serializedVersion: 2
-        x: 177
-        y: 179
-        width: 172
-        height: 303
+        x: 204
+        y: 180
+        width: 199
+        height: 350
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -293,20 +293,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b69279958445d2680800000000000000
-      internalID: -8778267428957771413
+      spriteID: 7c3383936f2509c00800000000000000
+      internalID: 905314742576886727
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NautilusMarkings_8
+      name: Nautilus_Markings_8
       rect:
         serializedVersion: 2
-        x: 338
-        y: 25
-        width: 81
-        height: 487
+        x: 390
+        y: 3
+        width: 93
+        height: 562
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -315,8 +315,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 61e85ee2717f3fa60800000000000000
-      internalID: 7706775066304155158
+      spriteID: 689d4d512a61cf0c0800000000000000
+      internalID: -4540729438889518714
       vertices: []
       indices: 
       edges: []
@@ -335,15 +335,15 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      NautilusMarkings_0: 2331706376379968387
-      NautilusMarkings_1: 2639309540353544920
-      NautilusMarkings_2: -6112419596836486544
-      NautilusMarkings_3: 757668230222671411
-      NautilusMarkings_4: -3839977310836267855
-      NautilusMarkings_5: -8187873656441158586
-      NautilusMarkings_6: 1159533611350365903
-      NautilusMarkings_7: -8778267428957771413
-      NautilusMarkings_8: 7706775066304155158
+      Nautilus_Markings_0: -7948194837032574428
+      Nautilus_Markings_1: 5378499865954605960
+      Nautilus_Markings_2: -4278079556740946957
+      Nautilus_Markings_3: -5160318053860844232
+      Nautilus_Markings_4: -2777632003188901745
+      Nautilus_Markings_5: 3015319939239783132
+      Nautilus_Markings_6: -4154874289129646335
+      Nautilus_Markings_7: 905314742576886727
+      Nautilus_Markings_8: -4540729438889518714
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

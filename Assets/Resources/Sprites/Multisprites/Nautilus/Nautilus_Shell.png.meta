@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 210ed4e2f97de9d48a89d5d6de1c0b53
+guid: 59b9a5041768b4c4f8ea41013a5bbc31
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8014873699804329151
-    second: NautilusHood_0
+      213: 2197029466092777330
+    second: Nautilus_Shell_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: NautilusHood_0
+      name: Nautilus_Shell_0
       rect:
         serializedVersion: 2
-        x: 412
-        y: 521
-        width: 596
-        height: 385
+        x: 6
+        y: 6
+        width: 1066
+        height: 1097
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 14bca8ba5d275c090800000000000000
-      internalID: -8014873699804329151
+      spriteID: 27fa687b8aa6d7e10800000000000000
+      internalID: 2197029466092777330
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      NautilusHood_0: -8014873699804329151
+      Nautilus_Shell_0: 2197029466092777330
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

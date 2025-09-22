@@ -16,6 +16,7 @@ public class BoidController : MonoBehaviour
     [Header("Movement Constraints")]
     [Range(0, 360)] public float angleLimit;
     [Header("Boid constraints")]
+    public bool stabilize = true;
     public float separationForceMult;
     public float alignmentForceMult;
     public float cohesionForceMult;
@@ -25,6 +26,12 @@ public class BoidController : MonoBehaviour
     private void Awake()
     {
         v = GetComponent<Vessel>();
+    }
+
+    private void Start()
+    {
+        if (target == null)
+            target = GameObject.FindWithTag("Player");
     }
 
     private void FixedUpdate()
@@ -140,7 +147,7 @@ public class BoidController : MonoBehaviour
                     Debug.DrawLine(transform.position, transform.position + (Vector3)AngleHelper.DegreesToVector(AngleHelper.VectorToDegrees(clampedLocalSteerDir) + transform.eulerAngles.z) * 2, Color.red);
             }
 
-            if (Mathf.Sin(AngleHelper.VectorToRadians(localSteer)) > 0.8f)
+            if (stabilize && Mathf.Sin(AngleHelper.VectorToRadians(localSteer)) > 0.8f)
             {
                 v.Stabilize();
             }

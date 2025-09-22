@@ -100,5 +100,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13d520c0da0396f46819f3ae0ce3846b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  position: {x: 0, y: 0}
+  m: {fileID: 0}
+  zOffset: -1
   radius: 10

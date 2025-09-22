@@ -38,10 +38,8 @@ public class Body : MonoBehaviour
     {
         if (hp > 0)
         {
-            float amt = amount.Evaluate(GetResists());
+            float amt = amount.Evaluate(resistances);
             hp -= amt;
-            if (amt >= maxHP * 0.25f)
-                Debug.Log(transform.root.name + (transform.root.name == gameObject.name ? "" : "/" + gameObject.name) + ": Just took ~" + Mathf.Round(amt) + " damage!");
             if (hp <= 0)
             {
                 hp = 0;
@@ -59,6 +57,13 @@ public class Body : MonoBehaviour
     {
         SpawnDeathFX();
         Destroy(gameObject);
+        foreach (Transform t in transform)
+        {
+            if (t.TryGetComponent(out Body b))
+            {
+                b.OnDeath();
+            }
+        }
         return true;
     }
 
@@ -70,17 +75,12 @@ public class Body : MonoBehaviour
         }
     }
 
-    public virtual List<Resistance> GetResists()
-    {
-        return resistances;
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider != null && collision.gameObject.TryGetComponent(out Body other))
         {
             float damageAmount = collision.relativeVelocity.magnitude * rb.mass * collisionDamageMult;
-            Debug.Log(gameObject.name + ": Collided with " + collision.gameObject.name + "\nVelocity: " + collision.relativeVelocity.magnitude + ", Damage: ~" + Mathf.Round(damageAmount));
+            Debug.Log(gameObject.name + ": Collided with " + collision.gameObject.name + "\nVelocity: " + collision.relativeVelocity.magnitude + ", Damage dealt: ~" + Mathf.Round(damageAmount));
             other.DealDamage(new Damage(damageAmount, Damage.Type.Kinetic, this));
         }
     }

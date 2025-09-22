@@ -110,11 +110,9 @@ MonoBehaviour:
   collisionDamageMult: 1
   deathFX: {fileID: 7675052303077851088, guid: 10faa5fd307623f4c9d54a027064af22, type: 3}
   resistances: []
-  col: {fileID: 0}
-  rb: {fileID: 0}
   respawnCooldown: 8
-  respawning: 0
-  parentVessel: {fileID: 0}
+  componentCollisions: 0
+  parentCollisions: 0
   power: 4
   forceMult: 1
   fireFX: {fileID: 4565980185431496899}
@@ -134,7 +132,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 0
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -320,11 +318,9 @@ MonoBehaviour:
   collisionDamageMult: 1
   deathFX: {fileID: 7675052303077851088, guid: 10faa5fd307623f4c9d54a027064af22, type: 3}
   resistances: []
-  col: {fileID: 0}
-  rb: {fileID: 0}
   respawnCooldown: 8
-  respawning: 0
-  parentVessel: {fileID: 0}
+  componentCollisions: 0
+  parentCollisions: 0
   power: 2
   forceMult: 1
   fireFX: {fileID: 4920730705383377855}
@@ -344,7 +340,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 0
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -633,10 +629,10 @@ MonoBehaviour:
   resistances:
   - type: 3
     mult: 0.4
+    inherit: 1
   - type: 1
     mult: 1.5
-  col: {fileID: 0}
-  rb: {fileID: 0}
+    inherit: 1
   attacking: 0
   thrusters:
   - {fileID: 6620569857471036670}
@@ -755,11 +751,9 @@ MonoBehaviour:
   collisionDamageMult: 1
   deathFX: {fileID: 7675052303077851088, guid: 10faa5fd307623f4c9d54a027064af22, type: 3}
   resistances: []
-  col: {fileID: 0}
-  rb: {fileID: 0}
   respawnCooldown: 8
-  respawning: 0
-  parentVessel: {fileID: 0}
+  componentCollisions: 0
+  parentCollisions: 0
   power: 2
   forceMult: 1
   fireFX: {fileID: 2591816412934691066}
@@ -779,7 +773,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 0
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -965,11 +959,9 @@ MonoBehaviour:
   collisionDamageMult: 1
   deathFX: {fileID: 7675052303077851088, guid: 10faa5fd307623f4c9d54a027064af22, type: 3}
   resistances: []
-  col: {fileID: 0}
-  rb: {fileID: 0}
   respawnCooldown: 8
-  respawning: 0
-  parentVessel: {fileID: 0}
+  componentCollisions: 0
+  parentCollisions: 0
   power: 4
   forceMult: 1
   fireFX: {fileID: 5573749303108101990}
@@ -989,7 +981,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 0
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
