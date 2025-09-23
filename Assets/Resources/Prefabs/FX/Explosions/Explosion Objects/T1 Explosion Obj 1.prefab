@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5384380366588508688}
   - component: {fileID: 6529821505216854410}
   m_Layer: 2
-  m_Name: Spark Explosion Obj
+  m_Name: T1 Explosion Obj 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -753,7 +753,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 1
+      value: 0.5
       mode: 0
       spread: 0
       speed:
@@ -4921,12 +4921,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 562117393ebf4ed428d2c17081a78b44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: ad20f534bab06b240a0042c14b31bc9e, type: 2}
+  data: {fileID: 11400000, guid: f4a073bd0dd8a2548804b09b40917ac0, type: 2}
   ps: {fileID: 0}
   targets:
     serializedVersion: 2
     m_Bits: 192
-  shockwaveRadius: 0
-  shockwavePower: 0
+  shockwaveRadius: 2
+  shockwavePower: 50
   shockwaveDamage: 0
   screenShakeIntensity: 0.01

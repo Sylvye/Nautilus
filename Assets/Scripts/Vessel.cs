@@ -41,13 +41,16 @@ public class Vessel : Body
         //Debug.DrawLine(transform.position, transform.position + (Vector3)AngleHelper.DegreesToVector(desiredAngle + rotationOffset) * 2, Color.blue);
         foreach (Thruster t in thrusters)
         {
-            float thrusterAngle = AngleHelper.VectorToDegrees(-t.transform.localPosition);
-
-            float difference = Mathf.Abs(Mathf.DeltaAngle(desiredAngle, thrusterAngle));
-            if (difference < 90)
+            if (t != null)
             {
-                float power = Mathf.Cos(difference * Mathf.Deg2Rad) * mult;
-                t.Activate(power);
+                float thrusterAngle = AngleHelper.VectorToDegrees(-t.transform.localPosition);
+
+                float difference = Mathf.Abs(Mathf.DeltaAngle(desiredAngle, thrusterAngle));
+                if (difference < 90)
+                {
+                    float power = Mathf.Cos(difference * Mathf.Deg2Rad) * mult;
+                    t.Activate(power);
+                }
             }
         }
     }

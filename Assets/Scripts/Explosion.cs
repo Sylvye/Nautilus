@@ -53,7 +53,7 @@ public class Explosion : MonoBehaviour
         {
             float angle = angleStep * i * Mathf.Deg2Rad;
             Vector3 nextPoint = center + new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0) * radius;
-            Debug.DrawLine(previousPoint, nextPoint, color);
+            Debug.DrawLine(previousPoint, nextPoint, color, time);
             previousPoint = nextPoint;
         }
     }

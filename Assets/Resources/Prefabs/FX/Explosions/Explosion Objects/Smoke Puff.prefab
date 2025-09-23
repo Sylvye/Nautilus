@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5384380366588508688}
   - component: {fileID: 6529821505216854410}
   m_Layer: 2
-  m_Name: T1 Explosion Obj
+  m_Name: Smoke Puff
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4926,7 +4926,7 @@ MonoBehaviour:
   targets:
     serializedVersion: 2
     m_Bits: 192
-  shockwaveRadius: 2
-  shockwavePower: 50
+  shockwaveRadius: 0
+  shockwavePower: 0
   shockwaveDamage: 0
-  screenShakeIntensity: 0.01
+  screenShakeIntensity: 0

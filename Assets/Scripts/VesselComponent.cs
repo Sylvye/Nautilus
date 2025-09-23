@@ -26,9 +26,9 @@ public abstract class VesselComponent : Body
     {
         if (!componentCollisions)
         {
-            for (int i = 0; i < parentVessel.transform.childCount; i++)
+            for (int i = 0; i < transform.parent.childCount; i++)
             {
-                Transform t = parentVessel.transform.GetChild(i);
+                Transform t = transform.parent.GetChild(i);
                 if (t.TryGetComponent(out Collider2D cc))
                 {
                     Physics2D.IgnoreCollision(col, cc);
@@ -61,6 +61,7 @@ public abstract class VesselComponent : Body
     public override bool OnDeath()
     {
         SpawnDeathFX();
+        KillChildren();
         if (respawnCooldown > 0)
             StartCoroutine(RespawnCoroutine());
         else

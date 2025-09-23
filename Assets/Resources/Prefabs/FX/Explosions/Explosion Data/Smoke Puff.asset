@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 79c9c600f06c58e4ab9378d9a73ce73a, type: 3}
-  m_Name: T3 Explosion
+  m_Name: Smoke Puff
   m_EditorClassIdentifier: 
-  damage: 30
-  speedRange: {x: 0, y: 40}
-  particles: 500
+  damage: 0
+  speedRange: {x: 0, y: 1}
+  particles: 100

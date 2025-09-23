@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79c9c600f06c58e4ab9378d9a73ce73a, type: 3}
   m_Name: T1 Explosion
   m_EditorClassIdentifier: 
-  damage: 5
-  speedRange: {x: 0, y: 1}
+  damage: 10
+  speedRange: {x: 0, y: 15}
   particles: 100

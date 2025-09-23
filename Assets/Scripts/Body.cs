@@ -57,14 +57,20 @@ public class Body : MonoBehaviour
     {
         SpawnDeathFX();
         Destroy(gameObject);
+        KillChildren();
+        return true;
+    }
+
+    protected void KillChildren()
+    {
         foreach (Transform t in transform)
         {
             if (t.TryGetComponent(out Body b))
             {
                 b.OnDeath();
+                Debug.Log(b.name + " was killed as a result of " + name + "'s death");
             }
         }
-        return true;
     }
 
     public void SpawnDeathFX()
@@ -80,7 +86,8 @@ public class Body : MonoBehaviour
         if (collision.collider != null && collision.gameObject.TryGetComponent(out Body other))
         {
             float damageAmount = collision.relativeVelocity.magnitude * rb.mass * collisionDamageMult;
-            Debug.Log(gameObject.name + ": Collided with " + collision.gameObject.name + "\nVelocity: " + collision.relativeVelocity.magnitude + ", Damage dealt: ~" + Mathf.Round(damageAmount));
+            //if (Mathf.Round(damageAmount) > 0)
+            //    Debug.Log(gameObject.name + ": Collided with " + collision.gameObject.name + "\nVelocity: " + collision.relativeVelocity.magnitude + ", Damage dealt: ~" + Mathf.Round(damageAmount));
             other.DealDamage(new Damage(damageAmount, Damage.Type.Kinetic, this));
         }
     }
