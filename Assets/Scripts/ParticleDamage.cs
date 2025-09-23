@@ -29,7 +29,7 @@ public class ParticleDamage : MonoBehaviour
             for (int i = 0; i < eventCount; i++)
             {
                 float speed = collisionEvents[i].velocity.magnitude;
-                float damage = baseDamage * speed * 0.01f;
+                float damage = baseDamage * speed * 0.02f;
 
                 body.DealDamage(new Damage(damage, type));
             }

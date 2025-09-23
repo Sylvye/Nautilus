@@ -2,18 +2,24 @@ using UnityEngine;
 using System.Collections;
 
 using System.Collections.Generic;
+using System.Linq;
 
 public class Vessel : Body
 {
     public bool attacking;
-    public List<Thruster> thrusters;
-    public List<Cannon> cannons;
-    //public AnimationCurve weightFalloffCurve;
     public float stabilizationRate;
+    protected List<Thruster> thrusters;
+    protected List<Cannon> cannons;
 
     protected override void Awake()
     {
         base.Awake();
+    }
+
+    protected virtual void Start()
+    {
+        thrusters = GetComponentsInChildren<Thruster>().ToList();
+        cannons = GetComponentsInChildren<Cannon>().ToList();
     }
 
     protected override void FixedUpdate()

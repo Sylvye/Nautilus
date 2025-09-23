@@ -7,8 +7,8 @@ using UnityEngine;
 public abstract class VesselComponent : Body
 {
     public float respawnCooldown;
-    public bool componentCollisions;
-    public bool parentCollisions;
+    public Collider2D[] doNotCollide;
+    public bool ignoreCollisionsWithTag;
     [NonSerialized] public bool respawning = false;
     [NonSerialized] public Vessel parentVessel;
     protected Rigidbody2D vesselRB;
@@ -24,21 +24,19 @@ public abstract class VesselComponent : Body
 
     protected virtual void Start()
     {
-        if (!componentCollisions)
-        {
-            for (int i = 0; i < transform.parent.childCount; i++)
-            {
-                Transform t = transform.parent.GetChild(i);
-                if (t.TryGetComponent(out Collider2D cc))
-                {
-                    Physics2D.IgnoreCollision(col, cc);
-                }
-            }
-        }
-
-        if (!parentCollisions && TryGetComponent(out Collider2D c))
+        foreach (Collider2D c in doNotCollide)
         {
             Physics2D.IgnoreCollision(col, c);
+        }
+
+        if (ignoreCollisionsWithTag)
+        {
+            GameObject[] sameTag = GameObject.FindGameObjectsWithTag(gameObject.tag);
+            foreach (GameObject g in sameTag)
+            {
+                if (g.TryGetComponent(out Collider2D c))
+                    Physics2D.IgnoreCollision(col, c);
+            }
         }
 
         List<Resistance> resistanceProducts = new();

@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 7621665626288269663}
   m_Layer: 0
   m_Name: Arm
-  m_TagString: Untagged
+  m_TagString: Tentacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -104,15 +104,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08944d1c252f01b4abf30674c2acfd97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 200
-  hp: 200
+  maxHP: 1500
+  hp: 1500
   regeneration: 0
   collisionDamageMult: 1
   deathFX: {fileID: 7675052303077851088, guid: 09fdc8c98b70da647a9876dcfd3165a7, type: 3}
   resistances: []
   respawnCooldown: 0
-  componentCollisions: 0
-  parentCollisions: 1
+  doNotCollide: []
+  ignoreCollisionsWithTag: 1
 --- !u!50 &1504979517276702410
 Rigidbody2D:
   serializedVersion: 5
@@ -227,14 +227,14 @@ GameObject:
   m_Component:
   - component: {fileID: 5240562156428791629}
   - component: {fileID: 7936950225387989280}
-  - component: {fileID: 5166015288940834573}
+  - component: {fileID: 7654220991650059591}
+  - component: {fileID: 6775091705674302334}
   - component: {fileID: 686087613034508048}
   - component: {fileID: 1440654192538462673}
   - component: {fileID: 6196356068740858729}
-  - component: {fileID: 7654220991650059591}
   m_Layer: 0
   m_Name: Tentacle Segment
-  m_TagString: Untagged
+  m_TagString: Tentacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -310,8 +310,31 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &5166015288940834573
-BoxCollider2D:
+--- !u!114 &7654220991650059591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5371969854303288186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a98e8d34dbf7bbf40bc6d0a840d6151e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHP: 1500
+  hp: 1500
+  regeneration: 0
+  collisionDamageMult: 1
+  deathFX: {fileID: 7675052303077851088, guid: 09fdc8c98b70da647a9876dcfd3165a7, type: 3}
+  resistances: []
+  respawnCooldown: 0
+  doNotCollide: []
+  ignoreCollisionsWithTag: 1
+  wiggleFreq: 1
+  wiggleAmp: 50
+--- !u!60 &6775091705674302334
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -354,8 +377,15 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.24860898, y: -0.43372658}
+      - {x: 0.2495092, y: -0.4331003}
+      - {x: 0.5010992, y: -0.0017743073}
+      - {x: 0.25154442, y: 0.43360275}
+      - {x: -0.25038308, y: 0.43458137}
+      - {x: -0.5021297, y: 0.00018284842}
+  m_UseDelaunayMesh: 0
 --- !u!50 &686087613034508048
 Rigidbody2D:
   serializedVersion: 5
@@ -421,26 +451,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bed00823662b31d498447171a31ca22d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7654220991650059591
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5371969854303288186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a98e8d34dbf7bbf40bc6d0a840d6151e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHP: 250
-  hp: 250
-  regeneration: 0
-  collisionDamageMult: 1
-  deathFX: {fileID: 7675052303077851088, guid: 09fdc8c98b70da647a9876dcfd3165a7, type: 3}
-  resistances: []
-  respawnCooldown: 0
-  componentCollisions: 0
-  parentCollisions: 0
-  wiggleFreq: 1
-  wiggleAmp: 1

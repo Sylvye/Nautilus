@@ -616,7 +616,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   tracking: 0
-  overshoot: 0.5
+  overshoot: 0.25
   target: {fileID: 0}
   angleLimit: 90
   stabilize: 1
