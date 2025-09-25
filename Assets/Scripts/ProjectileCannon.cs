@@ -8,12 +8,10 @@ public class ProjectileCannon : Cannon
     public float power;
     private float nextAttack;
 
-    public override void Activate()
+    public override void Activate(Vector2 dir)
     {
         if (!respawning)
         {
-            Vector2 dir = AngleHelper.DegreesToVector(transform.eulerAngles.z + 90);
-
             Launch(proj.gameObject, dir, power, 0.1f);
             nextAttack = Time.time + 1 / attackSpeed;
         }

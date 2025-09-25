@@ -1,6 +1,8 @@
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
 public class MapCameraController : MonoBehaviour
@@ -8,6 +10,8 @@ public class MapCameraController : MonoBehaviour
     public static MapCameraController main;
     public float zoomSpeed;
     public Vector2 zoomClamp;
+    public List<Record> records;
+    public List<Record> recordPrefabs;
     private PlayerInputActions inputActions;
     private float zoomAmount = 1;
     private Camera c;
@@ -70,5 +74,52 @@ public class MapCameraController : MonoBehaviour
                 }
                 break;
         }
+    }
+
+    public void AddRecord(Record r)
+    {
+        records.Add(r);
+    }
+
+    public Record FindRecord(string label)
+    {
+        return records.Find(x=>x.Label == label);
+    }
+
+    public void DeleteRecord(Record r)
+    {
+        records.Remove(r);
+        Destroy(r);
+    }
+
+    public PointRecord CreatePointRecord(Vector2 pos)
+    {
+        PointRecord posR = Instantiate(recordPrefabs.Find(x => x.GetRecordType() == Record.RecordType.Point).gameObject).GetComponent<PointRecord>();
+        posR.Position = pos;
+        return posR;
+    }
+
+    public DirectionRecord CreateDirectionRecord(Vector2 pos, float angle)
+    {
+        DirectionRecord dirR = Instantiate(recordPrefabs.Find(x => x.GetRecordType() == Record.RecordType.Direction).gameObject).GetComponent<DirectionRecord>();
+        dirR.Position = pos;
+        dirR.angle = angle;
+        return dirR;
+    }
+
+    public DistanceRecord CreateDistanceRecord(Vector2 pos, float radius)
+    {
+        DistanceRecord distR = Instantiate(recordPrefabs.Find(x => x.GetRecordType() == Record.RecordType.Distance).gameObject).GetComponent<DistanceRecord>();
+        distR.Position = pos;
+        distR.radius = radius;
+        return distR;
+    }
+
+    public AreaRecord CreateAreaRecord(Vector2 pos, float radius)
+    {
+        AreaRecord ar = Instantiate(recordPrefabs.Find(x => x.GetRecordType() == Record.RecordType.Area).gameObject).GetComponent<AreaRecord>();
+        ar.Position = pos;
+        ar.radius = radius;
+        return ar;
     }
 }

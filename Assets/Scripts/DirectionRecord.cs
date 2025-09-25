@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class DirectionRecord : Record
@@ -14,5 +15,10 @@ public class DirectionRecord : Record
     public void OnValidate()
     {
         SetAngle(angle);
+    }
+
+    public override RecordType GetRecordType()
+    {
+        return RecordType.Direction;
     }
 }

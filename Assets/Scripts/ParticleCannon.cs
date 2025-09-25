@@ -6,13 +6,14 @@ public class ParticleCannon : Cannon
     public int rate;
     public float kickbackMult;
 
-    public override void Activate()
+    public override void Activate(Vector2 dir)
     {
         ps.Emit(rate);
+        transform.rotation = Quaternion.Euler(0, 0, AngleHelper.VectorToDegrees(dir));
         if (kickbackMult != 0)
         {
             float flatMult = 10;
-            Vector2 forceDir = AngleHelper.DegreesToVector(transform.eulerAngles.z + 180).normalized;
+            Vector2 forceDir = dir.normalized;
             Vector2 force = flatMult * kickbackMult * forceDir;
             Vector2 relative = (Vector2)transform.position - vesselRB.worldCenterOfMass;
             float torque = relative.x * force.y - relative.y * force.x;

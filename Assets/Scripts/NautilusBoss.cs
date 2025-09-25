@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class NautilusBoss : Vessel
 {
+    public bool debug;
     public float rotateSpeed;
     public float safeRange;
     public float safeOffset;
@@ -29,11 +30,13 @@ public class NautilusBoss : Vessel
             FireThrusters(1);
         }
 
-        Debug.Log(angleDiff);
-        Debug.DrawLine(transform.position, transform.position + (Vector3)AngleHelper.DegreesToVector(safeAngle) * 10, Color.red);
-        Debug.DrawLine(transform.position, transform.position + (Vector3)AngleHelper.DegreesToVector(angleToPlayer) * 10, Color.blue);
-        Debug.DrawLine(transform.position, transform.position + (Vector3)AngleHelper.DegreesToVector(safeAngle + safeRange) * 10, Color.purple);
-        Debug.DrawLine(transform.position, transform.position + (Vector3)AngleHelper.DegreesToVector(safeAngle - safeRange) * 10, Color.purple);
+        if (debug)
+        {
+            Debug.DrawLine(transform.position, transform.position + (Vector3)AngleHelper.DegreesToVector(safeAngle) * 10, Color.red);
+            Debug.DrawLine(transform.position, transform.position + (Vector3)AngleHelper.DegreesToVector(angleToPlayer) * 10, Color.blue);
+            Debug.DrawLine(transform.position, transform.position + (Vector3)AngleHelper.DegreesToVector(safeAngle + safeRange) * 10, Color.purple);
+            Debug.DrawLine(transform.position, transform.position + (Vector3)AngleHelper.DegreesToVector(safeAngle - safeRange) * 10, Color.purple);
+        }
     }
 
 

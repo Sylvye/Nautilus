@@ -7,6 +7,8 @@ using static UnityEngine.UI.Image;
 
 public class PlayerController : MonoBehaviour
 {
+    public bool aimCannonsAtMouse;
+
     private bool boosting;
     private bool shifting;
     private Vessel v;
@@ -66,10 +68,19 @@ public class PlayerController : MonoBehaviour
         {
             v.Stabilize();
         }
+        
+        if (aimCannonsAtMouse)
+        {
+            v.aimDir = (Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()) - transform.position).normalized;
+        }
+        else
+        {
+            v.aimDir = AngleHelper.DegreesToVector(transform.eulerAngles.z + 90);
+        }
     }
 
     private void Update()
     {
-        chromaticAberration.intensity.value = Mathf.Lerp(0.1f, 1, 1 - (v.hp / v.maxHP));
+        chromaticAberration.intensity.value = Mathf.Lerp(0.1f, 1, 1 - v.hp / v.maxHP);
     }
 }

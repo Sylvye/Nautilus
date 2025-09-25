@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class DistanceRecord : Record
@@ -14,5 +15,10 @@ public class DistanceRecord : Record
     public void OnValidate()
     {
         SetRadius(radius);
+    }
+
+    public override RecordType GetRecordType()
+    {
+        return RecordType.Distance;
     }
 }

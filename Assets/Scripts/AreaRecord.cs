@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class AreaRecord : Record
@@ -13,5 +14,10 @@ public class AreaRecord : Record
     public void OnValidate()
     {
         SetRadius(radius);
+    }
+
+    public override RecordType GetRecordType()
+    {
+        return RecordType.Area;
     }
 }

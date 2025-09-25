@@ -111,8 +111,8 @@ MonoBehaviour:
   deathFX: {fileID: 7675052303077851088, guid: 10faa5fd307623f4c9d54a027064af22, type: 3}
   resistances: []
   respawnCooldown: 5
-  componentCollisions: 0
-  parentCollisions: 0
+  doNotCollide: []
+  ignoreCollisionsWithTag: 0
   power: 2
   forceMult: 1
   fireFX: {fileID: 7801838259666970613}
@@ -422,6 +422,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 607cfe4714f28264d9bd888a2e1f7231, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  aimCannonsAtMouse: 1
 --- !u!114 &2950537553589586710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -444,13 +445,10 @@ MonoBehaviour:
     mult: 0.4
     inherit: 1
   attacking: 0
-  thrusters:
-  - {fileID: 1672901161825238495}
-  - {fileID: 8909911721763499912}
-  - {fileID: 4591592282055989817}
-  cannons:
-  - {fileID: 2415237270500274217}
+  aimDir: {x: 0, y: 0}
   stabilizationRate: 100
+  thrusters: []
+  cannons: []
 --- !u!1 &4805519965036272989
 GameObject:
   m_ObjectHideFlags: 0
@@ -562,8 +560,8 @@ MonoBehaviour:
   deathFX: {fileID: 7675052303077851088, guid: 10faa5fd307623f4c9d54a027064af22, type: 3}
   resistances: []
   respawnCooldown: 5
-  componentCollisions: 0
-  parentCollisions: 0
+  doNotCollide: []
+  ignoreCollisionsWithTag: 0
   power: 4
   forceMult: 1
   fireFX: {fileID: 2591816412934691066}
@@ -822,9 +820,8 @@ MonoBehaviour:
   deathFX: {fileID: 7675052303077851088, guid: 10faa5fd307623f4c9d54a027064af22, type: 3}
   resistances: []
   respawnCooldown: 0
-  componentCollisions: 0
-  parentCollisions: 0
-  mouseAim: 1
+  doNotCollide: []
+  ignoreCollisionsWithTag: 0
   ps: {fileID: 7437977057495477402}
   rate: 20
   kickbackMult: 1
@@ -939,8 +936,8 @@ MonoBehaviour:
   deathFX: {fileID: 7675052303077851088, guid: 10faa5fd307623f4c9d54a027064af22, type: 3}
   resistances: []
   respawnCooldown: 5
-  componentCollisions: 0
-  parentCollisions: 0
+  doNotCollide: []
+  ignoreCollisionsWithTag: 0
   power: 2
   forceMult: 1
   fireFX: {fileID: 8240924573875341051}
@@ -1197,6 +1194,10 @@ PrefabInstance:
     - target: {fileID: 851017894908056530, guid: 6eba45803a958254a9f3af117d293734, type: 3}
       propertyPath: ShapeModule.radius.value
       value: 0.0001
+      objectReference: {fileID: 0}
+    - target: {fileID: 851017894908056530, guid: 6eba45803a958254a9f3af117d293734, type: 3}
+      propertyPath: InheritVelocityModule.enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 851017894908056530, guid: 6eba45803a958254a9f3af117d293734, type: 3}
       propertyPath: InitialModule.startSpeed.scalar

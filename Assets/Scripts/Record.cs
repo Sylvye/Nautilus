@@ -1,6 +1,7 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class Record : MonoBehaviour
+public abstract class Record : MonoBehaviour
 {
     public Material m;
     public float zOffset;
@@ -12,6 +13,7 @@ public class Record : MonoBehaviour
 
     public enum RecordType
     {
+        None,
         Point,
         Direction,
         Area,
@@ -49,5 +51,10 @@ public class Record : MonoBehaviour
     {
         Color = c;
         m.SetColor("Color", c);
+    }
+
+    public virtual RecordType GetRecordType()
+    {
+        return RecordType.None;
     }
 }

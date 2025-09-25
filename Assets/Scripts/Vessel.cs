@@ -3,13 +3,15 @@ using System.Collections;
 
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 
 public class Vessel : Body
 {
     public bool attacking;
+    public Vector2 aimDir;
     public float stabilizationRate;
-    protected List<Thruster> thrusters;
-    protected List<Cannon> cannons;
+    [DoNotSerialize]public List<Thruster> thrusters;
+    [DoNotSerialize]public List<Cannon> cannons;
 
     protected override void Awake()
     {
@@ -30,7 +32,7 @@ public class Vessel : Body
             foreach (Cannon c in cannons)
             {
                 if (c.CanFire())
-                    c.Activate();
+                    c.Activate(aimDir);
             }
         }
     }
@@ -43,8 +45,6 @@ public class Vessel : Body
     public void Move(Vector2 input, float mult)
     {
         float desiredAngle = AngleHelper.VectorToDegrees(input);
-        float rotationOffset = transform.eulerAngles.z;
-        //Debug.DrawLine(transform.position, transform.position + (Vector3)AngleHelper.DegreesToVector(desiredAngle + rotationOffset) * 2, Color.blue);
         foreach (Thruster t in thrusters)
         {
             if (t != null)
