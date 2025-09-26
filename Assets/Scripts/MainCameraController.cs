@@ -26,7 +26,7 @@ public class MainCameraController : MonoBehaviour
         startSize = c.orthographicSize;
         currentSize = 1;
         targetSize = 1;
-        backgroundMaterial = GameObject.Find("Background").GetComponent<SpriteRenderer>().material;
+        backgroundMaterial = transform.Find("Background").GetComponent<SpriteRenderer>().material;
     }
 
     private void Update()

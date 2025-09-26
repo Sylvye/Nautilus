@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
@@ -10,17 +11,17 @@ public class MapCameraController : MonoBehaviour
     public static MapCameraController main;
     public float zoomSpeed;
     public Vector2 zoomClamp;
-    public List<Record> records;
+    public static List<Record> records;
     public List<Record> recordPrefabs;
     private PlayerInputActions inputActions;
     private float zoomAmount = 1;
-    private Camera c;
+    public Camera c;
     private float startSize;
     private GameObject grid;
     private Vector3 gridOriginalScale;
-    private bool mouseDown;
     private Vector2 mDelta;
     private Vector2 lastMPos;
+    private bool selected;
 
     private void Awake()
     {
@@ -36,8 +37,8 @@ public class MapCameraController : MonoBehaviour
     {
         inputActions.Enable();
         inputActions.UI.ScrollWheel.performed += scrl => zoomAmount = Mathf.Clamp(zoomAmount + scrl.ReadValue<Vector2>().y * -zoomSpeed, zoomClamp.x, zoomClamp.y);
-        inputActions.Player.Attack.performed += _ => mouseDown = true;
-        inputActions.Player.Attack.canceled += _ => mouseDown = false;
+        inputActions.Player.Attack.performed += _ => selected = !EventSystem.current.IsPointerOverGameObject();
+        inputActions.Player.Attack.canceled += _ => selected = false;
         inputActions.Player.Look.performed += look => mDelta = look.ReadValue<Vector2>();
         inputActions.Player.Look.canceled += _ => mDelta = Vector2.zero;
     }
@@ -58,7 +59,7 @@ public class MapCameraController : MonoBehaviour
                 c.orthographicSize = startSize * zoomAmount;
                 grid.transform.localScale = gridOriginalScale * zoomAmount;
 
-                if (mouseDown)
+                if (selected)
                 {
                     Vector2 mPos = Mouse.current.position.ReadValue();
                     Vector2 WMPos = c.ScreenToWorldPoint(mPos);
@@ -76,48 +77,48 @@ public class MapCameraController : MonoBehaviour
         }
     }
 
-    public void AddRecord(Record r)
+    public static void AddRecord(Record r)
     {
         records.Add(r);
     }
 
-    public Record FindRecord(string label)
+    public static Record FindRecord(string label)
     {
         return records.Find(x=>x.Label == label);
     }
 
-    public void DeleteRecord(Record r)
+    public static void DeleteRecord(Record r)
     {
         records.Remove(r);
         Destroy(r);
     }
 
-    public PointRecord CreatePointRecord(Vector2 pos)
+    public static PointRecord CreatePointRecord(Vector2 pos)
     {
-        PointRecord posR = Instantiate(recordPrefabs.Find(x => x.GetRecordType() == Record.RecordType.Point).gameObject).GetComponent<PointRecord>();
+        PointRecord posR = Instantiate(main.recordPrefabs.Find(x => x.GetRecordType() == Record.RecordType.Point).gameObject).GetComponent<PointRecord>();
         posR.Position = pos;
         return posR;
     }
 
-    public DirectionRecord CreateDirectionRecord(Vector2 pos, float angle)
+    public static DirectionRecord CreateDirectionRecord(Vector2 pos, float angle)
     {
-        DirectionRecord dirR = Instantiate(recordPrefabs.Find(x => x.GetRecordType() == Record.RecordType.Direction).gameObject).GetComponent<DirectionRecord>();
+        DirectionRecord dirR = Instantiate(main.recordPrefabs.Find(x => x.GetRecordType() == Record.RecordType.Direction).gameObject).GetComponent<DirectionRecord>();
         dirR.Position = pos;
         dirR.angle = angle;
         return dirR;
     }
 
-    public DistanceRecord CreateDistanceRecord(Vector2 pos, float radius)
+    public static DistanceRecord CreateDistanceRecord(Vector2 pos, float radius)
     {
-        DistanceRecord distR = Instantiate(recordPrefabs.Find(x => x.GetRecordType() == Record.RecordType.Distance).gameObject).GetComponent<DistanceRecord>();
+        DistanceRecord distR = Instantiate(main.recordPrefabs.Find(x => x.GetRecordType() == Record.RecordType.Distance).gameObject).GetComponent<DistanceRecord>();
         distR.Position = pos;
         distR.radius = radius;
         return distR;
     }
 
-    public AreaRecord CreateAreaRecord(Vector2 pos, float radius)
+    public static AreaRecord CreateAreaRecord(Vector2 pos, float radius)
     {
-        AreaRecord ar = Instantiate(recordPrefabs.Find(x => x.GetRecordType() == Record.RecordType.Area).gameObject).GetComponent<AreaRecord>();
+        AreaRecord ar = Instantiate(main.recordPrefabs.Find(x => x.GetRecordType() == Record.RecordType.Area).gameObject).GetComponent<AreaRecord>();
         ar.Position = pos;
         ar.radius = radius;
         return ar;
