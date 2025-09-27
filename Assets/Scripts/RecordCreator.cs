@@ -1,5 +1,8 @@
+using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class RecordCreator : MonoBehaviour
 {
@@ -11,21 +14,32 @@ public class RecordCreator : MonoBehaviour
     public GameObject dirCreator;
     public GameObject distCreator;
     public GameObject areaCreator;
+    public GameObject activeMenu;
+    public GameObject beacon;
+
+    public Slider colorSlider;
+    public TMP_InputField labelField;
+    public TMP_InputField xField;
+    public TMP_InputField yField;
+    public TMP_Dropdown typeDropdown;
+
     private Canvas canvas;
-    private RectTransform rectT;
+    private RectTransform windowRectT;
 
     private void Awake()
     {
         main = this;
         inputActions = new PlayerInputActions();
-        canvas = GetComponentInParent<Canvas>();
-        rectT = GetComponent<RectTransform>();
+        canvas = GetComponentInParent<Canvas>().rootCanvas;
+        windowRectT = window.GetComponent<RectTransform>();
+        activeMenu = initializer;
     }
 
     private void OnEnable()
     {
         inputActions.UI.Enable();
-        inputActions.UI.RightClick.canceled += _ => OnRightClick();
+        inputActions.UI.RightClick.canceled += _ => SummonWindowToMouse();
+        inputActions.UI.Spacebar.performed += _ => SummonWindowToPlayer();
     }
 
     void OnDisable()
@@ -33,10 +47,78 @@ public class RecordCreator : MonoBehaviour
         inputActions.UI.Disable();
     }
 
-    private void OnRightClick()
+    private void SummonWindowToPlayer()
     {
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.GetComponent<RectTransform>(), Mouse.current.position.ReadValue(), null, out Vector2 localMPos);
-        rectT.anchoredPosition = localMPos;
-        window.SetActive(true);
+        if (CameraManager.currentCamera == CameraManager.CameraType.map)
+        {
+            windowRectT.anchoredPosition = Vector2.one * 0.5f;
+            window.SetActive(true);
+            beacon.SetActive(true);
+
+            Vector2 pos = PlayerController.main.transform.position;
+            xField.text = pos.x * 0.1f + "";
+            yField.text = pos.y * 0.1f + "";
+            beacon.transform.position = new(pos.x, pos.y, -30);
+            beacon.GetComponent<SpriteRenderer>().color = Color.HSVToRGB(colorSlider.value, 1, 1);
+        }
+    }
+
+    private void SummonWindowToMouse()
+    {
+        if (CameraManager.currentCamera == CameraManager.CameraType.map)
+        {
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.transform as RectTransform, Mouse.current.position.ReadValue(), null, out Vector2 localMousePos);
+            windowRectT.anchoredPosition = localMousePos;
+            window.SetActive(true);
+            beacon.SetActive(true);
+
+
+            Vector2 worldMousePos = MapCameraController.main.c.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+            xField.text = worldMousePos.x * 0.1f + "";
+            yField.text = worldMousePos.y * 0.1f + "";
+            beacon.transform.position = new(worldMousePos.x, worldMousePos.y, -30);
+            beacon.GetComponent<SpriteRenderer>().color = Color.HSVToRGB(colorSlider.value, 1, 1);
+        }
+    }
+
+    public static void ResetFields(GameObject menu)
+    {
+        TMP_Dropdown[] dropdowns = menu.GetComponentsInChildren<TMP_Dropdown>();
+        TMP_InputField[] inputFields = menu.GetComponentsInChildren<TMP_InputField>();
+        Slider[] sliders = menu.GetComponentsInChildren<Slider>();
+
+        foreach(TMP_Dropdown dropdown in dropdowns)
+        {
+            dropdown.value = 0;
+            dropdown.RefreshShownValue();
+        }
+
+        foreach (TMP_InputField inputField in inputFields)
+        {
+            inputField.text = "";
+            inputField.DeactivateInputField();
+        }
+
+        foreach (Slider slider in sliders)
+        {
+            slider.value = 0;
+        }
+    }
+
+    public static Record.RecordType StringToType(string type)
+    {
+        return (Record.RecordType)Enum.Parse(typeof(Record.RecordType), type);
+    }
+
+    public static void ExitRecordCreator()
+    {
+        // clear values in the active field & initializer menu
+        ResetFields(main.initializer);
+        ResetFields(main.activeMenu);
+
+        main.activeMenu.SetActive(false);
+        main.initializer.SetActive(true);
+        main.window.SetActive(false);
+        main.beacon.SetActive(false);
     }
 }

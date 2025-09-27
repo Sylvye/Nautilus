@@ -12,11 +12,11 @@ public static class CameraManager
 
     public static Camera mainCamera = MainCameraController.main.GetComponent<Camera>();
     public static Camera mapCamera = MapCameraController.main.GetComponent<Camera>();
-    public static CameraType cameraType = CameraType.main;
+    public static CameraType currentCamera = CameraType.main;
 
     public static void SwitchToCamera(CameraType ct)
     {
-        cameraType = ct;
+        currentCamera = ct;
         if (ct == CameraType.main)
         {
             mainCamera.enabled = true;
@@ -29,16 +29,17 @@ public static class CameraManager
             mainCamera.enabled = false;
             mapCamera.enabled = true;
             Time.timeScale = prevTimeScale;
+            RecordCreator.main.window.SetActive(false);
         }
     }
 
     public static void ToggleCamera()
     {
-        if (cameraType == CameraType.main)
+        if (currentCamera == CameraType.main)
         {
             mainCamera.enabled = false;
             mapCamera.enabled = true;
-            cameraType = CameraType.map;
+            currentCamera = CameraType.map;
             prevTimeScale = Time.timeScale;
             Time.timeScale = 0;
         }
@@ -46,7 +47,7 @@ public static class CameraManager
         {
             mainCamera.enabled = true;
             mapCamera.enabled = false;
-            cameraType = CameraType.main;
+            currentCamera = CameraType.main;
             Time.timeScale = prevTimeScale;
         }
     }

@@ -50,7 +50,7 @@ public class MapCameraController : MonoBehaviour
 
     private void Update()
     {
-        switch (CameraManager.cameraType)
+        switch (CameraManager.currentCamera)
         {
             case CameraManager.CameraType.main:
                 transform.position = new Vector3(PlayerController.main.transform.position.x, PlayerController.main.transform.position.y, -100);
@@ -58,6 +58,8 @@ public class MapCameraController : MonoBehaviour
             case CameraManager.CameraType.map:
                 c.orthographicSize = startSize * zoomAmount;
                 grid.transform.localScale = gridOriginalScale * zoomAmount;
+
+                RecordCreator.main.beacon.transform.localScale = Vector3.one * zoomAmount;
 
                 if (selected)
                 {
@@ -93,33 +95,41 @@ public class MapCameraController : MonoBehaviour
         Destroy(r);
     }
 
-    public static PointRecord CreatePointRecord(Vector2 pos)
+    public static PointRecord CreatePointRecord(string label, Color color, Vector2 pos)
     {
         PointRecord posR = Instantiate(main.recordPrefabs.Find(x => x.GetRecordType() == Record.RecordType.Point).gameObject).GetComponent<PointRecord>();
         posR.Position = pos;
+        posR.Color = color;
+        posR.Label = label;
         return posR;
     }
 
-    public static DirectionRecord CreateDirectionRecord(Vector2 pos, float angle)
+    public static DirectionRecord CreateDirectionRecord(string label, Color color, Vector2 pos, float angle)
     {
         DirectionRecord dirR = Instantiate(main.recordPrefabs.Find(x => x.GetRecordType() == Record.RecordType.Direction).gameObject).GetComponent<DirectionRecord>();
         dirR.Position = pos;
+        dirR.Color = color;
+        dirR.Label = label;
         dirR.angle = angle;
         return dirR;
     }
 
-    public static DistanceRecord CreateDistanceRecord(Vector2 pos, float radius)
+    public static DistanceRecord CreateDistanceRecord(string label, Color color, Vector2 pos, float radius)
     {
         DistanceRecord distR = Instantiate(main.recordPrefabs.Find(x => x.GetRecordType() == Record.RecordType.Distance).gameObject).GetComponent<DistanceRecord>();
         distR.Position = pos;
+        distR.Color = color;
+        distR.Label = label;
         distR.radius = radius;
         return distR;
     }
 
-    public static AreaRecord CreateAreaRecord(Vector2 pos, float radius)
+    public static AreaRecord CreateAreaRecord(string label, Color color, Vector2 pos, float radius)
     {
         AreaRecord ar = Instantiate(main.recordPrefabs.Find(x => x.GetRecordType() == Record.RecordType.Area).gameObject).GetComponent<AreaRecord>();
         ar.Position = pos;
+        ar.Color = color;
+        ar.Label = label;
         ar.radius = radius;
         return ar;
     }

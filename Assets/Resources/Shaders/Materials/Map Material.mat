@@ -70,14 +70,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Grid_Size: 0.05
+    - _Grid_Size: 0.02
     - _Grid_Thickness: 0.005
     - _Noise_Mult: 0.01
     - _Noise_Scale: 1000
     - _Size: 1
     - _SubGrid_size: 5
     - _Subgrid_Thickness: 0.02
-    - _Subgrid_size: 0.25
+    - _Subgrid_size: 0.1
     - _Thickness: 0.02
     - _Zoom: 0
     m_Colors:

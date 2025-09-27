@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnableButtonIfInputValid : MonoBehaviour
+public class LabelRecordInputField : MonoBehaviour
 {
     public Button button;
     public TMP_InputField field;

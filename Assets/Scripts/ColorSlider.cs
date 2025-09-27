@@ -11,9 +11,12 @@ public class ColorSlider : MonoBehaviour
     public void UpdateColor()
     {
         float hue = slider.value;
+        Color dim = Color.HSVToRGB(hue, 1, 0.8f);
+        Color full = Color.HSVToRGB(hue, 1, 1);
 
-        background.color = Color.HSVToRGB(hue, 1, 0.8f);
-        fill.color = Color.HSVToRGB(hue, 1, 0.8f);
-        handle.color = Color.HSVToRGB(hue, 1, 1);
+        background.color = dim;
+        fill.color = dim;
+        handle.color = full;
+        RecordCreator.main.beacon.GetComponent<SpriteRenderer>().color = full;
     }
 }
