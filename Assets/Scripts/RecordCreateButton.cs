@@ -22,12 +22,12 @@ public class RecordCreateButton : MonoBehaviour
                 MapCameraController.CreateDirectionRecord(label, color, pos * 10, angle * 360);
                 break;
             case 2:
-                float radius = float.Parse(RecordCreator.main.distCreator.transform.Find("Distance Field").GetComponent<TMP_InputField>().text);
-                MapCameraController.CreateDistanceRecord(label, color, pos * 10, radius * 10);
+                float radius = float.Parse(RecordCreator.main.distCreator.transform.Find("Radius Field").GetComponent<TMP_InputField>().text);
+                MapCameraController.CreateDistanceRecord(label, color, pos * 10, radius);
                 break;
             case 3:
                 float radius2 = float.Parse(RecordCreator.main.areaCreator.transform.Find("Radius Field").GetComponent<TMP_InputField>().text);
-                MapCameraController.CreateAreaRecord(label, color, pos * 10, radius2 * 10);
+                MapCameraController.CreateAreaRecord(label, color, pos * 10, radius2);
                 break;
             default:
                 Debug.Log("Something went terribly wrong");

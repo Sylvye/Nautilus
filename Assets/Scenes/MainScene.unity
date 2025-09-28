@@ -3443,6 +3443,7 @@ MonoBehaviour:
   areaCreator: {fileID: 1560703181}
   activeMenu: {fileID: 0}
   beacon: {fileID: 1888589357}
+  previewRecord: {fileID: 0}
   colorSlider: {fileID: 160471882}
   labelField: {fileID: 784412405}
   xField: {fileID: 2008936445}
@@ -3793,7 +3794,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d423a4c981c5024ba99a3952517645a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followSpeed: 10
+  followSpeed: 7
   scaleSpeed: 5
   ssFalloff: 10
 --- !u!1 &524023506
@@ -4380,7 +4381,7 @@ GameObject:
   - component: {fileID: 579174268}
   - component: {fileID: 579174267}
   - component: {fileID: 579174266}
-  - component: {fileID: 579174265}
+  - component: {fileID: 579174270}
   m_Layer: 5
   m_Name: Radius Field
   m_TagString: Untagged
@@ -4408,19 +4409,6 @@ RectTransform:
   m_AnchoredPosition: {x: -40, y: 6}
   m_SizeDelta: {x: 80, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &579174265
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 579174263}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45098c30e5fffb44683e613ecc3214bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slider: {fileID: 922965672}
 --- !u!114 &579174266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4507,6 +4495,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 579174270}
+        m_TargetAssemblyTypeName: RadiusFieldToPreview, Assembly-CSharp
+        m_MethodName: UpdatePreviewRadius
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnSubmit:
     m_PersistentCalls:
       m_Calls: []
@@ -4584,6 +4584,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 579174263}
   m_CullTransparentMesh: 1
+--- !u!114 &579174270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579174263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 264e52f005a766643a138b972fb9a36e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &591706426
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9643,9 +9655,9 @@ GameObject:
   - component: {fileID: 1635300505}
   - component: {fileID: 1635300504}
   - component: {fileID: 1635300503}
-  - component: {fileID: 1635300502}
+  - component: {fileID: 1635300507}
   m_Layer: 5
-  m_Name: Distance Field
+  m_Name: Radius Field
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9671,19 +9683,6 @@ RectTransform:
   m_AnchoredPosition: {x: -40, y: 6}
   m_SizeDelta: {x: 80, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1635300502
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1635300500}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45098c30e5fffb44683e613ecc3214bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slider: {fileID: 922965672}
 --- !u!114 &1635300503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9770,6 +9769,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1635300507}
+        m_TargetAssemblyTypeName: RadiusFieldToPreview, Assembly-CSharp
+        m_MethodName: UpdatePreviewRadius
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnSubmit:
     m_PersistentCalls:
       m_Calls: []
@@ -9847,6 +9858,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1635300500}
   m_CullTransparentMesh: 1
+--- !u!114 &1635300507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1635300500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 264e52f005a766643a138b972fb9a36e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1651685751
 GameObject:
   m_ObjectHideFlags: 0

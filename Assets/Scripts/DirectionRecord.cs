@@ -18,11 +18,17 @@ public class DirectionRecord : Record
         angle = a;
         transform.rotation = Quaternion.Euler(Vector3.forward * a);
     }
+    public override void SetColor(Color c)
+    {
+        base.SetColor(c);
+        lr.startColor = c;
+        lr.endColor = c;
+    }
 
-    public override void Update()
+    protected override void Update()
     {
         base.Update();
-        if (cameraScale)
+        if (scaleWithCamera)
         {
             lr.startWidth = lrWidth * MapCameraController.main.zoomAmount;
             lr.endWidth = lrWidth * MapCameraController.main.zoomAmount;

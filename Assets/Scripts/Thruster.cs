@@ -41,6 +41,8 @@ public class Thruster : VesselComponent
             fireFXShape.angle = startAngle * ratio;
 
             fireFX.Emit((int)(mult * 5));
+            var emission = fireFX.emission;
+            emission.rateOverDistance = (int)(mult * 8);
 
             float flatMult = 10;
             Vector2 forceDir = AngleHelper.DegreesToVector(transform.eulerAngles.z + 90).normalized;
@@ -51,5 +53,15 @@ public class Thruster : VesselComponent
             vesselRB.AddTorque(torque, ForceMode2D.Force);
             //Debug.DrawLine(transform.position, transform.position - (Vector3)force/flatMult, g.Evaluate(Mathf.Clamp(ratio, 0, 1)));
         }
+        else
+        {
+            CutThrusterFire();
+        }
+    }
+
+    public void CutThrusterFire()
+    {
+        var emission = fireFX.emission;
+        emission.rateOverDistance = 0;
     }
 }

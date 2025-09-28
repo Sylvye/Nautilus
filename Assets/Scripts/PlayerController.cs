@@ -55,9 +55,9 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        v.Move(moveInput, (boosting ? 2 : 1) * (shifting ? 0.5f : 1));
         if (moveInput != Vector2.zero)
         {
-            v.Move(moveInput, (boosting ? 2 : 1) * (shifting ? 0.5f : 1));
             if (Mathf.Sin(AngleHelper.VectorToRadians(moveInput)) > 0.9f)
             {
                 v.Stabilize();

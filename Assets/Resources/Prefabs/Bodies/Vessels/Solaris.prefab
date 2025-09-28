@@ -442,7 +442,10 @@ MonoBehaviour:
   deathFX: {fileID: 7675052303077851088, guid: 0879b12cdcf2f79498e72fae81cc929a, type: 3}
   resistances:
   - type: 3
-    mult: 0.4
+    mult: 0.5
+    inherit: 1
+  - type: 1
+    mult: 1.5
     inherit: 1
   attacking: 0
   aimDir: {x: 0, y: 0}

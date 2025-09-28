@@ -3,15 +3,15 @@ using UnityEngine;
 
 public abstract class Record : MonoBehaviour
 {
-    public Material m;
     public float zOffset;
     public Vector2 position;
     public string label;
     public Color color;
-    public bool cameraScale;
+    public bool scaleWithCamera;
+    protected Material m;
     private Vector3 defaultScale;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         m = GetComponent<Renderer>().material;
     }
@@ -30,26 +30,26 @@ public abstract class Record : MonoBehaviour
         Area
     }
 
-    public void SetPosition(Vector3 pos)
+    public virtual void SetPosition(Vector3 pos)
     {
         position = pos;
         transform.position = pos + Vector3.forward * zOffset;
     }
 
-    public void SetLabel(string l)
+    public virtual void SetLabel(string l)
     {
         label = l;
     }
 
-    public void SetColor(Color c)
+    public virtual void SetColor(Color c)
     {
         color = c;
         m.SetColor("_Color", c);
     }
 
-    public virtual void Update()
+    protected virtual void Update()
     {
-        if (cameraScale)
+        if (scaleWithCamera)
         {
             transform.localScale = defaultScale * MapCameraController.main.zoomAmount;
         }

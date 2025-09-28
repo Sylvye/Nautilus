@@ -57,14 +57,17 @@ public class MapCameraController : MonoBehaviour
                 transform.position = new Vector3(PlayerController.main.transform.position.x, PlayerController.main.transform.position.y, -100);
                 break;
             case CameraManager.CameraType.map:
+                Vector2 mPos = Mouse.current.position.ReadValue();
+                Vector2 beforeMPos = c.ScreenToWorldPoint(mPos);
                 c.orthographicSize = startSize * zoomAmount;
+                Vector2 afterMPos = c.ScreenToWorldPoint(mPos); // scaling the camera changes the world pos of the mouse
+                transform.position += (Vector3)(beforeMPos - afterMPos); // shifts the camera to center on the mouse instead of screen center
                 grid.transform.localScale = gridOriginalScale * zoomAmount;
 
                 RecordCreator.main.beacon.transform.localScale = Vector3.one * zoomAmount;
 
                 if (selected)
                 {
-                    Vector2 mPos = Mouse.current.position.ReadValue();
                     Vector2 WMPos = c.ScreenToWorldPoint(mPos);
                     Vector2 lastWMPos = c.ScreenToWorldPoint(lastMPos);
 

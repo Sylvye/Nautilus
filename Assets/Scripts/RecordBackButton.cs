@@ -6,5 +6,7 @@ public class RecordBackButton : MonoBehaviour
     {
         RecordCreator.main.activeMenu.SetActive(false);
         RecordCreator.main.initializer.SetActive(true);
+        RecordCreator.main.beacon.SetActive(true);
+        Destroy(RecordCreator.main.previewRecord.gameObject);
     }
 }

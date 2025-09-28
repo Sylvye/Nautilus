@@ -14,7 +14,7 @@ public class ParticleCannon : Cannon
         {
             float flatMult = 10;
             Vector2 forceDir = -dir.normalized;
-            Vector2 force = flatMult * kickbackMult * forceDir;
+            Vector2 force = flatMult * kickbackMult * 5 * forceDir;
             Vector2 relative = (Vector2)transform.position - vesselRB.worldCenterOfMass;
             float torque = relative.x * force.y - relative.y * force.x;
             vesselRB.AddForce(force, ForceMode2D.Force);

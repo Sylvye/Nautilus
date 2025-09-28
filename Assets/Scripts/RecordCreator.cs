@@ -16,6 +16,7 @@ public class RecordCreator : MonoBehaviour
     public GameObject areaCreator;
     public GameObject activeMenu;
     public GameObject beacon;
+    public Record previewRecord;
 
     public Slider colorSlider;
     public TMP_InputField labelField;
@@ -115,6 +116,8 @@ public class RecordCreator : MonoBehaviour
         // clear values in the active field & initializer menu
         ResetFields(main.initializer);
         ResetFields(main.activeMenu);
+        if (main.previewRecord != null)
+            Destroy(main.previewRecord.gameObject);
 
         main.activeMenu.SetActive(false);
         main.initializer.SetActive(true);

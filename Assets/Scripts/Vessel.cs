@@ -49,13 +49,20 @@ public class Vessel : Body
         {
             if (t != null)
             {
-                float thrusterAngle = AngleHelper.VectorToDegrees(-t.transform.localPosition);
-
-                float difference = Mathf.Abs(Mathf.DeltaAngle(desiredAngle, thrusterAngle));
-                if (difference < 90)
+                if (input == Vector2.zero)
                 {
-                    float power = Mathf.Cos(difference * Mathf.Deg2Rad) * mult;
-                    t.Activate(power);
+                    t.CutThrusterFire();
+                }
+                else
+                {
+                    float thrusterAngle = AngleHelper.VectorToDegrees(-t.transform.localPosition);
+
+                    float difference = Mathf.Abs(Mathf.DeltaAngle(desiredAngle, thrusterAngle));
+                    if (difference < 90)
+                    {
+                        float power = Mathf.Cos(difference * Mathf.Deg2Rad) * mult;
+                        t.Activate(power);
+                    }
                 }
             }
         }
