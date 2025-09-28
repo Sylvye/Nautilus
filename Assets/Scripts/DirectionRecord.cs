@@ -5,6 +5,13 @@ public class DirectionRecord : Record
 {
     public float angle;
     public LineRenderer lr;
+    private float lrWidth;
+
+    protected override void Start()
+    {
+        base.Start();
+        lrWidth = lr.startWidth;
+    }
 
     public void SetAngle(float a)
     {
@@ -12,9 +19,14 @@ public class DirectionRecord : Record
         transform.rotation = Quaternion.Euler(Vector3.forward * a);
     }
 
-    public void OnValidate()
+    public override void Update()
     {
-        SetAngle(angle);
+        base.Update();
+        if (cameraScale)
+        {
+            lr.startWidth = lrWidth * MapCameraController.main.zoomAmount;
+            lr.endWidth = lrWidth * MapCameraController.main.zoomAmount;
+        }
     }
 
     public override RecordType GetRecordType()

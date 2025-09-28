@@ -1,14 +1,24 @@
-using Unity.VisualScripting;
+using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 
 public abstract class Record : MonoBehaviour
 {
     public Material m;
     public float zOffset;
+    public Vector2 position;
+    public string label;
+    public Color color;
+    public bool cameraScale;
+    private Vector3 defaultScale;
 
     private void Awake()
     {
         m = GetComponent<Renderer>().material;
+    }
+
+    protected virtual void Start()
+    {
+        defaultScale = transform.localScale;
     }
 
     public enum RecordType
@@ -16,41 +26,33 @@ public abstract class Record : MonoBehaviour
         None,
         Point,
         Direction,
-        Area,
-        Distance
-    }
-
-    public Vector2 Position
-    {
-        get => Position;
-        set => SetPosition(value);
-    }
-    public string Label
-    {
-        get => Label;
-        set => SetLabel(value);
-    }
-    public Color Color
-    {
-        get => Color;
-        set => SetColor(value);
+        Distance,
+        Area
     }
 
     public void SetPosition(Vector3 pos)
     {
-        Position = pos;
-        transform.position = pos;
+        position = pos;
+        transform.position = pos + Vector3.forward * zOffset;
     }
 
     public void SetLabel(string l)
     {
-        Label = l;
+        label = l;
     }
 
     public void SetColor(Color c)
     {
-        Color = c;
-        m.SetColor("Color", c);
+        color = c;
+        m.SetColor("_Color", c);
+    }
+
+    public virtual void Update()
+    {
+        if (cameraScale)
+        {
+            transform.localScale = defaultScale * MapCameraController.main.zoomAmount;
+        }
     }
 
     public virtual RecordType GetRecordType()

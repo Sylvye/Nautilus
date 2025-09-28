@@ -14,7 +14,7 @@ public class MapCameraController : MonoBehaviour
     public static List<Record> records;
     public List<Record> recordPrefabs;
     private PlayerInputActions inputActions;
-    private float zoomAmount = 1;
+    public float zoomAmount = 1;
     public Camera c;
     private float startSize;
     private GameObject grid;
@@ -35,12 +35,13 @@ public class MapCameraController : MonoBehaviour
 
     private void OnEnable()
     {
-        inputActions.Enable();
+        inputActions.UI.Enable();
         inputActions.UI.ScrollWheel.performed += scrl => zoomAmount = Mathf.Clamp(zoomAmount + scrl.ReadValue<Vector2>().y * -zoomSpeed, zoomClamp.x, zoomClamp.y);
-        inputActions.Player.Attack.performed += _ => selected = !EventSystem.current.IsPointerOverGameObject();
-        inputActions.Player.Attack.canceled += _ => selected = false;
-        inputActions.Player.Look.performed += look => mDelta = look.ReadValue<Vector2>();
-        inputActions.Player.Look.canceled += _ => mDelta = Vector2.zero;
+        inputActions.UI.Click.performed += _ => selected = !EventSystem.current.IsPointerOverGameObject();
+        inputActions.UI.Click.canceled += _ => selected = false;
+        inputActions.UI.Point.performed += look => mDelta = look.ReadValue<Vector2>();
+        inputActions.UI.Point.canceled += _ => mDelta = Vector2.zero;
+        inputActions.UI.Toggle_Map.performed += _ => CameraManager.ToggleCamera();
     }
 
     private void OnDisable()
@@ -86,7 +87,7 @@ public class MapCameraController : MonoBehaviour
 
     public static Record FindRecord(string label)
     {
-        return records.Find(x=>x.Label == label);
+        return records.Find(x=>x.label == label);
     }
 
     public static void DeleteRecord(Record r)
@@ -98,39 +99,39 @@ public class MapCameraController : MonoBehaviour
     public static PointRecord CreatePointRecord(string label, Color color, Vector2 pos)
     {
         PointRecord posR = Instantiate(main.recordPrefabs.Find(x => x.GetRecordType() == Record.RecordType.Point).gameObject).GetComponent<PointRecord>();
-        posR.Position = pos;
-        posR.Color = color;
-        posR.Label = label;
+        posR.SetPosition(pos);
+        posR.SetColor(color);
+        posR.SetLabel(label);
         return posR;
     }
 
     public static DirectionRecord CreateDirectionRecord(string label, Color color, Vector2 pos, float angle)
     {
         DirectionRecord dirR = Instantiate(main.recordPrefabs.Find(x => x.GetRecordType() == Record.RecordType.Direction).gameObject).GetComponent<DirectionRecord>();
-        dirR.Position = pos;
-        dirR.Color = color;
-        dirR.Label = label;
-        dirR.angle = angle;
+        dirR.SetPosition(pos);
+        dirR.SetColor(color);
+        dirR.SetLabel(label);
+        dirR.SetAngle(angle);
         return dirR;
     }
 
     public static DistanceRecord CreateDistanceRecord(string label, Color color, Vector2 pos, float radius)
     {
         DistanceRecord distR = Instantiate(main.recordPrefabs.Find(x => x.GetRecordType() == Record.RecordType.Distance).gameObject).GetComponent<DistanceRecord>();
-        distR.Position = pos;
-        distR.Color = color;
-        distR.Label = label;
-        distR.radius = radius;
+        distR.SetPosition(pos);
+        distR.SetColor(color);
+        distR.SetLabel(label);
+        distR.SetRadius(radius);
         return distR;
     }
 
     public static AreaRecord CreateAreaRecord(string label, Color color, Vector2 pos, float radius)
     {
         AreaRecord ar = Instantiate(main.recordPrefabs.Find(x => x.GetRecordType() == Record.RecordType.Area).gameObject).GetComponent<AreaRecord>();
-        ar.Position = pos;
-        ar.Color = color;
-        ar.Label = label;
-        ar.radius = radius;
+        ar.SetPosition(pos);
+        ar.SetColor(color);
+        ar.SetLabel(label);
+        ar.SetRadius(radius);
         return ar;
     }
 }

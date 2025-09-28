@@ -49,10 +49,10 @@ Material:
     - _QueueOffset: 0
     - _Radius: 1.112
     - _Shade: 0.5
-    - _Smoothness: 1.001
+    - _Smoothness: 1.0001
     - _Thickness: 0.005
     m_Colors:
-    - _Color: {r: 0.86048764, g: 0.5801887, b: 1, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Color_1: {r: 0.68202424, g: 0.63529414, b: 1, a: 1}
     - _Color_2: {r: 0.876841, g: 0.5882353, b: 1, a: 1}
     - _Color_Offset: {r: 0, g: 0, b: 0, a: 0}

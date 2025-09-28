@@ -55,6 +55,8 @@ Material:
     - _Power: 2
     - _Scale: 0
     - _Shade_Scale: 2
+    - _Star_Cluster_Power: 2
+    - _Star_Cluster_Scale: 10
     - _Star_Density: 8
     - _Star_Offset_Mult: 0.0001
     - _Star_Step: 0.02

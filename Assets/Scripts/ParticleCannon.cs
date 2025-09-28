@@ -8,8 +8,8 @@ public class ParticleCannon : Cannon
 
     public override void Activate(Vector2 dir)
     {
-        ps.Emit(rate);
         transform.rotation = Quaternion.Euler(0, 0, AngleHelper.VectorToDegrees(dir));
+        ps.Emit(rate);
         if (kickbackMult != 0)
         {
             float flatMult = 10;

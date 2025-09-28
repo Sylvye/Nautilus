@@ -46,7 +46,6 @@ public class PlayerController : MonoBehaviour
         inputActions.Player.Boost.canceled += _ => boosting = false;
         inputActions.Player.Nudge.performed += _ => shifting = true;
         inputActions.Player.Nudge.canceled += _ => shifting = false;
-        inputActions.Player.Toggle_Map.performed += _ => CameraManager.ToggleCamera();
     }
 
     void OnDisable()
