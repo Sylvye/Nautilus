@@ -9,7 +9,7 @@ public abstract class Record : MonoBehaviour
     public Color color;
     public bool scaleWithCamera;
     protected Material m;
-    private Vector3 defaultScale;
+    protected Vector3 startScale;
 
     protected virtual void Awake()
     {
@@ -18,7 +18,7 @@ public abstract class Record : MonoBehaviour
 
     protected virtual void Start()
     {
-        defaultScale = transform.localScale;
+        startScale = transform.localScale;
     }
 
     public enum RecordType
@@ -51,7 +51,7 @@ public abstract class Record : MonoBehaviour
     {
         if (scaleWithCamera)
         {
-            transform.localScale = defaultScale * MapCameraController.main.zoomAmount;
+            transform.localScale = startScale * MapCameraController.main.zoomAmount;
         }
     }
 

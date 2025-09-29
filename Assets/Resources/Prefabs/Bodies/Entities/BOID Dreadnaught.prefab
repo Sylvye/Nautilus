@@ -104,15 +104,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 587efdfc42705e249af48fb7092461e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 100
-  hp: 100
+  maxHP: 200
+  hp: 200
   regeneration: 0
   collisionDamageMult: 1
   deathFX: {fileID: 7675052303077851088, guid: 10faa5fd307623f4c9d54a027064af22, type: 3}
   resistances: []
   respawnCooldown: 10
-  componentCollisions: 0
-  parentCollisions: 0
+  doNotCollide: []
+  ignoreCollisionsWithTag: 0
   power: 3
   forceMult: 1
   fireFX: {fileID: 3907401900713403752}
@@ -319,8 +319,8 @@ MonoBehaviour:
   deathFX: {fileID: 7675052303077851088, guid: 10faa5fd307623f4c9d54a027064af22, type: 3}
   resistances: []
   respawnCooldown: 10
-  componentCollisions: 0
-  parentCollisions: 0
+  doNotCollide: []
+  ignoreCollisionsWithTag: 0
   power: 5
   forceMult: 1
   fireFX: {fileID: 4610406389208617327}
@@ -520,15 +520,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 587efdfc42705e249af48fb7092461e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 500
-  hp: 500
+  maxHP: 600
+  hp: 600
   regeneration: 0
   collisionDamageMult: 1
   deathFX: {fileID: 7675052303077851088, guid: 10faa5fd307623f4c9d54a027064af22, type: 3}
   resistances: []
   respawnCooldown: 10
-  componentCollisions: 0
-  parentCollisions: 0
+  doNotCollide: []
+  ignoreCollisionsWithTag: 0
   power: 3
   forceMult: 1
   fireFX: {fileID: 5672940007772038976}
@@ -735,8 +735,8 @@ MonoBehaviour:
   deathFX: {fileID: 7675052303077851088, guid: 10faa5fd307623f4c9d54a027064af22, type: 3}
   resistances: []
   respawnCooldown: 10
-  componentCollisions: 0
-  parentCollisions: 0
+  doNotCollide: []
+  ignoreCollisionsWithTag: 0
   power: 5
   forceMult: 1
   fireFX: {fileID: 2954675185199749963}
@@ -936,15 +936,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 587efdfc42705e249af48fb7092461e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 100
-  hp: 100
+  maxHP: 200
+  hp: 200
   regeneration: 0
   collisionDamageMult: 1
   deathFX: {fileID: 7675052303077851088, guid: 10faa5fd307623f4c9d54a027064af22, type: 3}
   resistances: []
   respawnCooldown: 10
-  componentCollisions: 0
-  parentCollisions: 0
+  doNotCollide: []
+  ignoreCollisionsWithTag: 0
   power: 3
   forceMult: 1
   fireFX: {fileID: 5186725022622255688}
@@ -1144,15 +1144,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 587efdfc42705e249af48fb7092461e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 500
-  hp: 500
+  maxHP: 600
+  hp: 600
   regeneration: 0
   collisionDamageMult: 1
   deathFX: {fileID: 7675052303077851088, guid: 10faa5fd307623f4c9d54a027064af22, type: 3}
   resistances: []
   respawnCooldown: 10
-  componentCollisions: 0
-  parentCollisions: 0
+  doNotCollide: []
+  ignoreCollisionsWithTag: 0
   power: 3
   forceMult: 1
   fireFX: {fileID: 2732168905767801600}
@@ -1359,8 +1359,8 @@ MonoBehaviour:
   deathFX: {fileID: 7675052303077851088, guid: 10faa5fd307623f4c9d54a027064af22, type: 3}
   resistances: []
   respawnCooldown: 10
-  componentCollisions: 0
-  parentCollisions: 0
+  doNotCollide: []
+  ignoreCollisionsWithTag: 0
   power: 5
   forceMult: 1
   fireFX: {fileID: 877095364163639275}
@@ -1592,9 +1592,8 @@ MonoBehaviour:
   deathFX: {fileID: 7675052303077851088, guid: 10faa5fd307623f4c9d54a027064af22, type: 3}
   resistances: []
   respawnCooldown: 8
-  componentCollisions: 0
-  parentCollisions: 0
-  mouseAim: 1
+  doNotCollide: []
+  ignoreCollisionsWithTag: 0
   proj: {fileID: -1799790596901766248, guid: a5a2cc22fd0a7ad409813cb44a380887, type: 3}
   attackSpeed: 10
   power: 10
@@ -1760,9 +1759,8 @@ MonoBehaviour:
   deathFX: {fileID: 7675052303077851088, guid: 10faa5fd307623f4c9d54a027064af22, type: 3}
   resistances: []
   respawnCooldown: 8
-  componentCollisions: 0
-  parentCollisions: 0
-  mouseAim: 1
+  doNotCollide: []
+  ignoreCollisionsWithTag: 0
   proj: {fileID: -1799790596901766248, guid: a5a2cc22fd0a7ad409813cb44a380887, type: 3}
   attackSpeed: 10
   power: 10
@@ -2031,8 +2029,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc12d3e1048f96442be0b92cb252211b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 2500
-  hp: 2500
+  maxHP: 3000
+  hp: 3000
   regeneration: 0.1
   collisionDamageMult: 2
   deathFX: {fileID: 7675052303077851088, guid: 11d3be045654d674fa8426bc4748d9a8, type: 3}
@@ -2041,6 +2039,8 @@ MonoBehaviour:
     mult: 0.8
     inherit: 1
   attacking: 0
+  aimDir: {x: 0, y: 0}
+  stabilizationRate: 100
   thrusters:
   - {fileID: 6870152403732556762}
   - {fileID: 5727943756366102455}
@@ -2052,7 +2052,6 @@ MonoBehaviour:
   cannons:
   - {fileID: 4106794824596753225}
   - {fileID: 4891688888130515771}
-  stabilizationRate: 100
 --- !u!1001 &568436319217468473
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7060734443401547992}
   - component: {fileID: 5454844488977944275}
   - component: {fileID: 7050551098044189805}
+  - component: {fileID: 4838369928593117854}
   m_Layer: 7
   m_Name: Thruster
   m_TagString: Untagged
@@ -111,6 +112,8 @@ MonoBehaviour:
   deathFX: {fileID: 7675052303077851088, guid: 10faa5fd307623f4c9d54a027064af22, type: 3}
   resistances: []
   respawnCooldown: 8
+  doNotCollide: []
+  ignoreCollisionsWithTag: 0
   power: 4
   forceMult: 1
   fireFX: {fileID: 6077370492669456539}
@@ -130,7 +133,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 0
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -173,7 +176,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDamping: 0
+  m_LinearDamping: 1
   m_AngularDamping: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -203,9 +206,21 @@ FixedJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0, y: -0.625}
+  m_ConnectedAnchor: {x: 0, y: -0.75}
   m_DampingRatio: 0
   m_Frequency: 0
+--- !u!114 &4838369928593117854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3488617409173674099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bed00823662b31d498447171a31ca22d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6888330429930021705
 PrefabInstance:
   m_ObjectHideFlags: 0

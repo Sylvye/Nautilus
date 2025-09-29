@@ -15,11 +15,12 @@ public abstract class RadiusRecord : Record
     protected override void Update()
     {
         base.Update();
-        m.SetFloat("_Thickness", startThickness * MapCameraController.main.zoomAmount);
+        m.SetFloat("_Thickness", 100 / radius * startThickness * MapCameraController.main.zoomAmount); // scaling coefficient of 100
     }
 
     public void SetRadius(float r)
     {
+        radius = r;
         float d = r * 2;
         transform.localScale = new Vector3(d, d, d);
     }

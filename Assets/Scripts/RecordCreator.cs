@@ -54,12 +54,23 @@ public class RecordCreator : MonoBehaviour
         {
             windowRectT.anchoredPosition = Vector2.one * 0.5f;
             window.SetActive(true);
-            beacon.SetActive(true);
 
             Vector2 pos = PlayerController.main.transform.position;
+            Vector3 offsetPos = new(pos.x, pos.y, -30);
+
+            if (previewRecord == null)
+            {
+                beacon.SetActive(true);
+            }
+            else
+            {
+                previewRecord.position = pos;
+                previewRecord.transform.position = offsetPos;
+            }
+            beacon.transform.position = offsetPos;
+
             xField.text = pos.x * 0.1f + "";
             yField.text = pos.y * 0.1f + "";
-            beacon.transform.position = new(pos.x, pos.y, -30);
             beacon.GetComponent<SpriteRenderer>().color = Color.HSVToRGB(colorSlider.value, 1, 1);
         }
     }
@@ -71,13 +82,23 @@ public class RecordCreator : MonoBehaviour
             RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.transform as RectTransform, Mouse.current.position.ReadValue(), null, out Vector2 localMousePos);
             windowRectT.anchoredPosition = localMousePos;
             window.SetActive(true);
-            beacon.SetActive(true);
-
 
             Vector2 worldMousePos = MapCameraController.main.c.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+            Vector3 offsetPos = new(worldMousePos.x, worldMousePos.y, -30);
+
+            if (previewRecord == null)
+            {
+                beacon.SetActive(true);
+            }
+            else
+            {
+                previewRecord.position = worldMousePos;
+                previewRecord.transform.position = offsetPos;
+            }
+            beacon.transform.position = offsetPos;
+
             xField.text = worldMousePos.x * 0.1f + "";
             yField.text = worldMousePos.y * 0.1f + "";
-            beacon.transform.position = new(worldMousePos.x, worldMousePos.y, -30);
             beacon.GetComponent<SpriteRenderer>().color = Color.HSVToRGB(colorSlider.value, 1, 1);
         }
     }
@@ -117,7 +138,7 @@ public class RecordCreator : MonoBehaviour
         ResetFields(main.initializer);
         ResetFields(main.activeMenu);
         if (main.previewRecord != null)
-            Destroy(main.previewRecord.gameObject);
+            MapCameraController.DeleteRecord(main.previewRecord);
 
         main.activeMenu.SetActive(false);
         main.initializer.SetActive(true);
