@@ -21,6 +21,7 @@ public class DirectionRecord : Record
     public override void SetColor(Color c)
     {
         base.SetColor(c);
+        c.a = 0.5f;
         lr.startColor = c;
         lr.endColor = c;
     }

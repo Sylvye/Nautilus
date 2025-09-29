@@ -100,9 +100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83fa77b8bd8042e449a793dad3c64d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m: {fileID: 0}
   zOffset: -23
   position: {x: 0, y: 0}
   label: 
   color: {r: 0, g: 0, b: 0, a: 0}
-  cameraScale: 1
+  scaleWithCamera: 1

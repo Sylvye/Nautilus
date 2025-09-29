@@ -29,7 +29,7 @@ public static class CameraManager
             mainCamera.enabled = false;
             mapCamera.enabled = true;
             Time.timeScale = prevTimeScale;
-            RecordCreator.main.window.SetActive(false);
+            RecordCreator.ExitRecordCreator();
         }
     }
 
@@ -49,6 +49,7 @@ public static class CameraManager
             mapCamera.enabled = false;
             currentCamera = CameraType.main;
             Time.timeScale = prevTimeScale;
+            RecordCreator.ExitRecordCreator();
         }
     }
 }

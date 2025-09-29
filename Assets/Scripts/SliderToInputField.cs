@@ -15,5 +15,9 @@ public class SliderToInputField : MonoBehaviour
     public void UpdateInputField()
     {
         inputField.text = slider.value * 360 + "";
+        if (inputField.TryGetComponent(out AngleFieldToPreview aftp))
+        {
+            aftp.UpdatePreviewAngle();
+        }
     }
 }

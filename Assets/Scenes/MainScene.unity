@@ -8821,6 +8821,7 @@ GameObject:
   - component: {fileID: 1533182469}
   - component: {fileID: 1533182472}
   - component: {fileID: 1533182473}
+  - component: {fileID: 1533182474}
   m_Layer: 5
   m_Name: Angle Field
   m_TagString: Untagged
@@ -8934,6 +8935,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1533182474}
+        m_TargetAssemblyTypeName: AngleFieldToPreview, Assembly-CSharp
+        m_MethodName: UpdatePreviewAngle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnSubmit:
     m_PersistentCalls:
       m_Calls: []
@@ -9036,6 +9049,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 922965672}
+--- !u!114 &1533182474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1533182467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f6a4b17b1b7c4047a58f76d4b992b01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1550770481
 GameObject:
   m_ObjectHideFlags: 0
