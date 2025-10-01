@@ -8,7 +8,8 @@ public class MainCameraController : MonoBehaviour
     public static MainCameraController main;
     public float followSpeed;
     public float scaleSpeed;
-    public float ssFalloff;
+    public float ssTimeFalloff;
+    public float ssDistanceFalloff;
     private float ssIntensity;
     private Vector2 lerpPos;
     private float startSize;
@@ -34,7 +35,7 @@ public class MainCameraController : MonoBehaviour
         if (playerTransform != null)
             lerpPos = Vector2.Lerp(lerpPos, playerTransform.position, followSpeed * Time.deltaTime);
         Vector2 ssOffset = AngleHelper.DegreesToVector(Random.Range(0, 360f)) * ssIntensity;
-        ssIntensity = Mathf.Lerp(ssIntensity, 0, ssFalloff * Time.deltaTime);
+        ssIntensity = Mathf.Lerp(ssIntensity, 0, ssTimeFalloff * Time.deltaTime);
         transform.position = (Vector3)lerpPos + (Vector3)ssOffset + Vector3.back * 10;
         currentSize = Mathf.Lerp(currentSize, targetSize, scaleSpeed * Time.deltaTime);
         SetRefResolutionSize(currentSize); // TEST THIS!!!!
@@ -44,6 +45,12 @@ public class MainCameraController : MonoBehaviour
     public void ScreenShake(float intensity)
     {
         ssIntensity += intensity;
+    }
+
+    public void ScreenShake(float intensity, Vector2 origin)
+    {
+        Vector2 diff = (Vector2)transform.position - origin;
+        ssIntensity += intensity / (diff.magnitude * ssDistanceFalloff + 1);
     }
 
     public void SetSize(float size)

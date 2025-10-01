@@ -49,11 +49,7 @@ public class Vessel : Body
         {
             if (t != null)
             {
-                if (input == Vector2.zero)
-                {
-                    t.CutThrusterFire();
-                }
-                else
+                if (input != Vector2.zero)
                 {
                     float thrusterAngle = AngleHelper.VectorToDegrees(-t.transform.localPosition);
 

@@ -315,7 +315,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 2
+  m_Mass: 6
   m_LinearDamping: 0.9
   m_AngularDamping: 0.05
   m_GravityScale: 0
@@ -443,7 +443,7 @@ MonoBehaviour:
     inherit: 1
   attacking: 0
   aimDir: {x: 0, y: 0}
-  stabilizationRate: 100
+  stabilizationRate: 50
   thrusters:
   - {fileID: 6311982887523665104}
   - {fileID: 3055555948957284732}

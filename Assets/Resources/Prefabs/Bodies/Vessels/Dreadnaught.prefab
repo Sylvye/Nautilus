@@ -111,9 +111,9 @@ MonoBehaviour:
   deathFX: {fileID: 7675052303077851088, guid: 10faa5fd307623f4c9d54a027064af22, type: 3}
   resistances: []
   respawnCooldown: 10
-  componentCollisions: 0
-  parentCollisions: 0
-  power: 3
+  doNotCollide: []
+  ignoreCollisionsWithTag: 0
+  power: 2
   forceMult: 1
   fireFX: {fileID: 9016442363016052540}
 --- !u!61 &4443192247363628979
@@ -390,7 +390,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 10
+  m_Mass: 20
   m_LinearDamping: 0.9
   m_AngularDamping: 0.05
   m_GravityScale: 0
@@ -417,6 +417,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 607cfe4714f28264d9bd888a2e1f7231, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  aimCannonsAtMouse: 0
 --- !u!114 &2950537553589586710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -439,6 +440,8 @@ MonoBehaviour:
     mult: 0.8
     inherit: 1
   attacking: 0
+  aimDir: {x: 0, y: 0}
+  stabilizationRate: 5
   thrusters:
   - {fileID: 6620569857471036670}
   - {fileID: 4919256207525327190}
@@ -448,7 +451,6 @@ MonoBehaviour:
   - {fileID: 2011408757925455475}
   - {fileID: 7223261902001604308}
   cannons: []
-  stabilizationRate: 100
 --- !u!1 &2385347206975222811
 GameObject:
   m_ObjectHideFlags: 0
@@ -560,9 +562,9 @@ MonoBehaviour:
   deathFX: {fileID: 7675052303077851088, guid: 10faa5fd307623f4c9d54a027064af22, type: 3}
   resistances: []
   respawnCooldown: 10
-  componentCollisions: 0
-  parentCollisions: 0
-  power: 5
+  doNotCollide: []
+  ignoreCollisionsWithTag: 0
+  power: 3
   forceMult: 1
   fireFX: {fileID: 2073077501524339010}
 --- !u!61 &6432868319106896464
@@ -768,9 +770,9 @@ MonoBehaviour:
   deathFX: {fileID: 7675052303077851088, guid: 10faa5fd307623f4c9d54a027064af22, type: 3}
   resistances: []
   respawnCooldown: 10
-  componentCollisions: 0
-  parentCollisions: 0
-  power: 5
+  doNotCollide: []
+  ignoreCollisionsWithTag: 0
+  power: 3
   forceMult: 1
   fireFX: {fileID: 5573749303108101990}
 --- !u!61 &1932781961898768246
@@ -976,9 +978,9 @@ MonoBehaviour:
   deathFX: {fileID: 7675052303077851088, guid: 10faa5fd307623f4c9d54a027064af22, type: 3}
   resistances: []
   respawnCooldown: 10
-  componentCollisions: 0
-  parentCollisions: 0
-  power: 3
+  doNotCollide: []
+  ignoreCollisionsWithTag: 0
+  power: 2
   forceMult: 1
   fireFX: {fileID: 6116607308669855281}
 --- !u!61 &1680801775165240697
@@ -1184,9 +1186,9 @@ MonoBehaviour:
   deathFX: {fileID: 7675052303077851088, guid: 10faa5fd307623f4c9d54a027064af22, type: 3}
   resistances: []
   respawnCooldown: 10
-  componentCollisions: 0
-  parentCollisions: 0
-  power: 5
+  doNotCollide: []
+  ignoreCollisionsWithTag: 0
+  power: 3
   forceMult: 1
   fireFX: {fileID: 2503778835128668218}
 --- !u!61 &6126111110104620029
@@ -1392,8 +1394,8 @@ MonoBehaviour:
   deathFX: {fileID: 7675052303077851088, guid: 10faa5fd307623f4c9d54a027064af22, type: 3}
   resistances: []
   respawnCooldown: 10
-  componentCollisions: 0
-  parentCollisions: 0
+  doNotCollide: []
+  ignoreCollisionsWithTag: 0
   power: 3
   forceMult: 1
   fireFX: {fileID: 3283793415718379848}
@@ -1600,8 +1602,8 @@ MonoBehaviour:
   deathFX: {fileID: 7675052303077851088, guid: 10faa5fd307623f4c9d54a027064af22, type: 3}
   resistances: []
   respawnCooldown: 10
-  componentCollisions: 0
-  parentCollisions: 0
+  doNotCollide: []
+  ignoreCollisionsWithTag: 0
   power: 3
   forceMult: 1
   fireFX: {fileID: 8024503902630692454}

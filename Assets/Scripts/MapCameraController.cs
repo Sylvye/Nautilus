@@ -31,6 +31,7 @@ public class MapCameraController : MonoBehaviour
         gridOriginalScale = grid.transform.localScale;
         c = GetComponent<Camera>();
         startSize = c.orthographicSize;
+        records = new List<Record>();
     }
 
     private void OnEnable()

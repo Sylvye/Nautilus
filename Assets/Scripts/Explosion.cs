@@ -41,7 +41,7 @@ public class Explosion : MonoBehaviour
                 }
             }
         }
-        MainCameraController.main.ScreenShake(screenShakeIntensity);
+        MainCameraController.main.ScreenShake(screenShakeIntensity, transform.position);
     }
 
     private void DrawDebugCircle(Vector3 center, float radius, int segments, Color color, float time)

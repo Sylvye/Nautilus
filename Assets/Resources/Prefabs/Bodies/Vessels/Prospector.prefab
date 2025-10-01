@@ -111,8 +111,8 @@ MonoBehaviour:
   deathFX: {fileID: 7675052303077851088, guid: 10faa5fd307623f4c9d54a027064af22, type: 3}
   resistances: []
   respawnCooldown: 8
-  componentCollisions: 0
-  parentCollisions: 0
+  doNotCollide: []
+  ignoreCollisionsWithTag: 0
   power: 2
   forceMult: 1
   fireFX: {fileID: 4920730705383377855}
@@ -315,7 +315,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 2
+  m_Mass: 4
   m_LinearDamping: 0.9
   m_AngularDamping: 0.05
   m_GravityScale: 0
@@ -397,6 +397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 607cfe4714f28264d9bd888a2e1f7231, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  aimCannonsAtMouse: 0
 --- !u!114 &2950537553589586710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -422,13 +423,14 @@ MonoBehaviour:
     mult: 1.2
     inherit: 1
   attacking: 0
+  aimDir: {x: 0, y: 0}
+  stabilizationRate: 100
   thrusters:
   - {fileID: 6620569857471036670}
   - {fileID: 6935979691789162975}
   - {fileID: 1507233092169745325}
   - {fileID: 1672901161825238495}
   cannons: []
-  stabilizationRate: 100
 --- !u!1 &3569746220218355875
 GameObject:
   m_ObjectHideFlags: 0
@@ -540,8 +542,8 @@ MonoBehaviour:
   deathFX: {fileID: 7675052303077851088, guid: 10faa5fd307623f4c9d54a027064af22, type: 3}
   resistances: []
   respawnCooldown: 8
-  componentCollisions: 0
-  parentCollisions: 0
+  doNotCollide: []
+  ignoreCollisionsWithTag: 0
   power: 4
   forceMult: 0.5
   fireFX: {fileID: 8166850047904495320}
@@ -748,8 +750,8 @@ MonoBehaviour:
   deathFX: {fileID: 7675052303077851088, guid: 10faa5fd307623f4c9d54a027064af22, type: 3}
   resistances: []
   respawnCooldown: 8
-  componentCollisions: 0
-  parentCollisions: 0
+  doNotCollide: []
+  ignoreCollisionsWithTag: 0
   power: 2
   forceMult: 1
   fireFX: {fileID: 2591816412934691066}
@@ -956,8 +958,8 @@ MonoBehaviour:
   deathFX: {fileID: 7675052303077851088, guid: 10faa5fd307623f4c9d54a027064af22, type: 3}
   resistances: []
   respawnCooldown: 8
-  componentCollisions: 0
-  parentCollisions: 0
+  doNotCollide: []
+  ignoreCollisionsWithTag: 0
   power: 4
   forceMult: 1
   fireFX: {fileID: 5573749303108101990}
