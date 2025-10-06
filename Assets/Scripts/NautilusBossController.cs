@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class NautilusBoss : Vessel
+public class NautilusBossController : Vessel
 {
     public bool debug;
     public float rotateSpeed;
