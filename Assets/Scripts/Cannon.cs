@@ -1,8 +1,9 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public abstract class Cannon : VesselComponent
+public interface Cannon
 {
-    public abstract void Activate(Vector2 dir);
-    public abstract bool CanFire();
+    public void Activate(Vector2 aimPos, GameObject source);
+
+    public bool CanFire();
 }

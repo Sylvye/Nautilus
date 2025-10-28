@@ -1,13 +1,16 @@
 using UnityEngine;
 
-public class ParticleCannon : Cannon
+public class ParticleCannon : VesselComponent, Cannon
 {
     public ParticleSystem ps;
     public int rate;
     public float kickbackMult;
 
-    public override void Activate(Vector2 dir)
+    public void Activate(Vector2 aimPos, GameObject source)
     {
+        Vector2 dir = aimPos - (Vector2)transform.position;
+        dir.Normalize();
+
         transform.rotation = Quaternion.Euler(0, 0, AngleHelper.VectorToDegrees(dir));
         ps.Emit(rate);
         if (kickbackMult != 0)
@@ -23,7 +26,7 @@ public class ParticleCannon : Cannon
         }
     }
 
-    public override bool CanFire()
+    public bool CanFire()
     {
         return true;
     }

@@ -7,10 +7,10 @@ using static UnityEngine.UI.Image;
 
 public class PlayerController : MonoBehaviour
 {
-    public bool aimCannonsAtMouse;
-
+    private bool attacking;
     private bool boosting;
     private bool shifting;
+    private Vector2 aimDir;
     private Vessel v;
     private Vector2 moveInput;
     private PlayerInputActions inputActions;
@@ -40,8 +40,8 @@ public class PlayerController : MonoBehaviour
         inputActions.Player.Enable();
         inputActions.Player.Move.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
         inputActions.Player.Move.canceled += _ => moveInput = Vector2.zero;
-        inputActions.Player.Jump.performed += _ => v.attacking = true;
-        inputActions.Player.Jump.canceled += _ => v.attacking = false;
+        inputActions.Player.Attack.performed += _ => attacking = true;
+        inputActions.Player.Attack.canceled += _ => attacking = false;
         inputActions.Player.Boost.performed += _ => boosting = true;
         inputActions.Player.Boost.canceled += _ => boosting = false;
         inputActions.Player.Nudge.performed += _ => shifting = true;
@@ -55,6 +55,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        // Movement
         v.Move(moveInput, (boosting ? 2 : 1) * (shifting ? 0.5f : 1));
         if (moveInput != Vector2.zero)
         {
@@ -67,14 +68,16 @@ public class PlayerController : MonoBehaviour
         {
             v.Stabilize();
         }
-        
-        if (aimCannonsAtMouse)
+
+        if (attacking)
         {
-            v.aimDir = (Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()) - transform.position).normalized;
-        }
-        else
-        {
-            v.aimDir = AngleHelper.DegreesToVector(transform.eulerAngles.z + 90);
+            foreach (Cannon c in v.cannons)
+            {
+                if (c.CanFire())
+                {
+                    c.Activate(Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()), gameObject);
+                }
+            }
         }
     }
 

@@ -104,21 +104,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc12d3e1048f96442be0b92cb252211b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 50
-  hp: 50
+  maxHP: 100
+  hp: 100
   regeneration: 0
   collisionDamageMult: 1
   deathFX: {fileID: 7675052303077851088, guid: e67ee981bf80dbb46b119bd67d89eea2, type: 3}
   resistances:
   - type: 1
-    mult: 999
+    mult: 2
     inherit: 0
-  attacking: 0
-  aimDir: {x: 0, y: 0}
   stabilizationRate: 0
   thrusters:
   - {fileID: 2493715725833523810}
-  cannons: []
 --- !u!114 &4493213503548453273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,8 +128,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a83d43234223bb4990f6371e874b24c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targettingMask:
+    serializedVersion: 2
+    m_Bits: 192
   target: {fileID: 0}
-  rotateSpeed: 0.5
+  source: {fileID: 0}
+  aimPos: {x: 0, y: 0}
+  rotateSpeed: 5
+  immunityTime: 0.2
+  lifetime: 3
 --- !u!50 &551616121165436539
 Rigidbody2D:
   serializedVersion: 5
@@ -167,7 +171,7 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2122599079792304836}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -261,15 +265,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6077370492669456539, guid: 69b5a9820e76f8e4c80f0b313b74015a, type: 3}
+      propertyPath: CollisionModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7050551098044189805, guid: 69b5a9820e76f8e4c80f0b313b74015a, type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7050551098044189805, guid: 69b5a9820e76f8e4c80f0b313b74015a, type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: -0.4
+      value: -1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7050551098044189805, guid: 69b5a9820e76f8e4c80f0b313b74015a, type: 3}
+      propertyPath: m_ConnectedRigidBody
+      value: 
+      objectReference: {fileID: 551616121165436539}
+    - target: {fileID: 7060734443401547992, guid: 69b5a9820e76f8e4c80f0b313b74015a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4838369928593117854, guid: 69b5a9820e76f8e4c80f0b313b74015a, type: 3}
+    - {fileID: 1522618467661273433, guid: 69b5a9820e76f8e4c80f0b313b74015a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

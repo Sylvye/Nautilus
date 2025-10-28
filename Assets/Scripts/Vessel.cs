@@ -7,8 +7,6 @@ using Unity.VisualScripting;
 
 public class Vessel : Body
 {
-    public bool attacking;
-    public Vector2 aimDir;
     public float stabilizationRate;
     [DoNotSerialize]public List<Thruster> thrusters;
     [DoNotSerialize]public List<Cannon> cannons;
@@ -22,19 +20,6 @@ public class Vessel : Body
     {
         thrusters = GetComponentsInChildren<Thruster>().ToList();
         cannons = GetComponentsInChildren<Cannon>().ToList();
-    }
-
-    protected override void FixedUpdate()
-    {
-        base.FixedUpdate();
-        if (attacking)
-        {
-            foreach (Cannon c in cannons)
-            {
-                if (c.CanFire())
-                    c.Activate(aimDir);
-            }
-        }
     }
 
     public void Move(Vector2 input)

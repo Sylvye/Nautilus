@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -96,5 +97,17 @@ public class Body : MonoBehaviour
     {
         if (!Application.isPlaying)
             hp = maxHP;
+    }
+
+    public void TemporarilyDisableCollider(float seconds)
+    {
+        StartCoroutine(DisableCollider(seconds));
+    }
+
+    private IEnumerator DisableCollider(float seconds)
+    {
+        col.enabled = false;
+        yield return new WaitForSeconds(seconds);
+        col.enabled = true;
     }
 }

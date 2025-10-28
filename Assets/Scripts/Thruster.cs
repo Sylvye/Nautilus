@@ -13,6 +13,7 @@ public class Thruster : VesselComponent
     private float startAngle;
     private Vector3 lastFireFXPosition;
     private Vector3 currentFireFXPosition;
+    private Vector3 localFireFXHomePosition;
     private Gradient g;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -29,6 +30,7 @@ public class Thruster : VesselComponent
         startAngle = fireFX.shape.angle;
         lastFireFXPosition = fireFX.transform.position;
         currentFireFXPosition = fireFX.transform.position;
+        localFireFXHomePosition = fireFX.transform.localPosition;
     }
 
     protected override void FixedUpdate()
@@ -88,8 +90,7 @@ public class Thruster : VesselComponent
             fireFX.transform.position = lastFireFXPosition + stepVector * i;
             fireFX.Emit(Mathf.CeilToInt(particleCount / steps));
         }
-        Debug.DrawLine(lastFireFXPosition, currentFireFXPosition, Color.red);
 
-        fireFX.transform.position = currentFireFXPosition;
+        fireFX.transform.localPosition = localFireFXHomePosition;
     }
 }
