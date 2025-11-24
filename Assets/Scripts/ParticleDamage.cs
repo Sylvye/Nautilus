@@ -13,19 +13,18 @@ public class ParticleDamage : MonoBehaviour
     private void Awake()
     {
         ps = GetComponent<ParticleSystem>();
-        if (transform.root != null)
+        if (transform.root != null) // temp
         {
             source = transform.root.GetComponent<Body>();
         }
     }
 
-    void OnParticleCollision(GameObject other)
+    private void OnParticleCollision(GameObject other)
     {
         if (other.TryGetComponent(out Body body) && (source == null || body.transform.root.gameObject != source.gameObject))
         {
             List<ParticleCollisionEvent> collisionEvents = new();
             int eventCount = ps.GetCollisionEvents(other, collisionEvents);
-
             for (int i = 0; i < eventCount; i++)
             {
                 float speed = collisionEvents[i].velocity.magnitude;

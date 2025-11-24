@@ -180,10 +180,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a9d301fbab91c94f97b13fba7688b5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 400
-  hp: 400
+  maxHP: 1000
+  hp: 1000
+  regeneration: 0
   collisionDamageMult: 1
   deathFX: {fileID: 7675052303077851088, guid: de78b855ee081f14180a9ee613d5d9cb, type: 3}
   resistances: []
-  col: {fileID: 0}
-  rb: {fileID: 0}

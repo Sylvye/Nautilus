@@ -107,7 +107,7 @@ MonoBehaviour:
   maxHP: 100
   hp: 100
   regeneration: 0
-  collisionDamageMult: 1
+  collisionDamageMult: 10
   deathFX: {fileID: 7675052303077851088, guid: e67ee981bf80dbb46b119bd67d89eea2, type: 3}
   resistances:
   - type: 1
@@ -134,9 +134,9 @@ MonoBehaviour:
   target: {fileID: 0}
   source: {fileID: 0}
   aimPos: {x: 0, y: 0}
-  rotateSpeed: 5
-  immunityTime: 0.2
-  lifetime: 3
+  rotateSpeed: 4
+  immunityTime: 0.1
+  lifetime: 5
 --- !u!50 &551616121165436539
 Rigidbody2D:
   serializedVersion: 5
@@ -209,6 +209,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6494562257168319134}
     m_Modifications:
+    - target: {fileID: 1486411066230027109, guid: 69b5a9820e76f8e4c80f0b313b74015a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1486411066230027109, guid: 69b5a9820e76f8e4c80f0b313b74015a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1486411066230027109, guid: 69b5a9820e76f8e4c80f0b313b74015a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1486411066230027109, guid: 69b5a9820e76f8e4c80f0b313b74015a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1486411066230027109, guid: 69b5a9820e76f8e4c80f0b313b74015a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1486411066230027109, guid: 69b5a9820e76f8e4c80f0b313b74015a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1486411066230027109, guid: 69b5a9820e76f8e4c80f0b313b74015a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1486411066230027109, guid: 69b5a9820e76f8e4c80f0b313b74015a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 180
+      objectReference: {fileID: 0}
     - target: {fileID: 3488617409173674099, guid: 69b5a9820e76f8e4c80f0b313b74015a, type: 3}
       propertyPath: m_Name
       value: Thruster
@@ -266,8 +298,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6077370492669456539, guid: 69b5a9820e76f8e4c80f0b313b74015a, type: 3}
-      propertyPath: CollisionModule.enabled
-      value: 0
+      propertyPath: ShapeModule.radius.value
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7050551098044189805, guid: 69b5a9820e76f8e4c80f0b313b74015a, type: 3}
       propertyPath: m_ConnectedAnchor.x
@@ -285,9 +317,7 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 4838369928593117854, guid: 69b5a9820e76f8e4c80f0b313b74015a, type: 3}
-    - {fileID: 1522618467661273433, guid: 69b5a9820e76f8e4c80f0b313b74015a, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

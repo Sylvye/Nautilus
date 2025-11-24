@@ -10,6 +10,7 @@ public class Body : MonoBehaviour
     public float regeneration;
     public float collisionDamageMult;
     public GameObject deathFX;
+    private GameObject collisionParticles;
     public List<Resistance> resistances;
     [NonSerialized] public Collider2D col;
     [NonSerialized] public Rigidbody2D rb;
@@ -18,6 +19,7 @@ public class Body : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         col = rb.GetComponent<Collider2D>();
+        collisionParticles = Resources.Load<GameObject>("Prefabs/FX/Explosions/ExplosionObjects/CollisionEffect");
     }
 
     protected virtual void FixedUpdate()
@@ -90,6 +92,14 @@ public class Body : MonoBehaviour
             //if (Mathf.Round(damageAmount) > 0)
             //    Debug.Log(gameObject.name + ": Collided with " + collision.gameObject.name + "\nVelocity: " + collision.relativeVelocity.magnitude + ", Damage dealt: ~" + Mathf.Round(damageAmount));
             other.DealDamage(new Damage(damageAmount, Damage.Type.Kinetic, this));
+
+            if (other.rb.linearVelocity.magnitude < rb.linearVelocity.magnitude)
+            {
+                for (int i=0; i < collision.contactCount; i++)
+                {
+                    Instantiate(collisionParticles, collision.GetContact(i).point, Quaternion.identity);
+                }
+            }
         }
     }
 

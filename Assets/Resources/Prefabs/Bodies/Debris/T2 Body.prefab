@@ -180,8 +180,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a9d301fbab91c94f97b13fba7688b5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 100
-  hp: 100
+  maxHP: 500
+  hp: 500
   regeneration: 0
   collisionDamageMult: 1
   deathFX: {fileID: 7675052303077851088, guid: 0879b12cdcf2f79498e72fae81cc929a, type: 3}

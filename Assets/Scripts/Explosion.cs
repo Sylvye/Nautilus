@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Explosion : MonoBehaviour
@@ -5,9 +6,11 @@ public class Explosion : MonoBehaviour
     public ExplosionData data;
     public ParticleSystem ps;
     public LayerMask targets;
-    public float shockwaveRadius;
-    public float shockwavePower;
-    public float shockwaveDamage;
+    public LayerMask ignoreLayer;
+    public float raycasts;
+    public float radius;
+    public float power;
+    public float damage;
     public float screenShakeIntensity;
 
     private void Awake()
@@ -17,6 +20,7 @@ public class Explosion : MonoBehaviour
 
     private void Start()
     {
+        gameObject.layer = ignoreLayer;
         var psMain = ps.main;
         var psEmm = ps.emission;
         psMain.startSpeed = new ParticleSystem.MinMaxCurve(data.speedRange.x, data.speedRange.y);
@@ -27,17 +31,23 @@ public class Explosion : MonoBehaviour
             pd.baseDamage = data.damage;
         }
 
-        if (shockwaveRadius > 0)
+        if (radius > 0)
         {
-            Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, shockwaveRadius, targets);
-            DrawDebugCircle(transform.position, shockwaveRadius, 30, Color.orange, 2);
-            foreach (Collider2D hit in hits)
+            List<Collider2D> hits = new();
+
+            for (int i=0; i<raycasts; i++)
             {
-                if (hit != null && hit.TryGetComponent(out Body body))
+                float angle = i * 360 / raycasts;
+                Vector2 dir = AngleHelper.DegreesToVector(angle);
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, radius, targets);
+                if (hit.point != Vector2.zero)
+                    Debug.DrawLine(transform.position, hit.point, Color.orange, 2);
+                else
+                    Debug.DrawLine(transform.position, transform.position + (Vector3)(dir * radius), Color.red, 2);
+                if (hit.collider != null && hit.collider.TryGetComponent(out Body body))
                 {
-                    Vector2 dir = (body.transform.position - transform.position);
-                    body.rb.AddForce((shockwaveRadius - dir.magnitude) * shockwavePower * dir);
-                    body.DealDamage(new Damage(shockwaveDamage, Damage.Type.Incendiary));
+                    body.rb.AddForce((radius - dir.magnitude) * power * dir);
+                    body.DealDamage(new Damage(damage, Damage.Type.Incendiary));
                 }
             }
         }

@@ -11,10 +11,9 @@ GameObject:
   - component: {fileID: 5420239360155422764}
   - component: {fileID: 851017894908056530}
   - component: {fileID: 3764663053784651074}
-  - component: {fileID: 5384380366588508688}
   - component: {fileID: 6529821505216854410}
   m_Layer: 2
-  m_Name: Spark Explosion Obj
+  m_Name: Dense Explosion Obj
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,13 +27,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7675052303077851088}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.5, y: 0.5, z: -0.5, w: 0.5}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: -62.66655, y: -20.000093, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: -90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!198 &851017894908056530
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -3679,7 +3678,7 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 7, y: 0}
   CollisionModule:
-    enabled: 1
+    enabled: 0
     serializedVersion: 4
     type: 1
     collisionMode: 1
@@ -4894,21 +4893,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &5384380366588508688
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7675052303077851088}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3cf11afa2db1b84d92eff78078ce99c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  baseDamage: 5
-  type: 3
-  source: {fileID: 0}
 --- !u!114 &6529821505216854410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4921,12 +4905,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 562117393ebf4ed428d2c17081a78b44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: ad20f534bab06b240a0042c14b31bc9e, type: 2}
+  data: {fileID: 11400000, guid: 1fdcf7893564b934e94bb1f556bea259, type: 2}
   ps: {fileID: 0}
   targets:
     serializedVersion: 2
     m_Bits: 192
-  shockwaveRadius: 0
-  shockwavePower: 0
-  shockwaveDamage: 0
-  screenShakeIntensity: 0.01
+  ignoreLayer:
+    serializedVersion: 2
+    m_Bits: 4
+  raycasts: 60
+  radius: 3
+  power: 100
+  damage: 10
+  screenShakeIntensity: 1.5

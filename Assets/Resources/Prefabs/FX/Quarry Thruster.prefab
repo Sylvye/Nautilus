@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5420239360155422764}
   - component: {fileID: 851017894908056530}
   - component: {fileID: 3764663053784651074}
-  - component: {fileID: 5384380366588508688}
   m_Layer: 8
   m_Name: Quarry Thruster
   m_TagString: Untagged
@@ -27,13 +26,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7675052303077851088}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.5, y: 0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: -62.66655, y: -20.000093, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: -90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &851017894908056530
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -672,7 +671,7 @@ ParticleSystem:
     radiusThickness: 1
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
-    m_Rotation: {x: 0, y: 0, z: 0}
+    m_Rotation: {x: -90, y: 90, z: 0}
     m_Scale: {x: 1, y: 1, z: 1}
     placementMode: 0
     m_MeshMaterialIndex: 0
@@ -2354,7 +2353,7 @@ ParticleSystem:
     randomizePerFrame: 0
   ExternalForcesModule:
     serializedVersion: 2
-    enabled: 1
+    enabled: 0
     multiplierCurve:
       serializedVersion: 2
       minMaxState: 0
@@ -3620,7 +3619,7 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 7, y: 0}
   CollisionModule:
-    enabled: 1
+    enabled: 0
     serializedVersion: 4
     type: 1
     collisionMode: 1
@@ -4835,18 +4834,3 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &5384380366588508688
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7675052303077851088}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3cf11afa2db1b84d92eff78078ce99c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  baseDamage: 2
-  type: 3
-  source: {fileID: 0}
