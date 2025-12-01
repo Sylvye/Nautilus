@@ -10,8 +10,10 @@ public class Explosion : MonoBehaviour
     public float raycasts;
     public float radius;
     public float power;
-    public float damage;
     public float screenShakeIntensity;
+    public float damage;
+    public int particles;
+    public Vector2 speedRange;
 
     private void Awake()
     {
@@ -23,12 +25,12 @@ public class Explosion : MonoBehaviour
         gameObject.layer = ignoreLayer;
         var psMain = ps.main;
         var psEmm = ps.emission;
-        psMain.startSpeed = new ParticleSystem.MinMaxCurve(data.speedRange.x, data.speedRange.y);
-        psEmm.SetBurst(0, new ParticleSystem.Burst(0, data.particles));
+        psMain.startSpeed = new ParticleSystem.MinMaxCurve(speedRange.x, speedRange.y);
+        psEmm.SetBurst(0, new ParticleSystem.Burst(0, particles));
 
         if (TryGetComponent(out ParticleDamage pd))
         {
-            pd.baseDamage = data.damage;
+            pd.baseDamage = damage;
         }
 
         if (radius > 0)

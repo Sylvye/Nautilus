@@ -88,7 +88,8 @@ public class Body : MonoBehaviour
     {
         if (collision.collider != null && collision.gameObject.TryGetComponent(out Body other))
         {
-            float damageAmount = collision.relativeVelocity.magnitude * rb.mass * collisionDamageMult;
+            float mag = collision.relativeVelocity.magnitude;
+            float damageAmount = mag * rb.mass * collisionDamageMult;
             //if (Mathf.Round(damageAmount) > 0)
             //    Debug.Log(gameObject.name + ": Collided with " + collision.gameObject.name + "\nVelocity: " + collision.relativeVelocity.magnitude + ", Damage dealt: ~" + Mathf.Round(damageAmount));
             other.DealDamage(new Damage(damageAmount, Damage.Type.Kinetic, this));
@@ -97,7 +98,10 @@ public class Body : MonoBehaviour
             {
                 for (int i=0; i < collision.contactCount; i++)
                 {
-                    Instantiate(collisionParticles, collision.GetContact(i).point, Quaternion.identity);
+                    GameObject pObj = Instantiate(collisionParticles, collision.GetContact(i).point, Quaternion.identity);
+                    ParticleSystem ps = pObj.GetComponent<ParticleSystem>();
+                    var em = ps.emission;
+                    em.SetBurst(0, new ParticleSystem.Burst(0f, Mathf.Clamp(Mathf.RoundToInt(mag*1000), 1, 20)));
                 }
             }
         }

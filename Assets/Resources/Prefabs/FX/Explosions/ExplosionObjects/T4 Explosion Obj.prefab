@@ -4916,5 +4916,7 @@ MonoBehaviour:
   raycasts: 60
   radius: 12
   power: 200
-  damage: 30
   screenShakeIntensity: 2
+  damage: 40
+  particles: 1000
+  speedRange: {x: 0, y: 80}
